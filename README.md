@@ -106,6 +106,7 @@ To get a local copy up and running follow these simple example steps.
    npm install
    cd frontend
    npm install
+   cd ..
    ```
 4. Start server and open project
 

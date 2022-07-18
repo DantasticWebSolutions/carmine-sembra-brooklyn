@@ -1,7 +1,10 @@
 {
   "name": "carmine-sembra-brooklyn",
   "version": "1.0.0",
-  "description": "",
+  "engines": {
+    "node": "16.x"
+  },
+  "description": "We make carmine look like brooklyn",
   "main": "server.js",
   "type": "module",
   "scripts": {
