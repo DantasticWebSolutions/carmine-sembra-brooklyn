@@ -13,7 +13,7 @@
   <h3 align="center">Carmine Sembra Brooklyn</h3>
 
   <p align="center">
-    An Event Company that will make you feel the joy they are spreading
+    An event management company that will make you feel the joy they are spreading
     <br />
     <a href="https://carminesembrabrooklyn.it/" target="_blank">View Demo</a>
     ·
@@ -81,7 +81,7 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-- Intall Node v14.6+
+- Download and Intall Node v14.6+
 - Install NPM
   ```sh
   npm install npm@latest -g
@@ -111,20 +111,20 @@ To get a local copy up and running follow these simple example steps.
 
    ```sh
    # Run frontend (:3000) & backend (:5000)
-    npm run dev
+   npm run dev
 
-    # Run backend only
-    npm run server
+   # Run backend only
+   npm run server
    ```
 
 5. Seed Database
 
    ```sh
-    # Import data
-    npm run data:import
+   # Import data
+   npm run data:import
 
-    # Destroy data
-    npm run data:destroy
+   # Destroy data
+   npm run data:destroy
    ```
 
    <p align="right">(<a href="#top">back to top</a>)</p>
@@ -195,7 +195,7 @@ List of resources I find helpful and would like to give credit to:
 - [Netlify](https://www.netlify.com/)
 - [React Icons](https://react-icons.github.io/react-icons/search)
 - [ReactPaypalButton-v2]()
-- [Swiper]
+- [Swiper]()
 - [Mongoose]()
 - [Morgan]()
 - [Multer]()
