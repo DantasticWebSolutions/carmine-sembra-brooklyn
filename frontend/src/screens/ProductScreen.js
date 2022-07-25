@@ -53,7 +53,7 @@ const ProductScreen = ({ history, match }) => {
   }, [dispatch, match, successProductReview]);
 
   const addToCartHandler = () => {
-    history.push(`/cart/${match.params.id}?qty=${qty}`);
+    history.push(`/cart/${match.params.id}?size=${size}?qty=${qty}`);
   };
 
   const submitHandler = (e) => {
@@ -130,6 +130,8 @@ const ProductScreen = ({ history, match }) => {
                             value={qty}
                             onChange={(e) => setQty(e.target.value)}
                           >
+                            {/* Insert 1 value in array for each value in count stock */}
+                            {/* [1,2,3,4,5,6,7] */}
                             {[...Array(product.countInStock).keys()].map(
                               (x) => (
                                 <option key={x + 1} value={x + 1}>
@@ -143,7 +145,7 @@ const ProductScreen = ({ history, match }) => {
                     </ListGroup.Item>
                   )}
 
-                  {/* <ListGroup.Item>
+                  <ListGroup.Item>
                     <Row>
                       <Col>Size</Col>
                       <Col>
@@ -159,7 +161,7 @@ const ProductScreen = ({ history, match }) => {
                         </Form.Control>
                       </Col>
                     </Row>
-                  </ListGroup.Item> */}
+                  </ListGroup.Item>
 
                   <ListGroup.Item>
                     <Button

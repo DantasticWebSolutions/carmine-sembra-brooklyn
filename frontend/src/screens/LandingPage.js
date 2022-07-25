@@ -6,12 +6,14 @@ import LinkToShop from "../components/LandingPage/LinkToShop";
 import FotoEventi from "../components/LandingPage/FotoEventi";
 import Social from "../components/LandingPage/Social";
 import Logo from "../components/LandingPage/Logo";
+import TextVideoBackground from "../components/LandingPage/TextVideoBackground";
 
 const LandingPage = () => {
   return (
     <div>
       {/* <SwiperLandingPage /> */}
-      <Logo />
+      <TextVideoBackground />
+      {/* <Logo /> */}
       <About />
       <ShopPreview />
       <LinkToShop />

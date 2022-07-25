@@ -10,7 +10,9 @@ import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import ShippingScreen from "./screens/ShippingScreen";
-import PaymentScreen from "./screens/PaymentScreen";
+import CustomersOrdersScreen from "./screens/CustomersOrdersScreen";
+
+// import PlaceOrderScreen from "./screens/PlaceOrderScreen";
 import PlaceOrderScreen from "./screens/PlaceOrderScreen";
 import OrderScreen from "./screens/OrderScreen";
 import UserListScreen from "./screens/UserListScreen";
@@ -23,11 +25,15 @@ import LandingPage from "./screens/LandingPage";
 import FotoEditScreen from "./screens/FotoEditScreen";
 import EventListScreen from "./screens/Events/EventListScreen";
 import EventEditScreen from "./screens/Events/EventEditScreen";
+import NavbarContainer from "./components/NavbarContainer";
+import OrdersScreen from "./screens/OrdersScreen";
+import PaymentScreen from "./screens/PaymentScreen";
 
 const App = () => {
   return (
     <Router>
-      <Header />
+      <NavbarContainer />
+      {/* <Header /> */}
       <main>
         {/* <Container> */}
         <Route path="/order/:id" component={OrderScreen} />
@@ -37,6 +43,8 @@ const App = () => {
         <Route path="/login" component={LoginScreen} />
         <Route path="/register" component={RegisterScreen} />
         <Route path="/profile" component={ProfileScreen} />
+        <Route path="/orders" component={CustomersOrdersScreen} />
+        {/* <Route path="/orders" component={OrdersScreen} /> */}
         <Route path="/product/:id" component={ProductScreen} />
         <Route path="/cart/:id?" component={CartScreen} />
         {/* USER */}

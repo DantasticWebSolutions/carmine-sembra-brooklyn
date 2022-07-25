@@ -55,6 +55,7 @@ const ProductEditScreen = ({ match, history }) => {
   }, [dispatch, history, productId, product, successUpdate]);
 
   const uploadFileHandler = async (e) => {
+    setImage(e);
     const file = e.target.files[0];
     const formData = new FormData();
     formData.append("image", file);
@@ -129,21 +130,32 @@ const ProductEditScreen = ({ match, history }) => {
             </Form.Group>
 
             <Form.Group controlId="image">
-              <Form.Label>Image</Form.Label>
+              <Form.Label>Choose Image</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Enter image url"
                 value={image}
                 onChange={(e) => setImage(e.target.value)}
               ></Form.Control>
-              <Form.File
+              <Form.Control
+                type="file"
                 id="image-file"
                 label="Choose File"
                 custom
                 onChange={uploadFileHandler}
-              ></Form.File>
+              ></Form.Control>
+
               {uploading && <Loader />}
             </Form.Group>
+
+            {/* <Form.Group controlId="formFileMultiple" className="mb-3">
+              <Form.Label>Multiple files input example</Form.Label>
+              <Form.Control
+                type="file"
+                multiple
+                onChange={(e) => setImage(e.target.value)}
+              />
+            </Form.Group> */}
 
             <Form.Group controlId="brand">
               <Form.Label>Brand</Form.Label>

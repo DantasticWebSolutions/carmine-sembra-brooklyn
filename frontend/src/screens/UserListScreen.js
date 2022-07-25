@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
-import { LinkContainer } from "react-router-bootstrap";
-import { Table, Button } from "react-bootstrap";
+// import { LinkContainer } from "react-router-bootstrap";
+import { Table, Button, Nav } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
 import { listUsers, deleteUser } from "../actions/userActions";
+// import Nav from "react-bootstrap/Nav";
 
 const UserListScreen = ({ history }) => {
   const dispatch = useDispatch();
@@ -66,11 +67,11 @@ const UserListScreen = ({ history }) => {
                   )}
                 </td>
                 <td>
-                  <LinkContainer to={`/admin/user/${user._id}/edit`}>
+                  <Nav.Link href={`/admin/user/${user._id}/edit`}>
                     <Button variant="light" className="btn-sm">
                       <i className="fas fa-edit"></i>
                     </Button>
-                  </LinkContainer>
+                  </Nav.Link>
                   <Button
                     variant="danger"
                     className="btn-sm"

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { LinkContainer } from "react-router-bootstrap";
+// import { LinkContainer } from "react-router-bootstrap";
 import { Table, Button, Row, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message";
@@ -7,6 +7,7 @@ import Loader from "../components/Loader";
 import Paginate from "../components/Paginate";
 import { listFotos, deleteFoto, createFoto } from "../actions/fotoActions";
 import { FOTO_CREATE_RESET } from "../constants/fotoConstants";
+import Nav from "react-bootstrap/Nav";
 
 const FotoListScreen = ({ history, match }) => {
   const pageNumber = match.params.pageNumber || 1;
@@ -112,11 +113,11 @@ const FotoListScreen = ({ history, match }) => {
                   {/* <td>{foto.link}</td>
                   <td>{foto.image}</td> */}
                   <td>
-                    <LinkContainer to={`/admin/fotos/${foto._id}/edit`}>
+                    <Nav.Link href={`/admin/fotos/${foto._id}/edit`}>
                       <Button variant="light" className="btn-sm">
                         <i className="fas fa-edit"></i>
                       </Button>
-                    </LinkContainer>
+                    </Nav.Link>
                     &nbsp; &nbsp;
                     <Button
                       variant="danger"

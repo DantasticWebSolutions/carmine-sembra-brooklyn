@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import { LinkContainer } from "react-router-bootstrap";
-import { Table, Button, Row, Col } from "react-bootstrap";
+// import { LinkContainer } from "react-router-bootstrap";
+import { Table, Button, Row, Col, Nav } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
@@ -113,11 +113,11 @@ const ProductListScreen = ({ history, match }) => {
                   <td>{product.brand}</td>
                   <td>{product.size}</td>
                   <td>
-                    <LinkContainer to={`/admin/product/${product._id}/edit`}>
+                    <Nav.Link href={`/admin/product/${product._id}/edit`}>
                       <Button variant="light" className="btn-sm">
                         <i className="fas fa-edit"></i>
                       </Button>
-                    </LinkContainer>
+                    </Nav.Link>
                     <Button
                       variant="danger"
                       className="btn-sm"

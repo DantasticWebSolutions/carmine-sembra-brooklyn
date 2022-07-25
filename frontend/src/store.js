@@ -77,6 +77,7 @@ const reducer = combineReducers({
   eventUpdate: eventUpdateReducer,
 });
 
+// ADD to initial state
 const cartItemsFromStorage = localStorage.getItem("cartItems")
   ? JSON.parse(localStorage.getItem("cartItems"))
   : [];

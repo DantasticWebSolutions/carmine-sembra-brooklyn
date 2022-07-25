@@ -16,7 +16,16 @@ import { addToCart, removeFromCart } from "../actions/cartActions";
 const CartScreen = ({ match, location, history }) => {
   const productId = match.params.id;
 
-  const qty = location.search ? Number(location.search.split("=")[1]) : 1;
+  // Take the quantity from url qty=4
+  const qty = location.search ? Number(location.search.split("qty=")[1]) : 1;
+  // Take the size from url size=M
+  const sizeWithQty = location.search
+    ? String(location.search.split("size=")[1])
+    : "S";
+  const size = sizeWithQty.split("?")[0];
+
+  console.log("Size is:" + size);
+  console.log("Quantity is:" + qty);
 
   const dispatch = useDispatch();
 
@@ -25,9 +34,9 @@ const CartScreen = ({ match, location, history }) => {
 
   useEffect(() => {
     if (productId) {
-      dispatch(addToCart(productId, qty));
+      dispatch(addToCart(productId, qty, size));
     }
-  }, [dispatch, productId, qty]);
+  }, [dispatch, productId, qty, size]);
 
   const removeFromCartHandler = (id) => {
     dispatch(removeFromCart(id));
@@ -74,12 +83,14 @@ const CartScreen = ({ match, location, history }) => {
                       ))}
                     </Form.Control>
                   </Col>
-                  {/* <Col md={2}>
+                  <Col md={2}>
                     <Form.Control
                       as="select"
                       value={item.size}
                       onChange={(e) =>
-                        dispatch(addToCart(item.product, Number(e.target.value)))
+                        dispatch(
+                          addToCart(item.product, String(e.target.value))
+                        )
                       }
                     >
                       <option value="S">S</option>
@@ -87,7 +98,7 @@ const CartScreen = ({ match, location, history }) => {
                       <option value="L">L</option>
                       <option value="XL">XL</option>
                     </Form.Control>
-                  </Col> */}
+                  </Col>
 
                   <Col md={2}>
                     <Button

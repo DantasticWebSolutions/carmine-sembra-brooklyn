@@ -18,7 +18,13 @@ const Header = () => {
 
   return (
     <header>
-      <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
+      <Navbar
+        // bg="dark"
+        // variant="dark"
+        expand="lg"
+        className="navbar"
+        collapseOnSelect
+      >
         <Container>
           <LinkContainer to="/">
             <Navbar.Brand>Carmine Sembra Brooklyn</Navbar.Brand>

@@ -118,7 +118,13 @@ To get a local copy up and running follow these simple example steps.
    npm run server
    ```
 
-5. Seed Database
+5. Or use the 1 line script to install and start server all in once
+
+   ```sh
+   npm i && cd frontend && npm i && cd .. && npm run dev
+   ```
+
+6. Seed Database
 
    ```sh
    # Import data
