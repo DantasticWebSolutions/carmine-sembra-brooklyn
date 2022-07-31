@@ -9,7 +9,16 @@ const TextVideoBackground = () => {
   return (
     <div style={{ width: "100vw", height: "100vh" }}>
       <div className="video-container">
-        <video autoPlay="autoplay" loop muted>
+        <video
+          autoPlay={true}
+          loop={true}
+          controls={false}
+          playsInline
+          muted
+          // autoPlay="autoplay"
+          // loop
+          // muted
+        >
           {" "}
           <source src={background} type="video/mp4" />
         </video>
