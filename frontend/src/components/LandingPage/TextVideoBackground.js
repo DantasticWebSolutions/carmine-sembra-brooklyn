@@ -15,18 +15,13 @@ const TextVideoBackground = () => {
         </video>
         <div className="text-box">
           <span className="noselect">CARMINE SEMBRA BROOKLYN</span>
-          {/* CARMINE SEMBRA BROOKLYN */}
         </div>
       </div>
       <Canvas
         flat
         linear
         style={{
-          // widht: "100%",
-          // height: "100vh",
-          // background: "black",
           marginTop: "25vh",
-          //   paddingBottom: "-20vh",
           position: "absolute",
           top: "10px",
         }}
