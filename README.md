@@ -15,7 +15,7 @@
   <p align="center">
     An event management company that will make you feel the joy they are spreading
     <br />
-    <a href="https://carminesembrabrooklyn.it/" target="_blank">View Demo</a>
+    <a href="https://carmine-sembra-brooklyn.herokuapp.com" target="_blank">View Demo</a>
     ·
     <a href="mailto:gherasimciuc@icloud.com">Contact Me</a>
   </p>
@@ -50,7 +50,7 @@
 
 ## About The Project
 
-# ![screenshot](src/assets/)
+# ![screenshot](src/assets/landingPage.png)
 
 <!--  -->
 
@@ -162,10 +162,10 @@ To get a local copy up and running follow these simple example steps.
 - [x] Database seeder (products & users)
 - [x] PayPal / credit card integration
 - [ ] Stipe integration
-- [ ] PWA use offline
-- [ ] Book a table
-- [ ] Sell a ticket
-- [ ] Multi-language
+- [ ] PWA to use offline
+- [ ] Book table
+- [ ] Sell ticket
+- [ ] Multi-language Support
   - [x] Italian
   - [ ] English
 - [ ] Create Native App to be published to App Store and Google Play
@@ -199,10 +199,10 @@ List of resources I find helpful and would like to give credit to:
 
 - [React Bootstrap](https://www.npmjs.com/package/react-bootstrap)
 - [React Router Dom](https://reactrouter.com/)
-- [Netlify](https://www.netlify.com/)
 - [React Icons](https://react-icons.github.io/react-icons/search)
 - [ReactPaypalButton-v2]()
 - [Swiper]()
+- [Heroku]()
 - [Mongoose]()
 - [Morgan]()
 - [Multer]()
