@@ -5,7 +5,7 @@ import { BsWhatsapp, BsTelephone, BsInstagram } from "react-icons/bs";
 const Social = () => {
   return (
     <div className="container">
-      <span className="social-title">Seguici sui Social</span>
+      <h1 style={{ textAlign: "center" }}>Seguici sui Social</h1>
       <div className="social-icon-container">
         <BsInstagram />
         <BsWhatsapp />

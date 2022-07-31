@@ -11,6 +11,7 @@ import {
   createEvent,
 } from "../../actions/eventActions";
 import { EVENT_CREATE_RESET } from "../../constants/eventConstants";
+import Card from "../../components/Card";
 
 const EventListScreen = ({ history, match }) => {
   const pageNumber = match.params.pageNumber || 1;
@@ -71,13 +72,13 @@ const EventListScreen = ({ history, match }) => {
   };
 
   return (
-    <>
+    <main>
       <Row className="align-items-center">
         <Col>
           <h1>Events</h1>
         </Col>
         <Col className="text-right">
-          <Button className="my-3" onClick={createEventHandler}>
+          <Button className="my-3" variant="dark" onClick={createEventHandler}>
             <i className="fas fa-plus"></i> Create Event
           </Button>
         </Col>
@@ -92,49 +93,46 @@ const EventListScreen = ({ history, match }) => {
         <Message variant="danger">{error}</Message>
       ) : (
         <>
-          <Table striped bordered hover responsive className="table-sm">
-            <thead>
-              <tr>
-                <th>TITLE</th>
-                <th>DAY</th>
-                <th>MONTH</th>
-                {/* <th>ADDRESS</th> */}
-                <th>EDIT/DELETE</th>
-              </tr>
-            </thead>
-            <tbody>
-              {events.map((event) => (
-                <tr key={event._id}>
-                  {/* <td>{event._id}</td> */}
-                  <td>{event.title}</td>
-                  <td>{event.day}</td>
-                  <td>{event.month}</td>
-                  <td>{event.address}</td>
-                  {/* <td>{event.link}</td>
-                  <td>{event.image}</td> */}
-                  <td>
-                    <Nav.Link href={`/admin/event/${event._id}/edit`}>
-                      <Button variant="light" className="btn-sm">
-                        <i className="fas fa-edit"></i>
-                      </Button>
-                    </Nav.Link>
-                    &nbsp; &nbsp;
-                    <Button
-                      variant="danger"
-                      className="btn-sm"
-                      onClick={() => deleteHandler(event._id)}
-                    >
-                      <i className="fas fa-trash"></i>
-                    </Button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </Table>
+          <div
+            className="cardContainer"
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "center",
+            }}
+          >
+            {events.map((event) => (
+              <Card product={event} deleteHandler={deleteHandler} />
+              // <tr key={event._id}>
+              //   {/* <td>{event._id}</td> */}
+              //   <td>{event.title}</td>
+              //   <td>{event.day}</td>
+              //   <td>{event.month}</td>
+              //   <td>{event.address}</td>
+              //   {/* <td>{event.link}</td>
+              //     <td>{event.image}</td> */}
+              //   <td>
+              //     <Nav.Link href={`/admin/event/${event._id}/edit`}>
+              //       <Button variant="light" className="btn-sm">
+              //         <i className="fas fa-edit"></i>
+              //       </Button>
+              //     </Nav.Link>
+              //     &nbsp; &nbsp;
+              //     <Button
+              //       variant="danger"
+              //       className="btn-sm"
+              //       onClick={() => deleteHandler(event._id)}
+              //     >
+              //       <i className="fas fa-trash"></i>
+              //     </Button>
+              //   </td>
+              // </tr>
+            ))}
+          </div>
           <Paginate pages={pages} page={page} isAdmin={true} />
         </>
       )}
-    </>
+    </main>
   );
 };
 

@@ -86,16 +86,20 @@ const OrderScreen = ({ match, history }) => {
   };
 
   return loading ? (
-    <Loader />
+    <main>
+      <Loader />
+    </main>
   ) : error ? (
-    <Message variant="danger">{error}</Message>
+    <main>
+      <Message variant="danger">{error}</Message>
+    </main>
   ) : (
-    <>
-      <h1>Order {order._id}</h1>
+    <main>
       <Row>
         <Col md={8}>
           <ListGroup variant="flush">
             <ListGroup.Item>
+              <h5 style={{ wordBreak: "break-all" }}>{order._id}</h5>
               <h2>Shipping</h2>
               <p>
                 <strong>Name: </strong> {order.user.name}
@@ -227,7 +231,7 @@ const OrderScreen = ({ match, history }) => {
           </Card>
         </Col>
       </Row>
-    </>
+    </main>
   );
 };
 

@@ -28,6 +28,8 @@ main {
   min-height: 80vh;
   /* overflow: hidden;
   padding: 1.5rem; */
+  margin: 5vh 5vw;
+  margin-top: calc(5vh + 65px);
 }
 
 h3 {
@@ -1198,7 +1200,7 @@ div::after {
 
 .text-box {
   position: absolute;
-  top: -1px;
+  top: 0px;
   left: 0;
   background: #000;
   height: 100%;
@@ -1219,9 +1221,17 @@ div::after {
   border-radius: 2rem;
   padding: 0.4em;
 }
+
 @media screen and (max-width: 540px) {
   .text-box span {
     font-size: 4.2rem;
+    border-radius: 2rem;
+    padding: 1em;
+  }
+}
+@media screen and (max-width: 425px) {
+  .text-box span {
+    font-size: 3.2rem;
     border-radius: 2rem;
     padding: 1em;
   }
@@ -1234,5 +1244,16 @@ div::after {
 @media screen and (min-width: 1357px) {
   .text-box span {
     padding: 3em 1em;
+  }
+}
+
+@media screen and (max-width: 415px) {
+  .logo-text {
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 350px) {
+  .logo-text {
+    font-size: 12px;
   }
 }

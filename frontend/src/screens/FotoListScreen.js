@@ -7,7 +7,7 @@ import Loader from "../components/Loader";
 import Paginate from "../components/Paginate";
 import { listFotos, deleteFoto, createFoto } from "../actions/fotoActions";
 import { FOTO_CREATE_RESET } from "../constants/fotoConstants";
-import Nav from "react-bootstrap/Nav";
+import Card from "../components/Card";
 
 const FotoListScreen = ({ history, match }) => {
   const pageNumber = match.params.pageNumber || 1;
@@ -68,13 +68,13 @@ const FotoListScreen = ({ history, match }) => {
   };
 
   return (
-    <>
+    <main>
       <Row className="align-items-center">
         <Col>
           <h1>Photos</h1>
         </Col>
         <Col className="text-right">
-          <Button className="my-3" onClick={createFotoHandler}>
+          <Button className="my-3" variant="dark" onClick={createFotoHandler}>
             <i className="fas fa-plus"></i> Create Foto
           </Button>
         </Col>
@@ -89,52 +89,47 @@ const FotoListScreen = ({ history, match }) => {
         <Message variant="danger">{error}</Message>
       ) : (
         <>
-          <Table striped bordered hover responsive className="table-sm">
-            <thead>
-              <tr>
-                <th>TITLE</th>
-                <th>DAY</th>
-                <th>MONTH</th>
-                <th>YEAR</th>
-                {/* <th>ADDRESS</th> */}
-                <th>LINK</th>
-                <th>EDIT/DELETE</th>
-              </tr>
-            </thead>
-            <tbody>
-              {fotos.map((foto) => (
-                <tr key={foto._id}>
-                  {/* <td>{foto._id}</td> */}
-                  <td>{foto.title}</td>
-                  <td>{foto.day}</td>
-                  <td>{foto.month}</td>
-                  <td>{foto.year}</td>
-                  <td>{foto.address}</td>
-                  {/* <td>{foto.link}</td>
-                  <td>{foto.image}</td> */}
-                  <td>
-                    <Nav.Link href={`/admin/fotos/${foto._id}/edit`}>
-                      <Button variant="light" className="btn-sm">
-                        <i className="fas fa-edit"></i>
-                      </Button>
-                    </Nav.Link>
-                    &nbsp; &nbsp;
-                    <Button
-                      variant="danger"
-                      className="btn-sm"
-                      onClick={() => deleteHandler(foto._id)}
-                    >
-                      <i className="fas fa-trash"></i>
-                    </Button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </Table>
+          <div
+            className="cardContainer"
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "center",
+            }}
+          >
+            {fotos.map((foto) => (
+              <Card product={foto} deleteHandler={deleteHandler} />
+              // <tr key={foto._id}>
+              //   {/* <td>{foto._id}</td> */}
+              //   <td>{foto.title}</td>
+              //   <td>{foto.day}</td>
+              //   <td>{foto.month}</td>
+              //   <td>{foto.year}</td>
+              //   <td>{foto.address}</td>
+              //   {/* <td>{foto.link}</td>
+              //     <td>{foto.image}</td> */}
+              //   <td>
+              //     <Nav.Link href={`/admin/fotos/${foto._id}/edit`}>
+              //       <Button variant="light" className="btn-sm">
+              //         <i className="fas fa-edit"></i>
+              //       </Button>
+              //     </Nav.Link>
+              //     &nbsp; &nbsp;
+              //     <Button
+              //       variant="danger"
+              //       className="btn-sm"
+              //       onClick={() => deleteHandler(foto._id)}
+              //     >
+              //       <i className="fas fa-trash"></i>
+              //     </Button>
+              //   </td>
+              // </tr>
+            ))}
+          </div>
           <Paginate pages={pages} page={page} isAdmin={true} />
         </>
       )}
-    </>
+    </main>
   );
 };
 

@@ -31,8 +31,9 @@ const HomeScreen = ({ match }) => {
     <>
       <Meta />
       {!keyword ? (
-        <ProductSwiper />
+        ""
       ) : (
+        // <ProductSwiper />
         <Link to="/" className="btn btn-light">
           Go Back
         </Link>

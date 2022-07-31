@@ -58,9 +58,13 @@ function NavbarContainer() {
           variant="dark"
           expand={expand}
           className="px-3"
+          // style={{ position: "fixed", zIndex: "9" }}
+          fixed="top"
         >
           <Container fluid>
-            <Navbar.Brand href="/">Carmine Sembra Brooklyn</Navbar.Brand>
+            <Navbar.Brand href="/">
+              <span className="logo-text">Carmine Sembra Brooklyn </span>
+            </Navbar.Brand>
 
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas

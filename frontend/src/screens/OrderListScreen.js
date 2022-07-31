@@ -24,7 +24,7 @@ const OrderListScreen = ({ history }) => {
   }, [dispatch, history, userInfo]);
 
   return (
-    <>
+    <main>
       <h1>Orders</h1>
       {loading ? (
         <Loader />
@@ -76,7 +76,7 @@ const OrderListScreen = ({ history }) => {
           </tbody>
         </Table>
       )}
-    </>
+    </main>
   );
 };
 
