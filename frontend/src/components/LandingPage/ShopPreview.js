@@ -1,13 +1,12 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
-import { Carousel, Image } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../Loader";
 import Message from "../Message";
 import { listTopProducts } from "../../actions/productActions";
 
-import { Row, Col } from "react-bootstrap";
-import Product from "../Product";
+// import Product from "../Product";
+import Prodotto from "../Prodotto";
+import Carta from "../Carta";
 
 const ShopPreview = () => {
   const dispatch = useDispatch();
@@ -33,17 +32,15 @@ const ShopPreview = () => {
       </div>
       <div>
         <div className="shopPreview-product-container">
-          {products.map((product) => (
-            <Product key={product._id} product={product} />
-          ))}
+          <Carta item={products} />
+          {/* {products.map((product) => (
+            <Prodotto key={product._id} product={product} />
+            // <Product key={product._id} product={product} />
+          ))} */}
         </div>
       </div>
     </>
   );
 };
-//     (
-
-//   );
-// };
 
 export default ShopPreview;

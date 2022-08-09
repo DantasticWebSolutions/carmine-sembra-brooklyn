@@ -1,17 +1,24 @@
-import React, { useState, useEffect } from "react";
-import { Table, Form, Button, Row, Col, Nav } from "react-bootstrap";
+import React, { useEffect } from "react";
+import { Table, Button, Nav, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
-import { getUserDetails, updateUserProfile } from "../actions/userActions";
+import {
+  getUserDetails,
+  // updateUserProfile
+} from "../actions/userActions";
 import { listMyOrders } from "../actions/orderActions";
-import { USER_UPDATE_PROFILE_RESET } from "../constants/userConstants";
+// import { USER_UPDATE_PROFILE_RESET } from "../constants/userConstants";
 
 const OrdersScreen = ({ location, history }) => {
   const dispatch = useDispatch();
 
   const userDetails = useSelector((state) => state.userDetails);
-  const { loading, error, user } = userDetails;
+  const {
+    // loading,
+    // error,
+    user,
+  } = userDetails;
 
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;

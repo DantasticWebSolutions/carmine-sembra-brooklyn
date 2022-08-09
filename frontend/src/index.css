@@ -14,12 +14,23 @@
   --swiper-pagination-color: #ffffff;
   --swiper-pagination-bullet-inactive-color: #b6b6b6;
   --swiper-navigation-color: #fff;
-  --borderColor: #6239d3;
+  --borderColor: #000;
 }
 
 html,
 body {
+  position: relative;
+  height: 100%;
   overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #eee;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
   margin: 0;
   padding: 0;
 }
@@ -30,6 +41,10 @@ main {
   padding: 1.5rem; */
   margin: 5vh 5vw;
   margin-top: calc(5vh + 65px);
+}
+
+a {
+  color: unset !important;
 }
 
 h3 {
@@ -86,36 +101,6 @@ h2 {
   height: 100%;
 }
 
-html,
-body {
-  position: relative;
-  height: 100%;
-}
-
-body {
-  background: #eee;
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  color: #000;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  background: #fff;
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  color: #000;
-  margin: 0;
-  padding: 0;
-}
-
-html,
-body {
-  position: relative;
-  height: 100%;
-}
-
 #app {
   display: flex;
   justify-content: center;
@@ -138,7 +123,6 @@ body {
 }
 
 /* SWIPER */
-
 .swiper-slide a img {
   width: 100% !important;
 }
@@ -147,6 +131,7 @@ body {
   height: 100%;
 }
 
+/* 
 .swiper-slide {
   display: flex;
   flex-direction: column;
@@ -168,7 +153,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
+} */
 
 .info-container {
   display: flex;
@@ -583,12 +568,12 @@ body {
   flex-wrap: wrap;
   flex-direction: row !important;
   justify-content: center;
-  margin: 0 4rem;
+  margin: 0 1.5rem;
 }
 /* .shopPreview-product-container * {
   flex: 30% 0;
 } */
-@media screen and (max-width: 550px) {
+/* @media screen and (max-width: 550px) {
   .shopPreview-product-container {
     margin: 0 1rem;
   }
@@ -608,10 +593,10 @@ body {
   .shopPreview-product-container > * {
     flex: 30% 0;
   }
-}
+} */
 
 .prodotto {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -619,11 +604,12 @@ body {
   border: none !important;
   padding: 0 !important;
   margin: 10px;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)); */
+  flex: 1 0 30% !important;
+  background-color: rgb(244, 242, 244);
 }
 
 .card-body {
-  /* width: 100%; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1143,14 +1129,14 @@ a {
   position: relative;
   margin: 20px;
   padding: 10px 20px;
-  border: 1px solid #6239d3;
+  border: 1px solid var(--borderColor);
   cursor: pointer;
   color: var(--fourth);
   text-decoration: none !important;
 }
 .bottone.primario {
-  background-color: var(--secodary);
-  color: var(--swiper-navigation-color);
+  background-color: transparent;
+  /* color: var(--swiper-navigation-color); */
 }
 .bottone::before,
 div::after {
@@ -1182,6 +1168,8 @@ div::after {
 .card-img-top {
   height: 100% !important;
   object-fit: cover !important;
+  margin-bottom: -90px;
+  z-index: 1;
 }
 .card-img {
   object-fit: cover !important;
@@ -1256,4 +1244,134 @@ div::after {
   .logo-text {
     font-size: 12px;
   }
+}
+
+.swiper-shop {
+  /* width: 100vw; */
+  height: 75vh !important;
+  margin-top: 56px;
+}
+
+@media screen and (min-width: 1200px) {
+  .swiper-shop {
+    margin-top: 64px;
+  }
+}
+
+.swiper-slide-background {
+  height: 100% !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}
+
+.opaco {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: flex-start;
+  background-color: rgba(0, 0, 0, 0.25);
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  font-size: 1rem;
+  padding: 0 1rem 2rem 1rem;
+}
+.opaco h2 {
+  color: #fff;
+  font-size: 1.3rem;
+}
+.product-button {
+  width: 100%;
+  background-color: #000;
+  border: none;
+}
+
+.filter-sections {
+  border: 2px solid black;
+}
+.filter-section {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.filter-sections label {
+  width: 100%;
+  text-align: center;
+}
+.filter-section span {
+  min-width: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 470px) {
+  .row {
+    --bs-gutter-x: 0rem !important;
+  }
+}
+
+.category {
+  display: flex;
+  border-radius: 0px 0.25rem 0.25rem 0px;
+  min-height: 1.5rem;
+  width: fit-content;
+  padding: 0.25rem 1rem;
+  background-color: rgb(0, 0, 0);
+  font-size: 0.625rem;
+  line-height: 1rem;
+  align-self: baseline;
+  margin-left: -16px;
+  color: #fff;
+}
+
+.offcanvasHeight {
+  --bs-offcanvas-height: unset !important;
+}
+
+/* SWITCH.js */
+
+.react-switch-checkbox {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+.react-switch-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  width: 100px;
+  height: 50px;
+  background: grey;
+  border-radius: 100px;
+  position: relative;
+  transition: background-color 0.2s;
+}
+
+.react-switch-label .react-switch-button {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 45px;
+  height: 45px;
+  border-radius: 45px;
+  transition: 0.2s;
+  background: #fff;
+  box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);
+}
+
+.react-switch-checkbox:checked + .react-switch-label .react-switch-button {
+  left: calc(100% - 2px);
+  transform: translateX(-100%);
+}
+
+.react-switch-label:active .react-switch-button {
+  width: 60px;
 }

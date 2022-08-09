@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 // import { LinkContainer } from "react-router-bootstrap";
-import { Table, Button, Row, Col, Nav } from "react-bootstrap";
+import { Button, Row, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../../components/Message";
 import Loader from "../../components/Loader";
@@ -102,7 +102,11 @@ const EventListScreen = ({ history, match }) => {
             }}
           >
             {events.map((event) => (
-              <Card product={event} deleteHandler={deleteHandler} />
+              <Card
+                product={event}
+                key={event._id}
+                deleteHandler={deleteHandler}
+              />
               // <tr key={event._id}>
               //   {/* <td>{event._id}</td> */}
               //   <td>{event.title}</td>

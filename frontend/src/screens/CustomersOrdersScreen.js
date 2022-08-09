@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
-import { Button, Col, Nav, Row, ListGroup, Image } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Button, Col, Nav } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
@@ -12,7 +11,11 @@ const CustomersOrdersScreen = ({ history }) => {
   const dispatch = useDispatch();
 
   const userDetails = useSelector((state) => state.userDetails);
-  const { loading, error, user } = userDetails;
+  const {
+    // loading,
+    // error,
+    user,
+  } = userDetails;
 
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;

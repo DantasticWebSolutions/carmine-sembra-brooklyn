@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 // import { Container } from "react-bootstrap";
-import Header from "./components/Header";
+// import Header from "./components/Header";
 import Footer from "./components/Footer";
 import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
@@ -15,26 +15,28 @@ import CustomersOrdersScreen from "./screens/CustomersOrdersScreen";
 // import PlaceOrderScreen from "./screens/PlaceOrderScreen";
 import PlaceOrderScreen from "./screens/PlaceOrderScreen";
 import OrderScreen from "./screens/OrderScreen";
-import UserListScreen from "./screens/UserListScreen";
+// import UserListScreen from "./screens/UserListScreen";
 import UserEditScreen from "./screens/UserEditScreen";
-import ProductListScreen from "./screens/ProductListScreen";
+// import ProductListScreen from "./screens/ProductListScreen";
 import FotoListScreen from "./screens/FotoListScreen";
 import ProductEditScreen from "./screens/ProductEditScreen";
-import OrderListScreen from "./screens/OrderListScreen";
+// import OrderListScreen from "./screens/OrderListScreen";
 import LandingPage from "./screens/LandingPage";
 import FotoEditScreen from "./screens/FotoEditScreen";
 import EventListScreen from "./screens/Events/EventListScreen";
 import EventEditScreen from "./screens/Events/EventEditScreen";
 import NavbarContainer from "./components/NavbarContainer";
-import OrdersScreen from "./screens/OrdersScreen";
+// import OrdersScreen from "./screens/OrdersScreen";
 import PaymentScreen from "./screens/PaymentScreen";
 import AdminOrderListScreen from "./screens/AdminOrderListScreen";
 import AdminUserListScreen from "./screens/AdminUserListScreen";
 import AdminProductListScreen from "./screens/AdminProductListScreen";
+// import NavbarMessage from "./components/NavbarMessage";
 
 const App = () => {
   return (
     <Router>
+      {/* <NavbarMessage /> */}
       <NavbarContainer />
       {/* <Header /> */}
 

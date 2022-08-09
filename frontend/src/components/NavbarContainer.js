@@ -1,30 +1,30 @@
-import React, { useState, useEffect } from "react";
-import CartScreen from "../screens/CartScreen";
+import React from "react";
+// import CartScreen from "../screens/CartScreen";
 import "bootstrap/dist/css/bootstrap.css";
 
 import { Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import SearchBox from "./SearchBox";
 import { logout } from "../actions/userActions";
-import { Modal } from "react-bootstrap";
+// import { Modal } from "react-bootstrap";
 
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import {
-  Row,
-  Col,
-  ListGroup,
-  Image,
-  Form,
-  Button,
-  Card,
+  // Row,
+  // Col,
+  // ListGroup,
+  // Image,
+  // Form,
+  // Button,
+  // Card,
   Offcanvas,
   NavDropdown,
   Navbar,
   Nav,
   Container,
 } from "react-bootstrap";
-import Message from "../components/Message";
-import { addToCart, removeFromCart } from "../actions/cartActions";
+// import Message from "../components/Message";
+// import { addToCart, removeFromCart } from "../actions/cartActions";
 
 import { AiOutlineShoppingCart, AiOutlineUser } from "react-icons/ai";
 import { BsShop } from "react-icons/bs";
@@ -44,10 +44,10 @@ function NavbarContainer() {
   };
 
   // CART MODULE
-  const [show, setShow] = useState(false);
+  // const [show, setShow] = useState(false);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  // const handleClose = () => setShow(false);
+  // const handleShow = () => setShow(true);
 
   return (
     <>
@@ -58,7 +58,7 @@ function NavbarContainer() {
           variant="dark"
           expand={expand}
           className="px-3"
-          // style={{ position: "fixed", zIndex: "9" }}
+          style={{ position: "fixed", zIndex: "9" }}
           fixed="top"
         >
           <Container fluid>

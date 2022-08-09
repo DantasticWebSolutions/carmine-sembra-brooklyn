@@ -1,27 +1,34 @@
-import React, { useEffect } from "react";
+import React from "react";
 // import { LinkContainer } from "react-router-bootstrap";
 import { Link } from "react-router-dom";
-import { Table, Button, Row, Col, Nav } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
-import Message from "../components/Message";
-import Loader from "../components/Loader";
-import Paginate from "../components/Paginate";
-import {
-  listProducts,
-  deleteProduct,
-  createProduct,
-} from "../actions/productActions";
-import { PRODUCT_CREATE_RESET } from "../constants/productConstants";
+import { Button, Nav } from "react-bootstrap";
+// import { useDispatch, useSelector } from "react-redux";
+// import Message from "../components/Message";
+// import Loader from "../components/Loader";
+// import Paginate from "../components/Paginate";
+// import {
+//   listProducts,
+//   deleteProduct,
+//   createProduct,
+// } from "../actions/productActions";
+// import { PRODUCT_CREATE_RESET } from "../constants/productConstants";
 
 const Card = ({ product, deleteHandler }) => {
   return (
     <div className="card m-2 cardDisplay" key={product._id}>
-      <div class="card-body">
+      <div className="card-body">
         {product.image && (
-          <Link to={`/product/${product._id}`} style={{ minHeight: "50%" }}>
+          <Link
+            to={`/product/${product._id}`}
+            // style={{ minHeight: "50%" }}
+          >
             <img
+              alt={product.name ? product.name : product.title}
               className="card-img"
-              style={{ maxWidth: "300px", maxHeight: "255px" }}
+              style={{
+                maxWidth: "50%",
+                maxHeight: "50%",
+              }}
               src={product.image}
             />
           </Link>

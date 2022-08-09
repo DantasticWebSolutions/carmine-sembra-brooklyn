@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import background from "../../asset/background.mp4";
-import { Canvas } from "react-three-fiber";
+import { Canvas } from "@react-three/fiber";
 import Break from "../Break";
 
 // import { OrbitControls } from "@react-three/drei";

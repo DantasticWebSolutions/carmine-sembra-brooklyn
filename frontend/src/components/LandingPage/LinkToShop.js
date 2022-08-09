@@ -3,10 +3,8 @@ import React from "react";
 import LogoBrooklyn from "../../asset/logoB.png";
 import tshirt from "../../asset/tshirt.png";
 // React Icons
-import { BsWhatsapp, BsTelephone } from "react-icons/bs";
+import { BsWhatsapp } from "react-icons/bs";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-
-import { FiMapPin } from "react-icons/fi";
 
 const LinkToShop = () => {
   return (

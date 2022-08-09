@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
-// import { LinkContainer } from "react-router-bootstrap";
-import { Table, Button, Row, Col } from "react-bootstrap";
+import { Button, Row, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
@@ -98,7 +97,11 @@ const FotoListScreen = ({ history, match }) => {
             }}
           >
             {fotos.map((foto) => (
-              <Card product={foto} deleteHandler={deleteHandler} />
+              <Card
+                product={foto}
+                key={foto._id}
+                deleteHandler={deleteHandler}
+              />
               // <tr key={foto._id}>
               //   {/* <td>{foto._id}</td> */}
               //   <td>{foto.title}</td>

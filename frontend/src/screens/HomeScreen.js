@@ -1,17 +1,20 @@
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Row, Col } from "react-bootstrap";
-import Product from "../components/Product";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
 import Paginate from "../components/Paginate";
 import ProductSwiper from "../components/ProductSwiper";
-// import ProductCarousel from '../components/ProductCarousel';
 import Meta from "../components/Meta";
 import { listProducts } from "../actions/productActions";
+import Carta from "../components/Carta";
+
+import Features from "../components/Features";
+import ShowColumnOrSingle from "../components/ShowColumnOrSingle";
+import Filter from "../components/Filter";
 
 const HomeScreen = ({ match }) => {
+  // GET DATA
   const keyword = match.params.keyword;
 
   const pageNumber = match.params.pageNumber || 1;
@@ -27,37 +30,69 @@ const HomeScreen = ({ match }) => {
 
   console.log(products);
 
+  // FILTER DATA
+
+  // spread operator will display all the values from our category section of our data while Set will only allow the single value of each kind to be displayed
+
+  const [item, setItem] = useState(products);
+  const menuItems = [...new Set(products.map((Val) => Val.category))];
+
+  const filterItem = (curcat) => {
+    const newItem = products.filter((newVal) => {
+      return newVal.category === curcat;
+      // comparing category for displaying data
+    });
+    setItem(newItem);
+  };
+
+  const [filterPrice, setFilterPrice] = useState(100);
+  const [stockFilter, setStockFilter] = useState(-1);
+
   return (
     <>
       <Meta />
-      {!keyword ? (
-        ""
-      ) : (
-        // <ProductSwiper />
-        <Link to="/" className="btn btn-light">
-          Go Back
-        </Link>
-      )}
-      <h1>Latest Products</h1>
+      <ProductSwiper />
+
       {loading ? (
         <Loader />
       ) : error ? (
         <Message variant="danger">{error}</Message>
       ) : (
-        <>
+        <main style={{ marginTop: "1rem" }}>
           <Row>
-            {products.map((product) => (
-              <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
-                <Product product={product} />
-              </Col>
-            ))}
+            <Col md={6}>
+              <h1 className="text-center">Latest Products</h1>
+            </Col>
+          </Row>
+          <Row>
+            <Filter
+              setStockFilter={setStockFilter}
+              stockFilter={stockFilter}
+              setFilterPrice={setFilterPrice}
+              filterPrice={filterPrice}
+              products={products}
+              item={item}
+              filterItem={filterItem}
+              setItem={setItem}
+              menuItems={menuItems}
+            />
+            <ShowColumnOrSingle />
+
+            <Carta
+              item={item}
+              loading={loading}
+              error={error}
+              filterPrice={filterPrice}
+              stockFilter={stockFilter}
+            />
           </Row>
           <Paginate
             pages={pages}
             page={page}
             keyword={keyword ? keyword : ""}
           />
-        </>
+          <Features />
+        </main>
       )}
     </>
   );

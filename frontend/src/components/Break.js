@@ -10,7 +10,7 @@ export default function Model({ ...props }) {
   const { nodes, materials, animations } = useGLTF("/break.glb");
   const { actions } = useAnimations(animations, group);
   useEffect(() => {
-    console.log(actions);
+    // console.log(actions);
     actions.macarena.play();
   }, [actions]);
 

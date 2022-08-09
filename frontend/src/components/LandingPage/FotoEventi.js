@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import event1 from "../../asset/evento1.png";
-import event2 from "../../asset/evento2.png";
-import event3 from "../../asset/evento3.png";
+import React, { useEffect } from "react";
+// import event1 from "../../asset/evento1.png";
+// import event2 from "../../asset/evento2.png";
+// import event3 from "../../asset/evento3.png";
 import { FiMapPin } from "react-icons/fi";
 // REDUX
 import { useDispatch, useSelector } from "react-redux";
@@ -59,6 +59,7 @@ const FotoEventi = () => {
                   <div className="module-border-wrap">
                     <a
                       target="_blank"
+                      rel="noopener noreferrer"
                       href={event.link}
                       className="secondaryButton"
                     >
