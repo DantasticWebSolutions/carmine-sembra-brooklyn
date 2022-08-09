@@ -50,7 +50,7 @@
 
 ## About The Project
 
-# ![screenshot](src/assets/landingPage.png)
+# ![screenshot](https://github.com/DantasticWebSolutions/carmine-sembra-brooklyn/blob/main/frontend/src/asset/landingPage.png)
 
 <!--  -->
 
