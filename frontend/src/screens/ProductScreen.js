@@ -22,7 +22,7 @@ import { PRODUCT_CREATE_REVIEW_RESET } from "../constants/productConstants";
 
 const ProductScreen = ({ history, match }) => {
   const [qty, setQty] = useState(1);
-  // const [size, setSize] = useState("");
+  const [size, setSize] = useState("S");
   // const [rating, setRating] = useState(0);
   // const [comment, setComment] = useState("");
 
@@ -53,7 +53,7 @@ const ProductScreen = ({ history, match }) => {
   }, [dispatch, match, product._id]);
 
   const addToCartHandler = () => {
-    history.push(`/cart/${match.params.id}?qty=${qty}`);
+    history.push(`/cart/${match.params.id}?size=${size}?qty=${qty}`);
   };
 
   // const submitHandler = (e) => {
@@ -67,7 +67,7 @@ const ProductScreen = ({ history, match }) => {
   // };
 
   return (
-    <>
+    <main>
       <Link className="btn btn-light my-3" to="/">
         Go Back
       </Link>
@@ -93,14 +93,14 @@ const ProductScreen = ({ history, match }) => {
                     text={`${product.numReviews} reviews`}
                   />
                 </ListGroup.Item> */}
-                <ListGroup.Item>Prezzo: €{product.price}</ListGroup.Item>
+                {/* <ListGroup.Item>Prezzo: €{product.price}</ListGroup.Item> */}
                 <ListGroup.Item>
                   Descrizione: {product.description}
                 </ListGroup.Item>
               </ListGroup>
             </Col>
             <Col md={3}>
-              <Card>
+              <>
                 <ListGroup variant="flush">
                   <ListGroup.Item>
                     <Row>
@@ -113,15 +113,27 @@ const ProductScreen = ({ history, match }) => {
 
                   <ListGroup.Item>
                     <Row>
-                      <Col>Stato:</Col>
-                      <Col>
-                        {product.countInStock > 0 ? "In Stock" : "Out Of Stock"}
-                      </Col>
+                      <Col>Stato {size}:</Col>
+                      {size === "S" ? (
+                        <Col>
+                          {product.countInStockS > 0
+                            ? "S is In Stock"
+                            : "S is Out Of Stock"}
+                        </Col>
+                      ) : (
+                        <Col>
+                          {product.countInStockM > 0
+                            ? "M is In Stock"
+                            : "M is Out Of Stock"}
+                        </Col>
+                      )}
                     </Row>
                   </ListGroup.Item>
 
-                  {product.countInStock > 0 && (
-                    <ListGroup.Item>
+                  <ListGroup.Item>
+                    {/* Insert 1 value in array for each value in count stock */}
+                    {/* [1,2,3,4,5,6,7] */}
+                    {size === "S" ? (
                       <Row>
                         <Col>Quantità</Col>
                         <Col>
@@ -130,9 +142,7 @@ const ProductScreen = ({ history, match }) => {
                             value={qty}
                             onChange={(e) => setQty(e.target.value)}
                           >
-                            {/* Insert 1 value in array for each value in count stock */}
-                            {/* [1,2,3,4,5,6,7] */}
-                            {[...Array(product.countInStock).keys()].map(
+                            {[...Array(product.countInStockS).keys()].map(
                               (x) => (
                                 <option key={x + 1} value={x + 1}>
                                   {x + 1}
@@ -142,10 +152,31 @@ const ProductScreen = ({ history, match }) => {
                           </Form.Control>
                         </Col>
                       </Row>
-                    </ListGroup.Item>
-                  )}
+                    ) : size === "M" ? (
+                      <Row>
+                        <Col>Quantità</Col>
+                        <Col>
+                          <Form.Control
+                            as="select"
+                            value={qty}
+                            onChange={(e) => setQty(e.target.value)}
+                          >
+                            {[...Array(product.countInStockM).keys()].map(
+                              (x) => (
+                                <option key={x + 1} value={x + 1}>
+                                  {x + 1}
+                                </option>
+                              )
+                            )}
+                          </Form.Control>
+                        </Col>
+                      </Row>
+                    ) : (
+                      ""
+                    )}
+                  </ListGroup.Item>
 
-                  {/* <ListGroup.Item>
+                  <ListGroup.Item>
                     <Row>
                       <Col>Size</Col>
                       <Col>
@@ -161,7 +192,7 @@ const ProductScreen = ({ history, match }) => {
                         </Form.Control>
                       </Col>
                     </Row>
-                  </ListGroup.Item> */}
+                  </ListGroup.Item>
 
                   <ListGroup.Item>
                     <Button
@@ -177,7 +208,7 @@ const ProductScreen = ({ history, match }) => {
                 RIMBORSO: Returns must be postmarked: within 15 days of delivery
                 for a refund and within 30 days for a Store Credit or Exchange.
                 Read our full returns policy.
-              </Card>
+              </>
             </Col>
           </Row>
           {/* <Row>
@@ -250,7 +281,7 @@ const ProductScreen = ({ history, match }) => {
           CUSTOMERS ALSO VIEWed
         </>
       )}
-    </>
+    </main>
   );
 };
 

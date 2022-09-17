@@ -55,10 +55,11 @@ const PlaceOrderScreen = ({ history }) => {
         shippingPrice: cart.shippingPrice,
         taxPrice: cart.taxPrice,
         totalPrice: cart.totalPrice,
-        size: cart.size,
       })
     );
   };
+
+  // console.log(cart);
 
   return (
     <>
@@ -131,15 +132,19 @@ const PlaceOrderScreen = ({ history }) => {
               <ListGroup.Item>
                 <Row>
                   <Col>Shipping</Col>
-                  <Col>€{cart.shippingPrice}</Col>
+                  {cart.shippingPrice > 0 ? (
+                    <Col>€{cart.shippingPrice}</Col>
+                  ) : (
+                    <Col>Gratis</Col>
+                  )}
                 </Row>
               </ListGroup.Item>
-              <ListGroup.Item>
+              {/* <ListGroup.Item>
                 <Row>
                   <Col>Size</Col>
                   <Col>{cart.size}</Col>
                 </Row>
-              </ListGroup.Item>
+              </ListGroup.Item> */}
               {/* <ListGroup.Item>
                 <Row>
                   <Col>Tax</Col>

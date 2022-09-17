@@ -35,11 +35,7 @@ const About = () => {
         <div className="events-image-container">
           {events.map((event) => (
             <div className="about-left" key={event._id}>
-              {event._id === "62aaef91ba87b0393a047206" ? (
-                <h1>Non perdere i nostri prossimi eventi </h1>
-              ) : (
-                ""
-              )}
+              <h1>Non perdere i nostri prossimi eventi </h1>
               <div
                 className="img-container"
                 style={{ background: `url(${event.image})` }}
@@ -57,22 +53,25 @@ const About = () => {
                   </div>
                 </div>
               </div>
-              {event._id !== "62aaef91ba87b0393a047206" ? (
+              <div
+                className="img-container"
+                style={{ background: `url(${event.image2})` }}
+              >
+                <div className="about-date">
+                  <span className="about-date-title">{event.price}</span>
+
+                  {/* <div className="about-date-day-container">
+                    <div className="about-day-date">{event.time}</div>
+                    <div className="about-month-date">{event.month}</div>
+                  </div> */}
+                  {/* <div className="about-address">
+                    <FiMapPin style={{ marginRight: "5px" }} />
+                    <span>{event.address}</span>
+                  </div> */}
+                </div>
+              </div>
+              {/* {event._id !== "62aaef91ba87b0393a047206" ? (
                 <div className="about-description">
-                  {/* <div className="img-container" style={{ background: `url(${About2})` }}>
-                  <div className="about-date down">
-                    <span className="about-date-title">Carmine Sembra Brooklyn</span>
-        
-                    <div className="about-date-day-container">
-                      <div className="about-day-date">31</div>
-                      <div className="about-month-date">GIU</div>
-                    </div>
-                    <div className="about-address">
-                      <FiMapPin style={{ marginRight: "5px" }} />
-                      <span>Latte +</span>
-                    </div>
-                  </div>
-                </div> */}
                   <div className="description">
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea
                     et eveniet quam. Placeat illo dignissimos, labore est natus
@@ -96,7 +95,7 @@ const About = () => {
                 </div>
               ) : (
                 ""
-              )}
+              )} */}
             </div>
           ))}
         </div>

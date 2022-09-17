@@ -17,9 +17,10 @@ const ProductEditScreen = ({ match, history }) => {
   const [image, setImage] = useState("");
   const [brand, setBrand] = useState("");
   const [category, setCategory] = useState("");
-  const [countInStock, setCountInStock] = useState(0);
+  const [countInStockS, setCountInStockS] = useState(0);
+  const [countInStockM, setCountInStockM] = useState(0);
   const [description, setDescription] = useState("");
-  const [size, setSize] = useState("");
+
   const [uploading, setUploading] = useState(false);
 
   const dispatch = useDispatch();
@@ -47,9 +48,9 @@ const ProductEditScreen = ({ match, history }) => {
         setImage(product.image);
         setBrand(product.brand);
         setCategory(product.category);
-        setCountInStock(product.countInStock);
+        setCountInStockS(product.countInStockS);
+        setCountInStockM(product.countInStockM);
         setDescription(product.description);
-        setSize(product.size);
       }
     }
   }, [dispatch, history, productId, product, successUpdate]);
@@ -89,7 +90,8 @@ const ProductEditScreen = ({ match, history }) => {
         brand,
         category,
         description,
-        countInStock,
+        countInStockS,
+        countInStockM,
       })
     );
   };
@@ -167,13 +169,22 @@ const ProductEditScreen = ({ match, history }) => {
               ></Form.Control>
             </Form.Group>
 
-            <Form.Group controlId="countInStock">
-              <Form.Label>Count In Stock</Form.Label>
+            <Form.Group controlId="countInStockS">
+              <Form.Label>Count In Stock S</Form.Label>
               <Form.Control
                 type="number"
-                placeholder="Enter countInStock"
-                value={countInStock}
-                onChange={(e) => setCountInStock(e.target.value)}
+                placeholder="Enter countInStock S"
+                value={countInStockS}
+                onChange={(e) => setCountInStockS(e.target.value)}
+              ></Form.Control>
+            </Form.Group>
+            <Form.Group controlId="countInStockM">
+              <Form.Label>Count In Stock M </Form.Label>
+              <Form.Control
+                type="number"
+                placeholder="Enter countInStock M"
+                value={countInStockM}
+                onChange={(e) => setCountInStockM(e.target.value)}
               ></Form.Control>
             </Form.Group>
 
@@ -196,17 +207,6 @@ const ProductEditScreen = ({ match, history }) => {
                 onChange={(e) => setDescription(e.target.value)}
               ></Form.Control>
             </Form.Group>
-
-            {/* <Form.Group controlId="size">
-              <Form.Label>Size</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Enter Size"
-                value={size}
-                onChange={(e) => setSize(e.target.value)}
-              ></Form.Control>
-            </Form.Group> */}
-
             <Button type="submit" variant="primary">
               Update
             </Button>

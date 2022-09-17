@@ -161,6 +161,7 @@ const OrderScreen = ({ match, history }) => {
                         <Col md={4}>
                           {item.qty} x €{item.price} = €{item.qty * item.price}
                         </Col>
+                        <Col md={4}>SIZE: {item.size}</Col>
                       </Row>
                     </ListGroup.Item>
                   ))}
@@ -184,7 +185,11 @@ const OrderScreen = ({ match, history }) => {
               <ListGroup.Item>
                 <Row>
                   <Col>Shipping</Col>
-                  <Col>€{order.shippingPrice}</Col>
+                  {order.shippingPrice > 0 ? (
+                    <Col>€{order.shippingPrice}</Col>
+                  ) : (
+                    <Col>Gratis</Col>
+                  )}
                 </Row>
               </ListGroup.Item>
               {/* <ListGroup.Item>

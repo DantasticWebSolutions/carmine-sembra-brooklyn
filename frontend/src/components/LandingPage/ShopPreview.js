@@ -32,7 +32,7 @@ const ShopPreview = () => {
       </div>
       <div>
         <div className="shopPreview-product-container">
-          <Carta item={products} />
+          <Carta item={products} filterPrice="100" />
           {/* {products.map((product) => (
             <Prodotto key={product._id} product={product} />
             // <Product key={product._id} product={product} />

@@ -14,7 +14,7 @@ const SearchBox = ({ history }) => {
   };
 
   return (
-    <Form onSubmit={submitHandler} className="d-flex mr-3">
+    <Form onSubmit={submitHandler} className="d-flex w-100">
       <Form.Control
         // type="text"
         name="q"
@@ -22,7 +22,6 @@ const SearchBox = ({ history }) => {
         placeholder="Search Products"
         // className="mr-sm-2 ml-sm-5"
         type="search"
-        // placeholder="Search"
         className="me-2"
         aria-label="Search"
       ></Form.Control>

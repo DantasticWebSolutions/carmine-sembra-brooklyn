@@ -1,18 +1,82 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { BsTelephone, BsPinMap, BsWhatsapp } from "react-icons/bs";
+import { HiOutlineMail } from "react-icons/hi";
+import { FaFacebookF } from "react-icons/fa";
+import { AiOutlineInstagram } from "react-icons/ai";
+import Contact from "./Contact.js";
+import logo from "../../asset/logo/logo.png";
 
 const Footer = () => {
   return (
-    <footer className="footer">
+    <footer className="footer mb-3">
       <Container>
         <Row>
           <Col className="text-center py-3">
-            <div className="d-flex justify-content-center align-items-center">
+            <div className="d-flex justify-content-center align-items-center mb-3">
+              <span className="logo-icon-footer mt-3 mb-2">
+                <img src={logo} alt="logo" className="logo-img" />
+                {/* CARMINE SEMBRA BROOKLYN */}
+              </span>
               {/* AMEX */}
-              <div>
-                <svg
-                  class="section-footer__payment-icon"
+            </div>
+            <Contact />
+            <div className="footer-sector">
+              <h4 className="footer-sector-title">Legale</h4>
+              <Link to="/privacy-policy">
+                <u className="mx-1">Condizioni Generali</u>
+              </Link>
+              <Link to="/privacy-policy">
+                <u className="mx-1">Privacy Policy</u>
+              </Link>
+
+              <Link to="/privacy-policy">
+                <u className="mx-1">Termini di Servizio</u>
+              </Link>
+            </div>
+            <div className="footer-sector">
+              <h4 className="footer-sector-title">CONTATTO</h4>
+              <Link to="/privacy-policy">
+                <BsTelephone className="mr-1" size="1.5em" />
+                <span className="mx-1">3348464318</span>
+              </Link>
+              <Link to="/privacy-policy">
+                <BsWhatsapp className="mr-1" size="1.5em" />
+                <span className="mx-1">WhatsApp</span>
+              </Link>
+
+              <Link to="/privacy-policy">
+                <HiOutlineMail className="mr-1" size="1.5em" />
+                <span className="mx-1">ciao@carminesembrabrooklyn.com</span>
+              </Link>
+              <span>
+                <BsPinMap className="mr-1" size="1.5em" />
+                <span className="mx-1">Via Don Giacomo Vender</span>
+              </span>
+            </div>
+            <div className="social-icons">
+              <FaFacebookF size="1em" />
+              <AiOutlineInstagram size="1em" />
+              <BsWhatsapp size="1em" />
+            </div>
+            <hr />
+            &copy; 2022 Carmine Sembra Brooklyn. Tutti i diritti riservati
+          </Col>
+        </Row>
+      </Container>
+    </footer>
+  );
+};
+
+export default Footer;
+
+{
+  /* <div> */
+}
+{
+  /* <svg
+                  className="section-footer__payment-icon"
                   xmlns="http://www.w3.org/2000/svg"
                   role="img"
                   viewBox="0 0 38 24"
@@ -36,12 +100,18 @@ const Footer = () => {
                       d="M8.971,10.268 L9.745,12.144 L8.203,12.144 L8.971,10.268 Z M25.046,10.346 L22.069,10.346 L22.069,11.173 L24.998,11.173 L24.998,12.412 L22.075,12.412 L22.075,13.334 L25.052,13.334 L25.052,14.073 L27.129,11.828 L25.052,9.488 L25.046,10.346 L25.046,10.346 Z M10.983,8.006 L14.978,8.006 L15.865,9.941 L16.687,8 L27.057,8 L28.135,9.19 L29.25,8 L34.013,8 L30.494,11.852 L33.977,15.68 L29.143,15.68 L28.065,14.49 L26.94,15.68 L10.03,15.68 L9.536,14.49 L8.406,14.49 L7.911,15.68 L4,15.68 L7.286,8 L10.716,8 L10.983,8.006 Z M19.646,9.084 L17.407,9.084 L15.907,12.62 L14.282,9.084 L12.06,9.084 L12.06,13.894 L10,9.084 L8.007,9.084 L5.625,14.596 L7.18,14.596 L7.674,13.406 L10.27,13.406 L10.764,14.596 L13.484,14.596 L13.484,10.661 L15.235,14.602 L16.425,14.602 L18.165,10.673 L18.165,14.603 L19.623,14.603 L19.647,9.083 L19.646,9.084 Z M28.986,11.852 L31.517,9.084 L29.695,9.084 L28.094,10.81 L26.546,9.084 L20.652,9.084 L20.652,14.602 L26.462,14.602 L28.076,12.864 L29.624,14.602 L31.499,14.602 L28.987,11.852 L28.986,11.852 Z"
                     ></path>
                   </g>
-                </svg>
-                {/* APPLE PAY */}
-              </div>
-              <div>
-                {/* <svg
-                  class="section-footer__payment-icon"
+                </svg> */
+}
+{
+  /* APPLE PAY */
+}
+{
+  /* </div>
+              <div> */
+}
+{
+  /* <svg
+                  className="section-footer__payment-icon"
                   version="1.1"
                   xmlns="http://www.w3.org/2000/svg"
                   role="img"
@@ -88,11 +158,14 @@ const Footer = () => {
                       ></path>
                     </g>
                   </g>
-                </svg> */}
-              </div>
-              {/* GOOGLE PAY */}
-              <svg
-                class="section-footer__payment-icon"
+                </svg> */
+}
+
+{
+  /*
+             GOOGLE PAY 
+               <svg
+                className="section-footer__payment-icon"
                 xmlns="http://www.w3.org/2000/svg"
                 role="img"
                 viewBox="0 0 38 24"
@@ -130,10 +203,12 @@ const Footer = () => {
                   d="M9.629 8.44a2.452 2.452 0 0 1 1.74.68l1.3-1.293a4.37 4.37 0 0 0-3.065-1.183 4.53 4.53 0 0 0-4.027 2.5l1.502 1.171a2.715 2.715 0 0 1 2.55-1.875z"
                   fill="#EA4335"
                 ></path>
-              </svg>
-              {/* MAESTRO
+              </svg> */
+}
+{
+  /* MAESTRO
               <svg
-                class="section-footer__payment-icon"
+                className="section-footer__payment-icon"
                 viewBox="0 0 38 24"
                 xmlns="http://www.w3.org/2000/svg"
                 width="38"
@@ -159,7 +234,7 @@ const Footer = () => {
               </svg>
               MASTERCARD
               <svg
-                class="section-footer__payment-icon"
+                className="section-footer__payment-icon"
                 viewBox="0 0 38 24"
                 xmlns="http://www.w3.org/2000/svg"
                 role="img"
@@ -185,7 +260,7 @@ const Footer = () => {
               </svg>
               VISA
               <svg
-                class="section-footer__payment-icon"
+                className="section-footer__payment-icon"
                 viewBox="0 0 38 24"
                 xmlns="http://www.w3.org/2000/svg"
                 role="img"
@@ -206,24 +281,7 @@ const Footer = () => {
                   d="M28.3 10.1H28c-.4 1-.7 1.5-1 3h1.9c-.3-1.5-.3-2.2-.6-3zm2.9 5.9h-1.7c-.1 0-.1 0-.2-.1l-.2-.9-.1-.2h-2.4c-.1 0-.2 0-.2.2l-.3.9c0 .1-.1.1-.1.1h-2.1l.2-.5L27 8.7c0-.5.3-.7.8-.7h1.5c.1 0 .2 0 .2.2l1.4 6.5c.1.4.2.7.2 1.1.1.1.1.1.1.2zm-13.4-.3l.4-1.8c.1 0 .2.1.2.1.7.3 1.4.5 2.1.4.2 0 .5-.1.7-.2.5-.2.5-.7.1-1.1-.2-.2-.5-.3-.8-.5-.4-.2-.8-.4-1.1-.7-1.2-1-.8-2.4-.1-3.1.6-.4.9-.8 1.7-.8 1.2 0 2.5 0 3.1.2h.1c-.1.6-.2 1.1-.4 1.7-.5-.2-1-.4-1.5-.4-.3 0-.6 0-.9.1-.2 0-.3.1-.4.2-.2.2-.2.5 0 .7l.5.4c.4.2.8.4 1.1.6.5.3 1 .8 1.1 1.4.2.9-.1 1.7-.9 2.3-.5.4-.7.6-1.4.6-1.4 0-2.5.1-3.4-.2-.1.2-.1.2-.2.1zm-3.5.3c.1-.7.1-.7.2-1 .5-2.2 1-4.5 1.4-6.7.1-.2.1-.3.3-.3H18c-.2 1.2-.4 2.1-.7 3.2-.3 1.5-.6 3-1 4.5 0 .2-.1.2-.3.2M5 8.2c0-.1.2-.2.3-.2h3.4c.5 0 .9.3 1 .8l.9 4.4c0 .1 0 .1.1.2 0-.1.1-.1.1-.1l2.1-5.1c-.1-.1 0-.2.1-.2h2.1c0 .1 0 .1-.1.2l-3.1 7.3c-.1.2-.1.3-.2.4-.1.1-.3 0-.5 0H9.7c-.1 0-.2 0-.2-.2L7.9 9.5c-.2-.2-.5-.5-.9-.6-.6-.3-1.7-.5-1.9-.5L5 8.2z"
                   fill="#142688"
                 ></path>
-              </svg> */}
-            </div>
-            <div className="d-flex justify-content-center align-items-center">
-              <Link to="/privacy-policy">
-                <u className="mx-1">Privacy Policy</u>
-              </Link>
-
-              <Link to="/privacy-policy">
-                <u className="mx-1">Termini di Servizio</u>
-              </Link>
-            </div>
-            <hr />
-            Copyright &copy; Carmine Sembra Brooklyn 2022
-          </Col>
-        </Row>
-      </Container>
-    </footer>
-  );
-};
-
-export default Footer;
+              </svg>
+              </div>
+            */
+}

@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 // import { Container } from "react-bootstrap";
-// import Header from "./components/Header";
-import Footer from "./components/Footer";
+import Header from "./components/Header";
+import Footer from "./components/Footer/Footer";
 import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
 import CartScreen from "./screens/CartScreen";
@@ -31,13 +31,15 @@ import PaymentScreen from "./screens/PaymentScreen";
 import AdminOrderListScreen from "./screens/AdminOrderListScreen";
 import AdminUserListScreen from "./screens/AdminUserListScreen";
 import AdminProductListScreen from "./screens/AdminProductListScreen";
+// import Navbar from "./components/Navbar/Navbar";
 // import NavbarMessage from "./components/NavbarMessage";
-
 const App = () => {
   return (
     <Router>
       {/* <NavbarMessage /> */}
+
       <NavbarContainer />
+      {/* <Navbar /> */}
       {/* <Header /> */}
 
       {/* <Container> */}

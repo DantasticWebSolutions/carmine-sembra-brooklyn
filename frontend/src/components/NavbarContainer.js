@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 // import CartScreen from "../screens/CartScreen";
 import "bootstrap/dist/css/bootstrap.css";
 
@@ -32,6 +32,7 @@ import { MdOutlineAdminPanelSettings, MdAddAPhoto } from "react-icons/md";
 import { RiMoneyEuroCircleLine } from "react-icons/ri";
 import { FiUsers, FiLogOut } from "react-icons/fi";
 import { GiTShirt, GiPartyPopper } from "react-icons/gi";
+import logo from "../asset/logo/logo.png";
 
 function NavbarContainer() {
   const dispatch = useDispatch();
@@ -43,115 +44,141 @@ function NavbarContainer() {
     dispatch(logout());
   };
 
-  // CART MODULE
-  // const [show, setShow] = useState(false);
-
-  // const handleClose = () => setShow(false);
-  // const handleShow = () => setShow(true);
-
+  const expand = "lg";
   return (
     <>
-      {["xl"].map((expand) => (
-        <Navbar
-          key={expand}
-          bg="black"
-          variant="dark"
-          expand={expand}
-          className="px-3"
-          style={{ position: "fixed", zIndex: "9" }}
-          fixed="top"
-        >
-          <Container fluid>
+      <Navbar
+        bg="black"
+        variant="dark"
+        expand={expand}
+        // className="px-3"
+        // sticky="top"
+      >
+        <div className="navbar-contenitor">
+          <Container fluid className="mb-1">
+            <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Brand href="/">
-              <span className="logo-text">Carmine Sembra Brooklyn </span>
+              {/* <span className="logo-text" style={{ alignText: "center" }}>
+                Carmine
+                <br /> Sembra <br />
+                Brooklyn{" "}
+              </span> */}
+              <img src={logo} alt="logo" className="logo-img" />
             </Navbar.Brand>
 
-            <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
-            <Navbar.Offcanvas
-              id={`offcanvasNavbar-expand-${expand}`}
-              aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
-              placement="end"
-            >
-              <Offcanvas.Header closeButton placement="end">
-                <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
-                  CARMINE SEMBRA BROOKLYN
-                </Offcanvas.Title>
-              </Offcanvas.Header>
-              <Offcanvas.Body bg="black" variant="dark">
-                <Nav className="justify-content-end flex-grow-1 pe-3">
-                  <Route
-                    render={({ history }) => <SearchBox history={history} />}
-                  />
-                  <Nav.Link href="/shop">
-                    <BsShop className="mr-1" size="1.5em" /> Negozio
-                  </Nav.Link>
-                  <Nav.Link href="/cart">
-                    <AiOutlineShoppingCart className="mr-2" size="1.5em" />
-                    Carello
-                  </Nav.Link>
+            <div className="d-flex flex-row justify-content-center align-items-center">
+              {userInfo ? (
+                <NavDropdown
+                  title={userInfo.name.charAt(0)}
+                  id="username"
+                  className="mr-2 px-2 py-1"
+                  style={{
+                    borderRadius: "50%",
+                    backgroundColor: "rgb(233, 209, 255)",
+                    color: "black",
+                  }}
+                >
+                  <NavDropdown.Item href="/orders">
+                    <RiMoneyEuroCircleLine className="mr-2" size="1.5em" />
+                    Ordini
+                  </NavDropdown.Item>
+                  <NavDropdown.Item href="/profile">
+                    <AiOutlineUser className="mr-2" size="1.5em" />
+                    Profilo
+                  </NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item onClick={logoutHandler}>
+                    <FiLogOut className="mr-2 ml-1" size="1.5em" />
+                    Logout
+                  </NavDropdown.Item>
+                </NavDropdown>
+              ) : (
+                <Nav.Link href="/login">
+                  <i className="fas fa-user"></i>
+                </Nav.Link>
+              )}
+              <Nav.Link href="/cart">
+                <AiOutlineShoppingCart className="mr-2" size="1.5em" />
+              </Nav.Link>
+            </div>
+          </Container>
+          <Route render={({ history }) => <SearchBox history={history} />} />
+        </div>
 
-                  {/* END CART MODAL */}
-                  {userInfo ? (
-                    <NavDropdown
-                      title={userInfo.name}
-                      id="username"
-                      className="mr-5"
-                    >
-                      <NavDropdown.Item href="/orders">
-                        <RiMoneyEuroCircleLine className="mr-2" size="1.5em" />
-                        Ordini
-                      </NavDropdown.Item>
-                      <NavDropdown.Item href="/profile">
-                        <AiOutlineUser className="mr-2" size="1.5em" />
-                        Profilo
-                      </NavDropdown.Item>
-                      <NavDropdown.Divider />
-                      <NavDropdown.Item onClick={logoutHandler}>
-                        <FiLogOut className="mr-2 ml-1" size="1.5em" />
-                        Logout
-                      </NavDropdown.Item>
-                    </NavDropdown>
-                  ) : (
-                    <Nav.Link href="/login">
-                      <i className="fas fa-user"></i> Sign In
-                    </Nav.Link>
-                  )}
-                  {userInfo && userInfo.isAdmin && (
-                    <div className="d-flex flex-row justify-content-start ">
-                      <MdOutlineAdminPanelSettings
-                        className="mr-2"
-                        size="1.5em"
-                      />{" "}
-                      <NavDropdown title="Admin" id="adminmenu">
-                        <NavDropdown.Item href="/admin/orderlist">
-                          <RiMoneyEuroCircleLine
-                            className="mr-2"
-                            size="1.5em"
-                          />
-                          Ordini
-                        </NavDropdown.Item>
-                        <NavDropdown.Divider />
-                        <NavDropdown.Item href="/admin/userlist">
-                          <FiUsers className="mr-2" size="1.5em" />
-                          Utenti
-                        </NavDropdown.Item>
+        <Navbar.Offcanvas
+          id={`offcanvasNavbar-expand-${expand}`}
+          aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
+          placement="end"
+        >
+          <Offcanvas.Header closeButton placement="end">
+            <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
+              CARMINE SEMBRA BROOKLYN
+            </Offcanvas.Title>
+          </Offcanvas.Header>
+          <Offcanvas.Body bg="black" variant="dark">
+            <Nav className="justify-content-end flex-grow-1 pe-3">
+              <Route
+                render={({ history }) => <SearchBox history={history} />}
+              />
+              <Nav.Link href="/shop">
+                <BsShop className="mr-1" size="1.5em" /> Negozio
+              </Nav.Link>
 
-                        <NavDropdown.Item href="/admin/productlist">
-                          <GiTShirt className="mr-2" size="1.5em" />
-                          Prodotti
-                        </NavDropdown.Item>
-                        <NavDropdown.Item href="/admin/fotolist">
-                          <MdAddAPhoto className="mr-2" size="1.5em" />
-                          Foto
-                        </NavDropdown.Item>
-                        <NavDropdown.Item href="/admin/eventlist">
-                          <GiPartyPopper className="mr-2" size="1.5em" />
-                          Eventi
-                        </NavDropdown.Item>
-                      </NavDropdown>
-                    </div>
-                  )}
-                  {/* <NavDropdown
+              {/* END CART MODAL */}
+              {userInfo ? (
+                <NavDropdown
+                  title={userInfo.name}
+                  id="username"
+                  className="mr-5"
+                >
+                  <NavDropdown.Item href="/orders">
+                    <RiMoneyEuroCircleLine className="mr-2" size="1.5em" />
+                    Ordini
+                  </NavDropdown.Item>
+                  <NavDropdown.Item href="/profile">
+                    <AiOutlineUser className="mr-2" size="1.5em" />
+                    Profilo
+                  </NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item onClick={logoutHandler}>
+                    <FiLogOut className="mr-2 ml-1" size="1.5em" />
+                    Logout
+                  </NavDropdown.Item>
+                </NavDropdown>
+              ) : (
+                <Nav.Link href="/login">
+                  <i className="fas fa-user"></i> Sign In
+                </Nav.Link>
+              )}
+              {userInfo && userInfo.isAdmin && (
+                <div className="d-flex flex-row justify-content-start">
+                  <MdOutlineAdminPanelSettings className="mr-2" size="1.5em" />{" "}
+                  <NavDropdown title="Admin" id="adminmenu">
+                    <NavDropdown.Item href="/admin/orderlist">
+                      <RiMoneyEuroCircleLine className="mr-2" size="1.5em" />
+                      Ordini
+                    </NavDropdown.Item>
+                    <NavDropdown.Divider />
+                    <NavDropdown.Item href="/admin/userlist">
+                      <FiUsers className="mr-2" size="1.5em" />
+                      Utenti
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="/admin/productlist">
+                      <GiTShirt className="mr-2" size="1.5em" />
+                      Prodotti
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="/admin/fotolist">
+                      <MdAddAPhoto className="mr-2" size="1.5em" />
+                      Foto
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="/admin/eventlist">
+                      <GiPartyPopper className="mr-2" size="1.5em" />
+                      Eventi
+                    </NavDropdown.Item>
+                  </NavDropdown>
+                </div>
+              )}
+              {/* <NavDropdown
                     title="Dropdown"
                     id={`offcanvasNavbarDropdown-expand-${expand}`}
                   >
@@ -164,12 +191,10 @@ function NavbarContainer() {
                       Something else here
                     </NavDropdown.Item>
                   </NavDropdown> */}
-                </Nav>
-              </Offcanvas.Body>
-            </Navbar.Offcanvas>
-          </Container>
-        </Navbar>
-      ))}
+            </Nav>
+          </Offcanvas.Body>
+        </Navbar.Offcanvas>
+      </Navbar>
     </>
   );
 }

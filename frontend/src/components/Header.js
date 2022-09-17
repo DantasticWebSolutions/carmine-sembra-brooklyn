@@ -18,16 +18,10 @@ const Header = () => {
 
   return (
     <header>
-      <Navbar
-        // bg="dark"
-        // variant="dark"
-        expand="lg"
-        className="navbar"
-        collapseOnSelect
-      >
+      <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
         <Container>
           <LinkContainer to="/">
-            <Navbar.Brand>Carmine Sembra Brooklyn</Navbar.Brand>
+            <Navbar.Brand>ProShop</Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
@@ -64,12 +58,6 @@ const Header = () => {
                   </LinkContainer>
                   <LinkContainer to="/admin/orderlist">
                     <NavDropdown.Item>Orders</NavDropdown.Item>
-                  </LinkContainer>
-                  <LinkContainer to="/admin/fotolist">
-                    <NavDropdown.Item>Photos</NavDropdown.Item>
-                  </LinkContainer>
-                  <LinkContainer to="/admin/eventlist">
-                    <NavDropdown.Item>Events</NavDropdown.Item>
                   </LinkContainer>
                 </NavDropdown>
               )}

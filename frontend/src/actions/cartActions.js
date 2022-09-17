@@ -1,4 +1,3 @@
-// Every time add item to cart --> create a requesto to api:/products/id to get the data for that particular product to add to the cart
 import axios from "axios";
 import {
   CART_ADD_ITEM,
@@ -7,8 +6,7 @@ import {
   CART_SAVE_PAYMENT_METHOD,
 } from "../constants/cartConstants";
 
-// getState take all the data in the state and allow to use reducers created --> to get cart item
-export const addToCart = (id, qty, size) => async (dispatch, getState) => {
+export const addToCart = (id, qty) => async (dispatch, getState) => {
   const { data } = await axios.get(`/api/products/${id}`);
 
   dispatch({
@@ -20,7 +18,6 @@ export const addToCart = (id, qty, size) => async (dispatch, getState) => {
       price: data.price,
       countInStock: data.countInStock,
       qty,
-      size,
     },
   });
 
