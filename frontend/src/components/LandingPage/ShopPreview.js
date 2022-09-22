@@ -5,8 +5,8 @@ import Message from "../Message";
 import { listTopProducts } from "../../actions/productActions";
 
 // import Product from "../Product";
-import Prodotto from "../Prodotto";
-import Carta from "../Carta";
+// import Prodotto from "../Prodotto";
+import ProductsSwiper from "./ProductsSwiper";
 
 const ShopPreview = () => {
   const dispatch = useDispatch();
@@ -32,7 +32,7 @@ const ShopPreview = () => {
       </div>
       <div>
         <div className="shopPreview-product-container">
-          <Carta item={products} filterPrice="100" />
+          <ProductsSwiper item={products} filterPrice="100" />
           {/* {products.map((product) => (
             <Prodotto key={product._id} product={product} />
             // <Product key={product._id} product={product} />

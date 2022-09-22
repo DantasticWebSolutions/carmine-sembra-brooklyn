@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { Button, Nav } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import Message from "../components/Message";
-import Loader from "../components/Loader";
-import { listOrders } from "../actions/orderActions";
+import Message from "../../components/Message";
+import Loader from "../../components/Loader";
+import { listOrders } from "../../actions/orderActions";
 import { MdDoneOutline } from "react-icons/md";
 
 const AdminOrderListScreen = ({ history }) => {

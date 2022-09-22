@@ -5,6 +5,7 @@ import tshirt from "../../asset/tshirt.png";
 // React Icons
 import { BsWhatsapp } from "react-icons/bs";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import { Button } from "react-bootstrap";
 
 const LinkToShop = () => {
   return (
@@ -12,7 +13,7 @@ const LinkToShop = () => {
       <div className="link-left">
         <h1>Visita il nostro negozio </h1>
         <div
-          className="img-container contain"
+          className="img-container"
           style={{ background: `url(${LogoBrooklyn})` }}
         ></div>
       </div>
@@ -36,17 +37,17 @@ const LinkToShop = () => {
           elit.
         </div>
         <div className="button-container">
-          <button className="thirdButton">
+          <Button variant="dark">
             <AiOutlineShoppingCart className="button-icon" />
             &nbsp;
             <span>Scopri</span>
-          </button>
+          </Button>
 
-          <button className="fourthButton">
+          <Button variant="outline-dark">
             <BsWhatsapp className="button-icon" />
             &nbsp;
             <span>Info</span>
-          </button>
+          </Button>
         </div>
       </div>
     </div>

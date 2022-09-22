@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import { Button, Row, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import Message from "../components/Message";
-import Loader from "../components/Loader";
-import Paginate from "../components/Paginate";
-import { listFotos, deleteFoto, createFoto } from "../actions/fotoActions";
-import { FOTO_CREATE_RESET } from "../constants/fotoConstants";
-import Card from "../components/Card";
+import Message from "../../components/Message";
+import Loader from "../../components/Loader";
+import Paginate from "../../components/Paginate";
+import { listFotos, deleteFoto, createFoto } from "../../actions/fotoActions";
+import { FOTO_CREATE_RESET } from "../../constants/fotoConstants";
+import Card from "../../components/Card";
 
 const FotoListScreen = ({ history, match }) => {
   const pageNumber = match.params.pageNumber || 1;

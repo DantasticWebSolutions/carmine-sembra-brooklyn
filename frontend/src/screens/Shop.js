@@ -4,16 +4,16 @@ import { Row, Col } from "react-bootstrap";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
 import Paginate from "../components/Paginate";
-import ProductSwiper from "../components/ProductSwiper";
+import ProductSwiper from "../components/Shop/ProductSwiper";
 import Meta from "../components/Meta";
 import { listProducts } from "../actions/productActions";
-import Carta from "../components/Carta";
+import ProductContainer from "../components/Shop/ProductsContainer";
 
 import Features from "../components/Features";
 import ShowColumnOrSingle from "../components/ShowColumnOrSingle";
 import Filter from "../components/Filter";
 
-const HomeScreen = ({ match }) => {
+const Shop = ({ match }) => {
   // GET DATA
   const keyword = match.params.keyword;
 
@@ -78,7 +78,7 @@ const HomeScreen = ({ match }) => {
             />
             <ShowColumnOrSingle />
 
-            <Carta
+            <ProductContainer
               item={item}
               loading={loading}
               error={error}
@@ -98,4 +98,4 @@ const HomeScreen = ({ match }) => {
   );
 };
 
-export default HomeScreen;
+export default Shop;

@@ -1,36 +1,36 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 // import { Container } from "react-bootstrap";
-import Header from "./components/Header";
+// import Header from "./components/Header";
 import Footer from "./components/Footer/Footer";
-import HomeScreen from "./screens/HomeScreen";
-import ProductScreen from "./screens/ProductScreen";
-import CartScreen from "./screens/CartScreen";
-import LoginScreen from "./screens/LoginScreen";
-import RegisterScreen from "./screens/RegisterScreen";
-import ProfileScreen from "./screens/ProfileScreen";
-import ShippingScreen from "./screens/ShippingScreen";
-import CustomersOrdersScreen from "./screens/CustomersOrdersScreen";
+import Shop from "./screens/Shop";
+import ProductScreen from "./screens/Cart/ProductScreen";
+import CartScreen from "./screens/Cart/CartScreen";
+import LoginScreen from "./screens/User/LoginScreen";
+import RegisterScreen from "./screens/User/RegisterScreen";
+import ProfileScreen from "./screens/User/ProfileScreen";
+import ShippingScreen from "./screens/Cart/ShippingScreen";
+import CustomersOrdersScreen from "./screens/User/CustomersOrdersScreen";
 
 // import PlaceOrderScreen from "./screens/PlaceOrderScreen";
-import PlaceOrderScreen from "./screens/PlaceOrderScreen";
-import OrderScreen from "./screens/OrderScreen";
+import PlaceOrderScreen from "./screens/Cart/PlaceOrderScreen";
+import OrderScreen from "./screens/Cart/OrderScreen";
 // import UserListScreen from "./screens/UserListScreen";
-import UserEditScreen from "./screens/UserEditScreen";
+import UserEditScreen from "./screens/Admin/UserEditScreen";
 // import ProductListScreen from "./screens/ProductListScreen";
-import FotoListScreen from "./screens/FotoListScreen";
-import ProductEditScreen from "./screens/ProductEditScreen";
+import FotoListScreen from "./screens/Admin/FotoListScreen";
+import ProductEditScreen from "./screens/Admin/ProductEditScreen";
 // import OrderListScreen from "./screens/OrderListScreen";
 import LandingPage from "./screens/LandingPage";
-import FotoEditScreen from "./screens/FotoEditScreen";
+import FotoEditScreen from "./screens/Admin/FotoEditScreen";
 import EventListScreen from "./screens/Events/EventListScreen";
 import EventEditScreen from "./screens/Events/EventEditScreen";
 import NavbarContainer from "./components/NavbarContainer";
 // import OrdersScreen from "./screens/OrdersScreen";
-import PaymentScreen from "./screens/PaymentScreen";
-import AdminOrderListScreen from "./screens/AdminOrderListScreen";
-import AdminUserListScreen from "./screens/AdminUserListScreen";
-import AdminProductListScreen from "./screens/AdminProductListScreen";
+import PaymentScreen from "./screens/Cart/PaymentScreen";
+import AdminOrderListScreen from "./screens/Admin/AdminOrderListScreen";
+import AdminUserListScreen from "./screens/Admin/AdminUserListScreen";
+import AdminProductListScreen from "./screens/Admin/AdminProductListScreen";
 // import Navbar from "./components/Navbar/Navbar";
 // import NavbarMessage from "./components/NavbarMessage";
 const App = () => {
@@ -93,14 +93,10 @@ const App = () => {
       <Route path="/admin/event/:id/edit" component={EventEditScreen} />
       {/* ORDER */}
       <Route path="/admin/orderlist" component={AdminOrderListScreen} />
-      <Route path="/search/:keyword" component={HomeScreen} exact />
-      <Route path="/page/:pageNumber" component={HomeScreen} exact />
-      <Route
-        path="/search/:keyword/page/:pageNumber"
-        component={HomeScreen}
-        exact
-      />
-      <Route path="/shop" component={HomeScreen} />
+      <Route path="/search/:keyword" component={Shop} exact />
+      <Route path="/page/:pageNumber" component={Shop} exact />
+      <Route path="/search/:keyword/page/:pageNumber" component={Shop} exact />
+      <Route path="/shop" component={Shop} />
       <Route path="/" component={LandingPage} exact />
       {/* </Container> */}
       <Footer />

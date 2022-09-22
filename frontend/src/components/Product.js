@@ -9,7 +9,7 @@ import Loader from "./Loader";
 const Product = ({ product, loading, error }) => {
   console.log(product);
   return (
-    <>
+    <main>
       {loading ? (
         <Loader />
       ) : error ? (
@@ -28,9 +28,9 @@ const Product = ({ product, loading, error }) => {
           ) : error ? (
             <Message variant="danger">{error}</Message>
           ) : (
-            <Link
+            <div
               className="d-flex flex-column justify-content-center"
-              to={`/product/${product._id}`}
+              // to={`/product/${product._id}`}
               // style={{ minHeight: "50%" }}
             >
               {loading ? (
@@ -128,11 +128,11 @@ const Product = ({ product, loading, error }) => {
                   </>
                 )}
               </Link>
-            </Link>
+            </div>
           )}
         </Card>
       )}
-    </>
+    </main>
   );
 };
 

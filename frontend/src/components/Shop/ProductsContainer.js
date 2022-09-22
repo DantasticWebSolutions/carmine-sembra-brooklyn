@@ -1,6 +1,7 @@
-import React from "react";
-import { Row, Col, Button } from "react-bootstrap";
-import Product from "../components/Product";
+import React, { useState } from "react";
+import Product from "../Product";
+import { Col } from "react-bootstrap";
+
 const Carta = ({ item, loading, error, filterPrice, stockFilter }) => {
   return (
     <>

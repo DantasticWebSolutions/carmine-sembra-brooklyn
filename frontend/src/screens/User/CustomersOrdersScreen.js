@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { Button, Col, Nav } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import Message from "../components/Message";
-import Loader from "../components/Loader";
-import { getUserDetails } from "../actions/userActions";
-import { listMyOrders } from "../actions/orderActions";
+import Message from "../../components/Message";
+import Loader from "../../components/Loader";
+import { getUserDetails } from "../../actions/userActions";
+import { listMyOrders } from "../../actions/orderActions";
 import { MdDoneOutline } from "react-icons/md";
 
 const CustomersOrdersScreen = ({ history }) => {

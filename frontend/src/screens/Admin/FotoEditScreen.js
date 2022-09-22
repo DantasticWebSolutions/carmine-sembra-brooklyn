@@ -3,11 +3,11 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import Message from "../components/Message";
-import Loader from "../components/Loader";
-import FormContainer from "../components/FormContainer";
-import { listFotoDetails, updateFoto } from "../actions/fotoActions";
-import { FOTO_UPDATE_RESET } from "../constants/fotoConstants";
+import Message from "../../components/Message";
+import Loader from "../../components/Loader";
+import FormContainer from "../../components/FormContainer";
+import { listFotoDetails, updateFoto } from "../../actions/fotoActions";
+import { FOTO_UPDATE_RESET } from "../../constants/fotoConstants";
 
 const FotoEditScreen = ({ match, history }) => {
   const fotoId = match.params.id;

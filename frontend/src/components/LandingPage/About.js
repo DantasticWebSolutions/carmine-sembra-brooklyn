@@ -53,49 +53,6 @@ const About = () => {
                   </div>
                 </div>
               </div>
-              <div
-                className="img-container"
-                style={{ background: `url(${event.image2})` }}
-              >
-                <div className="about-date">
-                  <span className="about-date-title">{event.price}</span>
-
-                  {/* <div className="about-date-day-container">
-                    <div className="about-day-date">{event.time}</div>
-                    <div className="about-month-date">{event.month}</div>
-                  </div> */}
-                  {/* <div className="about-address">
-                    <FiMapPin style={{ marginRight: "5px" }} />
-                    <span>{event.address}</span>
-                  </div> */}
-                </div>
-              </div>
-              {/* {event._id !== "62aaef91ba87b0393a047206" ? (
-                <div className="about-description">
-                  <div className="description">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea
-                    et eveniet quam. Placeat illo dignissimos, labore est natus
-                    asperiores quod consectetur, culpa eius suscipit impedit
-                    quis iste illum sed.
-                  </div>
-                  <div className="button-container">
-                    <button className="primaryButton">
-                      <BsWhatsapp className="button-icon" />
-                      &nbsp;
-                      <span>Prenota</span>
-                    </button>
-                    <div className="module-border-wrap">
-                      <button className="secondaryButton">
-                        <BsTelephone className="button-icon" />
-                        &nbsp;
-                        <span>Info</span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              ) : (
-                ""
-              )} */}
             </div>
           ))}
         </div>

@@ -9,6 +9,7 @@ import { listFotos } from "../../actions/fotoActions";
 
 import Message from "../Message";
 import Loader from "../Loader";
+import { Button } from "react-bootstrap";
 
 const FotoEventi = () => {
   const dispatch = useDispatch();
@@ -23,10 +24,6 @@ const FotoEventi = () => {
     <div className="fotoEventi">
       <div className="flexContainer">
         <h1>Cerca foto Eventi Passati</h1>
-        <p>
-          Ecco a voi l'accesso a tutte le nostre foto
-          <br /> Tag Us and Stay Tuned
-        </p>
       </div>
 
       {loading ? (
@@ -56,16 +53,17 @@ const FotoEventi = () => {
                     <span>{event.address}</span>
                   </div>
                   <div className="event-title">{event.title}</div>
-                  <div className="module-border-wrap">
-                    <a
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      href={event.link}
-                      className="secondaryButton"
-                    >
-                      <span className="colored-text">Apri</span>
-                    </a>
-                  </div>
+                  {/* <div className="module-border-wrap"> */}
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href={event.link}
+                    // className="secondaryButton"
+                  >
+                    <Button variant="dark">Apri</Button>
+                    {/* <span className="colored-text">Apri</span> */}
+                  </a>
+                  {/* </div> */}
                 </div>
               </div>
             ))}

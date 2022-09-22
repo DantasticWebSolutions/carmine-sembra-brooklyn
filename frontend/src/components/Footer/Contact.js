@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 // import { Form, Input, TextArea } from "semantic-ui-react";
 import emailjs from "emailjs-com";
 import Swal from "sweetalert2";
@@ -36,6 +36,12 @@ const Contact = () => {
     e.target.reset();
   };
 
+  const [disable, setDisable] = useState(true);
+
+  const handleDisable = () => {
+    setDisable(!disable);
+  };
+
   return (
     <>
       <div className="contactContainer">
@@ -51,7 +57,12 @@ const Contact = () => {
           >
             <Form.Group className="mb-3" controlId="formBasicEmail">
               {/* <Form.Label>Nome</Form.Label> */}
-              <Form.Control name="user_email" type="text" placeholder="Nome" />
+              <Form.Control
+                name="user_name"
+                type="name"
+                placeholder="Nome"
+                required
+              />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               {/* <Form.Label>Email</Form.Label> */}
@@ -59,6 +70,7 @@ const Contact = () => {
                 name="user_email"
                 type="email"
                 placeholder="Email"
+                required
               />
               {/* <Form.Text className="text-muted">
                 We'll never share your email with anyone else.
@@ -68,8 +80,9 @@ const Contact = () => {
               {/* <Form.Label>Numero di Telefono</Form.Label> */}
               <Form.Control
                 name="user_phone"
-                type="text"
+                type="tel"
                 placeholder="Numero di telefono"
+                required
               />
             </Form.Group>
             <Form.Group
@@ -77,52 +90,24 @@ const Contact = () => {
               controlId="exampleForm.ControlTextarea1"
             >
               {/* <Form.Label>Messaggio</Form.Label> */}
-              <Form.Control as="textarea" rows={4} placeholder="Messaggio" />
+              <Form.Control
+                as="textarea"
+                rows={4}
+                placeholder="Messaggio"
+                required
+              />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicCheckbox">
+            <Form.Group className="mb-3 noselect" controlId="formBasicCheckbox">
               <Form.Check
+                onClick={handleDisable}
                 type="checkbox"
                 label={`Ho letto e accettato la Privacy Policy`}
               />
             </Form.Group>
-            {/*
-            <Form.Field
-              id="form-input-control-last-name"
-              label="Name"
-              name="user_name"
-              placeholder="Harry Potter"
-              required
-              icon="user circle"
-              iconPosition="left"
-              className="formField"
-            />
-            <Form.Field
-              id="form-input-control-email"
-              control={Input}
-              label="Email"
-              name="user_email"
-              placeholder="harrypotter@hogwarts.com"
-              required
-              icon="mail"
-              iconPosition="left"
-              type="email"
-              className="formField"
-            />
-
-            <Form.Field
-              id="form-textarea-control-opinion"
-              control={TextArea}
-              label="Message"
-              name="user_message"
-              placeholder="Do you know anything about the chamber of secrets?"
-              required
-              type="textArea"
-              className="formField textarea"
-            />
-
-          */}
-            <Button type="submit">Submit</Button>
+            <Button type="submit" disabled={disable} variant="outline-success">
+              Submit
+            </Button>
           </Form>
         </div>
 
