@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap";
 const Bottone = ({ filterItem, item, setItem, menuItems, product }) => {
   useEffect(() => {
     setItem(product);
-  }, []);
+  }, [setItem, product]);
   const [show, setShow] = useState(false);
   return (
     <>

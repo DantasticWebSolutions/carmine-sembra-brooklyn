@@ -49,7 +49,7 @@ const ProductSwiper = () => {
   const dispatch = useDispatch();
 
   const productTopRated = useSelector((state) => state.productTopRated);
-  const { loading, error, products } = productTopRated;
+  const { loading, error } = productTopRated;
 
   useEffect(() => {
     dispatch(listTopProducts());

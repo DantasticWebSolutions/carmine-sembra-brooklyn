@@ -1,13 +1,7 @@
 import React, { useState } from "react";
-// import { Form, Input, TextArea } from "semantic-ui-react";
 import emailjs from "emailjs-com";
 import Swal from "sweetalert2";
-// import SocialIcons from "./Util/SocialIcons";
-// import ButtonMui from "./Util/ButtonMui";
-import { Button, Form, Input, TextArea } from "react-bootstrap";
-import { Link } from "react-router-dom";
-
-// import "semantic-ui-css/semantic.min.css";
+import { Button, Form } from "react-bootstrap";
 
 const SERVICE_ID = "mayaRussellSmith";
 const TEMPLATE_ID = "template_0ajn6qb";

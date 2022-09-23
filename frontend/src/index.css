@@ -1251,6 +1251,9 @@ h2 {
   color: #fff !important;
 }
 
+.nav-link {
+  padding: 0 !important;
+}
 .dropdown-toggle::after {
   content: none !important;
 }
@@ -1493,7 +1496,7 @@ div::after {
 .opaco {
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: flex-start;
   background-color: rgba(0, 0, 0, 0.25);
   width: 100%;

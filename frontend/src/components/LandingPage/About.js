@@ -1,16 +1,8 @@
 import React, { useEffect } from "react";
-// IMGs
-// import About1 from "../../asset/about1.jpg";
-// import About2 from "../../asset/about2.jpg";
-// React Icons
-import { BsWhatsapp, BsTelephone } from "react-icons/bs";
 import { FiMapPin } from "react-icons/fi";
 // REDUX
 import { useDispatch, useSelector } from "react-redux";
 import { listEvents } from "../../actions/eventActions";
-// Bootstrap
-// import { Card } from "react-bootstrap";
-// import { Row, Col } from "react-bootstrap";
 
 import Message from "../Message";
 import Loader from "../Loader";

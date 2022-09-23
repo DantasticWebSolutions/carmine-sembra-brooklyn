@@ -8,8 +8,6 @@ import ProductSwiper from "../components/Shop/ProductSwiper";
 import Meta from "../components/Meta";
 import { listProducts } from "../actions/productActions";
 import ProductContainer from "../components/Shop/ProductsContainer";
-
-import Features from "../components/Features";
 import ShowColumnOrSingle from "../components/ShowColumnOrSingle";
 import Filter from "../components/Filter";
 

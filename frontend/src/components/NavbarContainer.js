@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 // import CartScreen from "../screens/CartScreen";
 import "bootstrap/dist/css/bootstrap.css";
 
@@ -17,7 +17,6 @@ import {
   // Form,
   // Button,
   // Card,
-  Offcanvas,
   NavDropdown,
   Navbar,
   Nav,
@@ -30,7 +29,7 @@ import { AiOutlineShoppingCart, AiOutlineUser } from "react-icons/ai";
 
 import { FiUser } from "react-icons/fi";
 import { BsShop } from "react-icons/bs";
-import { MdOutlineAdminPanelSettings, MdAddAPhoto } from "react-icons/md";
+import { MdAddAPhoto } from "react-icons/md";
 import { RiMoneyEuroCircleLine } from "react-icons/ri";
 import { FiUsers, FiLogOut } from "react-icons/fi";
 import { GiTShirt, GiPartyPopper } from "react-icons/gi";
@@ -165,32 +164,34 @@ function NavbarContainer() {
 
             <div className="d-flex flex-row justify-content-center align-items-center">
               {userInfo ? (
-                <NavDropdown
-                  title={userInfo.name.charAt(0)}
-                  id="username"
-                  className="mr-2 px-2 py-1"
-                  style={{
-                    borderRadius: "50%",
-                    backgroundColor: "rgb(233, 209, 255)",
-                    color: "black",
-                    textAlign: "center !important",
-                    // display: "inline",
-                  }}
-                >
-                  <NavDropdown.Item href="/orders">
-                    <RiMoneyEuroCircleLine className="mr-2" size="1.5em" />
-                    Ordini
-                  </NavDropdown.Item>
-                  <NavDropdown.Item href="/profile">
-                    <AiOutlineUser className="mr-2" size="1.5em" />
-                    Profilo
-                  </NavDropdown.Item>
-                  <NavDropdown.Divider />
-                  <NavDropdown.Item onClick={logoutHandler}>
-                    <FiLogOut className="mr-2 ml-1" size="1.5em" />
-                    Logout
-                  </NavDropdown.Item>
-                </NavDropdown>
+                <div className="d-flex flex-row justify-content-start">
+                  <NavDropdown
+                    title={userInfo.name.charAt(0)}
+                    id="username"
+                    className="mr-2 px-2 py-1 w-100"
+                    style={{
+                      borderRadius: "50%",
+                      backgroundColor: "rgb(233, 209, 255)",
+                      color: "black",
+                      textAlign: "center !important",
+                      // display: "inline",
+                    }}
+                  >
+                    <NavDropdown.Item href="/orders">
+                      <RiMoneyEuroCircleLine className="mr-2" size="1.5em" />
+                      Ordini
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="/profile">
+                      <AiOutlineUser className="mr-2" size="1.5em" />
+                      Profilo
+                    </NavDropdown.Item>
+                    <NavDropdown.Divider />
+                    <NavDropdown.Item onClick={logoutHandler}>
+                      <FiLogOut className="mr-2 ml-1" size="1.5em" />
+                      Logout
+                    </NavDropdown.Item>
+                  </NavDropdown>
+                </div>
               ) : (
                 <Nav.Link
                   href="/login"
