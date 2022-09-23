@@ -9,7 +9,7 @@ import { listTopProducts } from "../../actions/productActions";
 // Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
 // import Swiper core and required modules
-import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from "swiper";
+import { Navigation, Pagination, A11y, Autoplay } from "swiper";
 // Import Swiper styles
 import "swiper/swiper.min.css";
 
@@ -61,7 +61,7 @@ const ProductSwiper = () => {
   ) : (
     <Swiper
       // install Swiper modules
-      modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
+      modules={[Navigation, Pagination, A11y, Autoplay]}
       // spaceBetween={50}
       slidesPerView={1}
       autoplay={{
@@ -76,31 +76,10 @@ const ProductSwiper = () => {
       // speed={1000}
       loop={true}
       pagination={{ clickable: true }}
-      scrollbar={{ draggable: true }}
+      // scrollbar={{ draggable: true }}
       onSwiper={(swiper) => console.log(swiper)}
       onSlideChange={() => console.log("slide change")}
       className="swiper-shop"
-      // flipEffect={{
-      //   rotate: 30,
-      //   slideShadows: false,
-      // }}
-
-      // pagination={{
-      //   el: ".swiper-pagination",
-      //   clickable: true,
-      //   renderBullet: function (index, className) {
-      //     return (
-      //       '<span class="' +
-      //       className +
-      //       '">' +
-      //       '<svg class="fp-arc-loader" width="16" height="16" viewBox="0 0 16 16">' +
-      //       '<circle class="path" cx="8" cy="8" r="5.5" fill="none" transform="rotate(-90 8 8)" stroke="#FFF"' +
-      //       'stroke-opacity="1" stroke-width="1.5px"></circle>' +
-      //       '<circle cx="8" cy="8" r="3" fill="#FFF"></circle>' +
-      //       "</svg></span>"
-      //     );
-      //   },
-      // }}
     >
       {schermate.map((product) => (
         <SwiperSlide key={product.id}>

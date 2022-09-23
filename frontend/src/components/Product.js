@@ -9,7 +9,7 @@ import Loader from "./Loader";
 const Product = ({ product, loading, error }) => {
   console.log(product);
   return (
-    <main>
+    <>
       {loading ? (
         <Loader />
       ) : error ? (
@@ -44,7 +44,7 @@ const Product = ({ product, loading, error }) => {
               <Card.Body
                 style={{
                   backgroundColor: "rgb(244, 242, 244)",
-                  paddingTop: "100px",
+                  // paddingTop: "100px",
                 }}
                 // style={{ minHeight: "50%" }}
                 className="d-flex flex-column justify-content-center text-left rounded"
@@ -124,7 +124,7 @@ const Product = ({ product, loading, error }) => {
                 ) : (
                   <>
                     <BsBag className="mr-2 ml-2" />
-                    <span className="pr-2">Add</span>
+                    <span className="pr-2">Aggiungi</span>
                   </>
                 )}
               </Link>
@@ -132,7 +132,7 @@ const Product = ({ product, loading, error }) => {
           )}
         </Card>
       )}
-    </main>
+    </>
   );
 };
 

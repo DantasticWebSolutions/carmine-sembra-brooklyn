@@ -1,7 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-// import { Container } from "react-bootstrap";
-// import Header from "./components/Header";
 import Footer from "./components/Footer/Footer";
 import Shop from "./screens/Shop";
 import ProductScreen from "./screens/Cart/ProductScreen";
@@ -11,38 +9,25 @@ import RegisterScreen from "./screens/User/RegisterScreen";
 import ProfileScreen from "./screens/User/ProfileScreen";
 import ShippingScreen from "./screens/Cart/ShippingScreen";
 import CustomersOrdersScreen from "./screens/User/CustomersOrdersScreen";
-
-// import PlaceOrderScreen from "./screens/PlaceOrderScreen";
 import PlaceOrderScreen from "./screens/Cart/PlaceOrderScreen";
 import OrderScreen from "./screens/Cart/OrderScreen";
-// import UserListScreen from "./screens/UserListScreen";
 import UserEditScreen from "./screens/Admin/UserEditScreen";
-// import ProductListScreen from "./screens/ProductListScreen";
 import FotoListScreen from "./screens/Admin/FotoListScreen";
 import ProductEditScreen from "./screens/Admin/ProductEditScreen";
-// import OrderListScreen from "./screens/OrderListScreen";
 import LandingPage from "./screens/LandingPage";
 import FotoEditScreen from "./screens/Admin/FotoEditScreen";
 import EventListScreen from "./screens/Events/EventListScreen";
 import EventEditScreen from "./screens/Events/EventEditScreen";
 import NavbarContainer from "./components/NavbarContainer";
-// import OrdersScreen from "./screens/OrdersScreen";
 import PaymentScreen from "./screens/Cart/PaymentScreen";
 import AdminOrderListScreen from "./screens/Admin/AdminOrderListScreen";
 import AdminUserListScreen from "./screens/Admin/AdminUserListScreen";
 import AdminProductListScreen from "./screens/Admin/AdminProductListScreen";
-// import Navbar from "./components/Navbar/Navbar";
-// import NavbarMessage from "./components/NavbarMessage";
+
 const App = () => {
   return (
     <Router>
-      {/* <NavbarMessage /> */}
-
       <NavbarContainer />
-      {/* <Navbar /> */}
-      {/* <Header /> */}
-
-      {/* <Container> */}
       <Route path="/order/:id" component={OrderScreen} />
       <Route path="/shipping" component={ShippingScreen} />
       <Route path="/payment" component={PaymentScreen} />

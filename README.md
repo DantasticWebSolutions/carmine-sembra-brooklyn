@@ -163,8 +163,6 @@ To get a local copy up and running follow these simple example steps.
 - [x] PayPal / credit card integration
 - [ ] Stipe integration
 - [ ] PWA to use offline
-- [ ] Book table
-- [ ] Sell ticket
 - [ ] Multi-language Support
   - [x] Italian
   - [ ] English

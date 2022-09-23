@@ -106,7 +106,7 @@ const RegisterScreen = ({ location, history }) => {
               ></Form.Control>
             </Form.Group>
 
-            <Form.Group className="mb-3 noselect" controlId="formBasicCheckbox">
+            <Form.Group className="mt-3 noselect" controlId="formBasicCheckbox">
               <Form.Check
                 onClick={handleDisable}
                 type="checkbox"
@@ -116,6 +116,7 @@ const RegisterScreen = ({ location, history }) => {
             </Form.Group>
 
             <Button
+              variant="dark"
               type="submit"
               disabled={disable}
               className="bottone-primario w-100 my-2"

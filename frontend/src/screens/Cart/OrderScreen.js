@@ -100,46 +100,46 @@ const OrderScreen = ({ match, history }) => {
           <ListGroup variant="flush">
             <ListGroup.Item>
               <h5 style={{ wordBreak: "break-all" }}>{order._id}</h5>
-              <h2>Shipping</h2>
+              <h2>Spedizione</h2>
               <p>
-                <strong>Name: </strong> {order.user.name}
+                <strong>Nome: </strong> {order.user.name}
               </p>
               <p>
                 <strong>Email: </strong>{" "}
                 <a href={`mailto:${order.user.email}`}>{order.user.email}</a>
               </p>
               <p>
-                <strong>Address:</strong>
+                <strong>Indirizzo:</strong>
                 {order.shippingAddress.address}, {order.shippingAddress.city}{" "}
                 {order.shippingAddress.postalCode},{" "}
                 {order.shippingAddress.country}
               </p>
               {order.isDelivered ? (
                 <Message variant="success">
-                  Delivered on {order.deliveredAt}
+                  Spedito il {order.deliveredAt}
                 </Message>
               ) : (
-                <Message variant="danger">Not Delivered</Message>
+                <Message variant="danger">Non spedito</Message>
               )}
             </ListGroup.Item>
 
             <ListGroup.Item>
-              <h2>Payment Method</h2>
+              <h2>Metodo di pagamento</h2>
               <p>
-                <strong>Method: </strong>
+                <strong>Metodo: </strong>
                 {order.paymentMethod}
               </p>
               {order.isPaid ? (
-                <Message variant="success">Paid on {order.paidAt}</Message>
+                <Message variant="success">Pagato il {order.paidAt}</Message>
               ) : (
-                <Message variant="danger">Not Paid</Message>
+                <Message variant="danger">Non pagato</Message>
               )}
             </ListGroup.Item>
 
             <ListGroup.Item>
-              <h2>Order Items</h2>
+              <h2>Prodotti nel carrello</h2>
               {order.orderItems.length === 0 ? (
-                <Message>Order is empty</Message>
+                <Message>L'ordine è vuoto</Message>
               ) : (
                 <ListGroup variant="flush">
                   {order.orderItems.map((item, index) => (
@@ -161,7 +161,7 @@ const OrderScreen = ({ match, history }) => {
                         <Col md={4}>
                           {item.qty} x €{item.price} = €{item.qty * item.price}
                         </Col>
-                        <Col md={4}>SIZE: {item.size}</Col>
+                        {/* <Col md={4}>SIZE: {item.size}</Col> */}
                       </Row>
                     </ListGroup.Item>
                   ))}
@@ -174,17 +174,17 @@ const OrderScreen = ({ match, history }) => {
           <Card>
             <ListGroup variant="flush">
               <ListGroup.Item>
-                <h2>Order Summary</h2>
+                <h2>Riepilogo</h2>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
-                  <Col>Items</Col>
+                  <Col>Prezzo prodotti</Col>
                   <Col>€{order.itemsPrice}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
-                  <Col>Shipping</Col>
+                  <Col>Spedizione</Col>
                   {order.shippingPrice > 0 ? (
                     <Col>€{order.shippingPrice}</Col>
                   ) : (
@@ -200,7 +200,7 @@ const OrderScreen = ({ match, history }) => {
               </ListGroup.Item> */}
               <ListGroup.Item>
                 <Row>
-                  <Col>Total</Col>
+                  <Col>Totale</Col>
                   <Col>€{order.totalPrice}</Col>
                 </Row>
               </ListGroup.Item>
@@ -228,7 +228,7 @@ const OrderScreen = ({ match, history }) => {
                       className="btn btn-block"
                       onClick={deliverHandler}
                     >
-                      Mark As Delivered
+                      Segna come spedito
                     </Button>
                   </ListGroup.Item>
                 )}

@@ -11,7 +11,7 @@ const getEvents = asyncHandler(async (req, res) => {
 });
 
 // @desc    Fetch single Event
-// @route   GET /api/products/:id
+// @route   GET /api/events/:id
 // @access  Public
 const getEventById = asyncHandler(async (req, res) => {
   const event = await Event.findById(req.params.id);

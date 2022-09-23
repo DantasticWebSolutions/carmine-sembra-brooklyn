@@ -53,7 +53,7 @@ const PlaceOrderScreen = ({ history }) => {
         paymentMethod: cart.paymentMethod,
         itemsPrice: cart.itemsPrice,
         shippingPrice: cart.shippingPrice,
-        taxPrice: cart.taxPrice,
+        // taxPrice: cart.taxPrice,
         totalPrice: cart.totalPrice,
       })
     );
@@ -68,9 +68,9 @@ const PlaceOrderScreen = ({ history }) => {
         <Col md={8}>
           <ListGroup variant="flush">
             <ListGroup.Item>
-              <h2>Shipping</h2>
+              <h2>Spedizione</h2>
               <p>
-                <strong>Address:</strong>
+                <strong>Indirizzo:</strong>
                 {cart.shippingAddress.address}, {cart.shippingAddress.city}{" "}
                 {cart.shippingAddress.postalCode},{" "}
                 {cart.shippingAddress.country}
@@ -78,15 +78,15 @@ const PlaceOrderScreen = ({ history }) => {
             </ListGroup.Item>
 
             <ListGroup.Item>
-              <h2>Payment Method</h2>
-              <strong>Method: </strong>
+              <h2>Metodo di Pagamento</h2>
+              <strong>Metodo: </strong>
               {cart.paymentMethod}
             </ListGroup.Item>
 
             <ListGroup.Item>
-              <h2>Order Items</h2>
+              <h2>Prodotti</h2>
               {cart.cartItems.length === 0 ? (
-                <Message>Your cart is empty</Message>
+                <Message>Il tuo carrello è vuoto</Message>
               ) : (
                 <ListGroup variant="flush">
                   {cart.cartItems.map((item, index) => (
@@ -105,7 +105,7 @@ const PlaceOrderScreen = ({ history }) => {
                             {item.name}
                           </Link>
                         </Col>
-                        <Col>{item.size}</Col>
+                        {/* <Col>{item.size}</Col> */}
                         <Col md={4}>
                           {item.qty} x €{item.price} = €{item.qty * item.price}
                         </Col>

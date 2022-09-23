@@ -9,7 +9,6 @@ import "./index.css";
 // import 'swiper/css/bundle';
 import App from "./App";
 // import * as serviceWorker from "./serviceWorker";
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>

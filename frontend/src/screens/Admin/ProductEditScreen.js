@@ -20,8 +20,9 @@ const ProductEditScreen = ({ match, history }) => {
   const [image, setImage] = useState("");
   const [brand, setBrand] = useState("");
   const [category, setCategory] = useState("");
-  const [countInStockS, setCountInStockS] = useState(0);
-  const [countInStockM, setCountInStockM] = useState(0);
+  const [countInStock, setCountInStock] = useState(0);
+  // const [countInStockS, setCountInStockS] = useState(0);
+  // const [countInStockM, setCountInStockM] = useState(0);
   const [description, setDescription] = useState("");
 
   const [uploading, setUploading] = useState(false);
@@ -51,8 +52,9 @@ const ProductEditScreen = ({ match, history }) => {
         setImage(product.image);
         setBrand(product.brand);
         setCategory(product.category);
-        setCountInStockS(product.countInStockS);
-        setCountInStockM(product.countInStockM);
+        setCountInStock(product.countInStock);
+        // setCountInStockS(product.countInStockS);
+        // setCountInStockM(product.countInStockM);
         setDescription(product.description);
       }
     }
@@ -93,8 +95,9 @@ const ProductEditScreen = ({ match, history }) => {
         brand,
         category,
         description,
-        countInStockS,
-        countInStockM,
+        countInStock,
+        // countInStockS,
+        // countInStockM,
       })
     );
   };
@@ -172,7 +175,16 @@ const ProductEditScreen = ({ match, history }) => {
               ></Form.Control>
             </Form.Group>
 
-            <Form.Group controlId="countInStockS">
+            <Form.Group controlId="countInStock">
+              <Form.Label>Count In Stock</Form.Label>
+              <Form.Control
+                type="number"
+                placeholder="Enter countInStock"
+                value={countInStock}
+                onChange={(e) => setCountInStock(e.target.value)}
+              ></Form.Control>
+            </Form.Group>
+            {/* <Form.Group controlId="countInStockS">
               <Form.Label>Count In Stock S</Form.Label>
               <Form.Control
                 type="number"
@@ -189,7 +201,7 @@ const ProductEditScreen = ({ match, history }) => {
                 value={countInStockM}
                 onChange={(e) => setCountInStockM(e.target.value)}
               ></Form.Control>
-            </Form.Group>
+            </Form.Group> */}
 
             <Form.Group controlId="category">
               <Form.Label>Category</Form.Label>

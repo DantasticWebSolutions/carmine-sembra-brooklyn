@@ -58,7 +58,10 @@ function NavbarContainer() {
       >
         <div className="navbar-contenitor">
           <Container fluid className="mb-1">
-            <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
+            <Nav.Link href="/shop" className="icon-navbar">
+              <BsShop size="1.5em" />
+              <span>Shop</span>
+            </Nav.Link>
             <Navbar.Brand href="/">
               {/* <span className="logo-text" style={{ alignText: "center" }}>
                 Carmine
@@ -68,6 +71,7 @@ function NavbarContainer() {
               <img src={logo} alt="logo" className="logo-img" />
             </Navbar.Brand>
 
+            {/*
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-${expand}`}
               aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
@@ -75,25 +79,21 @@ function NavbarContainer() {
             >
               <Offcanvas.Header closeButton placement="end">
                 <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
-                  {/* <img src={logo} alt="logo" className="logo-img" /> */}
                   CARMINE SEMBRA BROOKLYN
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body bg="black" variant="dark">
                 <Nav className="justify-content-end flex-grow-1 pe-3">
-                  {/* <Route
-                render={({ history }) => <SearchBox history={history} />}
-              /> */}
                   <Route
                     render={({ history }) => <SearchBox history={history} />}
                   />
                   <Nav.Link href="/shop" className="icon-navbar">
                     <BsShop size="1.5em" />
                     <span>Shop</span>
-                  </Nav.Link>
+                  </Nav.Link> */}
 
-                  {/* END CART MODAL */}
-                  {/* {userInfo ? (
+            {/* END CART MODAL */}
+            {/* {userInfo ? (
                 <NavDropdown
                   title={userInfo.name}
                   id="username"
@@ -118,7 +118,7 @@ function NavbarContainer() {
                   <i className="fas fa-user"></i> Sign In
                 </Nav.Link>
               )} */}
-                  {/* {userInfo && userInfo.isAdmin && (
+            {/* {userInfo && userInfo.isAdmin && (
                 <div className="d-flex flex-row justify-content-start">
                   <MdOutlineAdminPanelSettings className="mr-2" size="1.5em" />{" "}
                   <NavDropdown title="Admin" id="adminmenu">
@@ -146,7 +146,7 @@ function NavbarContainer() {
                   </NavDropdown>
                 </div>
               )} */}
-                  {/* <NavDropdown
+            {/* <NavDropdown
                     title="Dropdown"
                     id={`offcanvasNavbarDropdown-expand-${expand}`}
                   >
@@ -159,9 +159,9 @@ function NavbarContainer() {
                       Something else here
                     </NavDropdown.Item>
                   </NavDropdown> */}
-                </Nav>
+            {/* </Nav>
               </Offcanvas.Body>
-            </Navbar.Offcanvas>
+            </Navbar.Offcanvas> */}
 
             <div className="d-flex flex-row justify-content-center align-items-center">
               {userInfo ? (
@@ -206,8 +206,19 @@ function NavbarContainer() {
               )}
               {userInfo && userInfo.isAdmin && (
                 <div className="d-flex flex-row justify-content-start">
-                  <MdOutlineAdminPanelSettings className="mr-2" size="1.5em" />{" "}
-                  <NavDropdown title="Admin" id="adminmenu">
+                  {/* <MdOutlineAdminPanelSettings className="mr-2" size="1.5em" />{" "} */}
+                  <NavDropdown
+                    className="mr-2 px-2 py-1"
+                    style={{
+                      borderRadius: "50%",
+                      backgroundColor: "rgb(233, 209, 255)",
+                      color: "black",
+                      textAlign: "center !important",
+                      // display: "inline",
+                    }}
+                    title={userInfo.name.charAt(0)}
+                    id="adminmenu"
+                  >
                     <NavDropdown.Item href="/admin/orderlist">
                       <RiMoneyEuroCircleLine className="mr-2" size="1.5em" />
                       Ordini

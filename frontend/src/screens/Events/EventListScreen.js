@@ -71,6 +71,7 @@ const EventListScreen = ({ history, match }) => {
     dispatch(createEvent());
   };
 
+  console.log(events);
   return (
     <main>
       <Row className="align-items-center">

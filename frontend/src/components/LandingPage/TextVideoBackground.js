@@ -7,7 +7,7 @@ import Break from "../Break";
 
 const TextVideoBackground = () => {
   return (
-    <div style={{ width: "100vw", height: "100vh" }}>
+    <div style={{ width: "100vw" }}>
       <div className="video-container">
         <video
           autoPlay={true}
@@ -23,7 +23,9 @@ const TextVideoBackground = () => {
           <source src={background} type="video/mp4" />
         </video>
         <div className="text-box">
-          <span className="noselect">CARMINE SEMBRA BROOKLYN</span>
+          <span className="noselect carmine">CARMINE</span>
+          <span className="noselect sembra">SEMBRA</span>
+          <span className="noselect brooklyn">BROOKLYN</span>
         </div>
       </div>
       <Canvas
@@ -33,6 +35,7 @@ const TextVideoBackground = () => {
           marginTop: "25vh",
           position: "absolute",
           top: "10px",
+          // height: "unset !important",
         }}
         camera={{ position: [25, 55, 100], fov: 3 }}
       >

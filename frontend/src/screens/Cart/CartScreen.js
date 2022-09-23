@@ -12,6 +12,7 @@ import {
 } from "react-bootstrap";
 import Message from "../../components/Message";
 import { addToCart, removeFromCart } from "../../actions/cartActions";
+import { AiOutlineDelete } from "react-icons/ai";
 
 const CartScreen = ({ match, location, history }) => {
   const productId = match.params.id;
@@ -37,6 +38,8 @@ const CartScreen = ({ match, location, history }) => {
     history.push("/login?redirect=shipping");
   };
 
+  console.log(cartItems);
+
   return (
     <main>
       <Row>
@@ -58,36 +61,52 @@ const CartScreen = ({ match, location, history }) => {
                     <Col md={2}>
                       <Image src={item.image} alt={item.name} fluid rounded />
                     </Col>
-                    <Col md={3}>
-                      <Link to={`/product/${item.product}`}>{item.name}</Link>
-                    </Col>
-                    <Col md={2}>${item.price}</Col>
-                    <Col md={2}>
-                      <Form.Control
-                        as="select"
-                        value={item.qty}
-                        onChange={(e) =>
-                          dispatch(
-                            addToCart(item.product, Number(e.target.value))
-                          )
-                        }
+                    <Col md={3} className="my-2">
+                      <div
+                        style={{
+                          textAlign: "center",
+                          padding: "0.5rem 0 !important",
+                        }}
                       >
-                        {[...Array(item.countInStock).keys()].map((x) => (
-                          <option key={x + 1} value={x + 1}>
-                            {x + 1}
-                          </option>
-                        ))}
-                      </Form.Control>
+                        <Link to={`/product/${item.product}`}>
+                          <h6>{item.name} </h6>
+                        </Link>
+                      </div>
                     </Col>
-                    <Col md={2}>
-                      <Button
-                        type="button"
-                        variant="light"
-                        onClick={() => removeFromCartHandler(item.product)}
-                      >
-                        <i className="fas fa-trash"></i>
-                      </Button>
+                    <Col md={2} className="mb-2">
+                      <h6 style={{ textAlign: "center", fontSize: "1.5rem" }}>
+                        €{item.price}
+                      </h6>
                     </Col>
+                    <div className="d-flex flex-row justify-content-center align-align-items-center ">
+                      <Col md="8" className="m-1 p-0">
+                        <Form.Control
+                          as="select"
+                          value={item.qty}
+                          onChange={(e) =>
+                            dispatch(
+                              addToCart(item.product, Number(e.target.value))
+                            )
+                          }
+                        >
+                          {[...Array(item.countInStock).keys()].map((x) => (
+                            <option key={x + 1} value={x + 1}>
+                              {x + 1}
+                            </option>
+                          ))}
+                        </Form.Control>
+                      </Col>
+                      <Col md="4" className="m-1 p-0">
+                        <Button
+                          type="button"
+                          variant="outline-danger"
+                          onClick={() => removeFromCartHandler(item.product)}
+                          style={{ width: "100%", minHeight: "48px" }}
+                        >
+                          <AiOutlineDelete style={{ fontSize: "1.5rem" }} />
+                        </Button>
+                      </Col>
+                    </div>
                   </Row>
                 </ListGroup.Item>
               ))}
@@ -102,7 +121,7 @@ const CartScreen = ({ match, location, history }) => {
                   Subtotal ({cartItems.reduce((acc, item) => acc + item.qty, 0)}
                   ) items
                 </h2>
-                $
+                €
                 {cartItems
                   .reduce((acc, item) => acc + item.qty * item.price, 0)
                   .toFixed(2)}

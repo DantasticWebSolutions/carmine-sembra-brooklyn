@@ -13,6 +13,9 @@ import { Button, Nav } from "react-bootstrap";
 // } from "../actions/productActions";
 // import { PRODUCT_CREATE_RESET } from "../constants/productConstants";
 
+import { BsCheckCircleFill } from "react-icons/bs";
+import { AiFillCloseCircle } from "react-icons/ai";
+
 const Card = ({ product, deleteHandler }) => {
   return (
     <div className="card m-2 cardDisplay" key={product._id}>
@@ -25,10 +28,10 @@ const Card = ({ product, deleteHandler }) => {
             <img
               alt={product.name ? product.name : product.title}
               className="card-img"
-              style={{
-                maxWidth: "50%",
-                maxHeight: "50%",
-              }}
+              // style={{
+              //   maxWidth: "50%",
+              //   maxHeight: "50%",
+              // }}
               src={product.image}
             />
           </Link>
@@ -58,15 +61,15 @@ const Card = ({ product, deleteHandler }) => {
             <div>
               <span>Is Admin: </span>
               {product.isAdmin ? (
-                <i className="fas fa-check" style={{ color: "green" }}></i>
+                <BsCheckCircleFill style={{ color: "green" }} />
               ) : (
-                <i className="fas fa-times" style={{ color: "red" }}></i>
+                <AiFillCloseCircle style={{ color: "red" }} />
               )}
             </div>
           </div>
         )}
         <div className="d-flex flex-row justify-content-center my-2">
-          {product.price ? (
+          {product.description ? (
             <Nav.Link
               href={`/admin/product/${product._id}/edit`}
               className="m-1 mr-2"
@@ -96,7 +99,7 @@ const Card = ({ product, deleteHandler }) => {
                 <i className="fas fa-edit ml-2"></i>
               </Button>
             </Nav.Link>
-          ) : product.day ? (
+          ) : product.image2 ? (
             <Nav.Link
               className="m-1 mr-2"
               href={`/admin/event/${product._id}/edit`}

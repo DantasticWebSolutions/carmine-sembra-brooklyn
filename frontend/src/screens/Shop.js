@@ -61,7 +61,7 @@ const Shop = ({ match }) => {
         <main style={{ marginTop: "1rem" }}>
           <Row>
             <Col md={6}>
-              <h1 className="text-center">Latest Products</h1>
+              <h1 className="text-center">I nostri Prodotti</h1>
             </Col>
           </Row>
           <Row>
@@ -91,7 +91,7 @@ const Shop = ({ match }) => {
             page={page}
             keyword={keyword ? keyword : ""}
           />
-          <Features />
+          {/* <Features /> */}
         </main>
       )}
     </>

@@ -77,6 +77,8 @@ const ProductListScreen = ({ history, match }) => {
         <Col>
           <h1>Products</h1>
         </Col>
+      </Row>
+      <Row>
         <Col className="text-right">
           <Button
             className="my-3"

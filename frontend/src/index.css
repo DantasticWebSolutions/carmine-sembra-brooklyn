@@ -6,7 +6,7 @@
   --primary: #6239d3;
   --secodary: #db5b7f;
   --third: #d11d14;
-
+  --violet: "rgb(233, 209, 255)";
   --fourth: #373e51;
   --fifth: #fbed50;
   /* --text: #b9b9b9; */
@@ -15,6 +15,7 @@
   --swiper-pagination-bullet-inactive-color: #b6b6b6;
   --swiper-navigation-color: #000;
   --borderColor: #000;
+  --bs-dropdown-link-active-bg: " rgb(233, 209, 255)" !important;
 }
 
 html,
@@ -270,7 +271,7 @@ h2 {
   justify-content: center;
   align-items: center;
   padding: 1.5rem;
-  margin-top: 50px;
+  /* margin-top: 50px; */
 }
 
 .events-image-container {
@@ -904,7 +905,7 @@ h2 {
   margin: 10px;
 }
 
-.colored-text {
+/* .colored-text {
   font-family: "Euclid Circular A";
   font-style: normal;
   font-weight: 600;
@@ -922,7 +923,7 @@ h2 {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-fill-color: transparent;
-}
+} */
 
 /* SOCIAL */
 
@@ -958,6 +959,7 @@ h2 {
   /* margin-bottom: 55px; */
   background-color: #000;
   color: #b6b6b6;
+  padding: 5px;
 }
 
 .footer-sector {
@@ -1364,12 +1366,17 @@ div::after {
   width: calc(100% + 9px);
   height: calc(100% + 9px);
 } */
-
+/* 
+.sliderProdotti .card-img,
+.sliderProdotti .card-img-top {
+  max-width: 50% !important;
+  max-height: 50% !important;
+} */
 .card-img,
 .card-img-top {
   height: 100% !important;
   object-fit: cover !important;
-  margin-bottom: -90px;
+  /* margin-bottom: -90px; */
   z-index: 1;
 }
 .card-img {
@@ -1378,21 +1385,22 @@ div::after {
 
 .video-container {
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 144px);
   position: relative;
 }
 .video-container video {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
 .text-box {
   position: absolute;
-  top: 0px;
+  top: 20vh;
   left: 0;
   background: #000;
-  height: 100%;
+  /* height: calc(100%-120px); */
+
   width: 100%;
   color: #fff;
   display: flex;
@@ -1403,15 +1411,31 @@ div::after {
   font-weight: 900;
   mix-blend-mode: multiply !important;
   text-align: center;
+  padding: 0em;
 }
 
 .text-box span {
-  font-size: 6.2rem;
-  border-radius: 2rem;
-  padding: 0.4em;
+  /* font-size: 6.2rem; */
+  /* padding: 0.4em; */
+  margin: 0;
+  padding: 0;
+  /* font-family: "Yanone Kaffeesatz", sans-serif; */
+  font-family: "Oswald", sans-serif;
 }
 
-@media screen and (max-width: 540px) {
+.text-box .carmine {
+  font-size: 4.2rem;
+  margin-bottom: -2rem;
+}
+.text-box .sembra {
+  font-size: 3.2rem;
+  margin-bottom: -2.5rem;
+}
+.text-box .brooklyn {
+  font-size: 5.2rem;
+}
+
+/* +@media screen and (max-width: 540px) {
   .text-box span {
     font-size: 4.2rem;
     border-radius: 2rem;
@@ -1434,7 +1458,7 @@ div::after {
   .text-box span {
     padding: 3em 1em;
   }
-}
+} */
 
 @media screen and (max-width: 415px) {
   .logo-text {

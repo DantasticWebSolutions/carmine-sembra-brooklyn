@@ -50,7 +50,7 @@ const ProductsSwiper = ({ item, loading, error, filterPrice, stockFilter }) => {
               .map((product) => {
                 return (
                   <SwiperSlide
-                    className="swiperSlide"
+                    className="swiperSlide sliderProdotti"
                     key={product._id}
                     style={{ paddingBottom: "20px" }}
                   >

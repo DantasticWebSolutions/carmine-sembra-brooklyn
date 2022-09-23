@@ -22,7 +22,7 @@ import { PRODUCT_CREATE_REVIEW_RESET } from "../../constants/productConstants";
 
 const ProductScreen = ({ history, match }) => {
   const [qty, setQty] = useState(1);
-  const [size, setSize] = useState("S");
+  // const [size, setSize] = useState("S");
   // const [rating, setRating] = useState(0);
   // const [comment, setComment] = useState("");
 
@@ -68,7 +68,7 @@ const ProductScreen = ({ history, match }) => {
 
   return (
     <main>
-      <Link className="btn btn-light my-3" to="/">
+      <Link style={{ alignSelf: "left" }} className="btn btn-light my-3" to="/">
         Go Back
       </Link>
       {loading ? (
@@ -111,7 +111,7 @@ const ProductScreen = ({ history, match }) => {
                     </Row>
                   </ListGroup.Item>
 
-                  <ListGroup.Item>
+                  {/* <ListGroup.Item>
                     <Row>
                       <Col>Stato {size}:</Col>
                       {size === "S" ? (
@@ -128,7 +128,7 @@ const ProductScreen = ({ history, match }) => {
                         </Col>
                       )}
                     </Row>
-                  </ListGroup.Item>
+                  </ListGroup.Item> */}
 
                   <ListGroup.Item>
                     {/* Insert 1 value in array for each value in count stock */}
@@ -183,7 +183,7 @@ const ProductScreen = ({ history, match }) => {
                           value={qty}
                           onChange={(e) => setQty(e.target.value)}
                         >
-                          {[...Array(product.countInStockM).keys()].map((x) => (
+                          {[...Array(product.countInStock).keys()].map((x) => (
                             <option key={x + 1} value={x + 1}>
                               {x + 1}
                             </option>
