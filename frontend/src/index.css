@@ -1399,11 +1399,7 @@ div::after {
 
 .text-box {
   position: absolute;
-  top: 20vh;
   left: 0;
-  background: #000;
-  /* height: calc(100%-120px); */
-
   width: 100%;
   color: #fff;
   display: flex;
@@ -1415,6 +1411,9 @@ div::after {
   mix-blend-mode: multiply !important;
   text-align: center;
   padding: 0em;
+  min-height: calc(100vh - 144px);
+  background: rgba(0, 0, 0, 0.6);
+  top: 0px;
 }
 
 .text-box span {
@@ -1670,3 +1669,7 @@ div::after {
   margin-bottom: 16px; 
 }
 */
+
+.swiper-pagination {
+  position: relative !important;
+}

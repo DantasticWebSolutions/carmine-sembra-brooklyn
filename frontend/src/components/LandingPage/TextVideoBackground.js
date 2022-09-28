@@ -9,16 +9,7 @@ const TextVideoBackground = () => {
   return (
     <div style={{ width: "100vw" }}>
       <div className="video-container">
-        <video
-          autoPlay={true}
-          loop={true}
-          controls={false}
-          playsInline
-          muted
-          // autoPlay="autoplay"
-          // loop
-          // muted
-        >
+        <video autoPlay={true} loop={true} controls={false} playsInline muted>
           {" "}
           <source src={background} type="video/mp4" />
         </video>
@@ -28,7 +19,7 @@ const TextVideoBackground = () => {
           <span className="noselect brooklyn">BROOKLYN</span>
         </div>
       </div>
-      <Canvas
+      {/* <Canvas
         flat
         linear
         style={{
@@ -39,13 +30,13 @@ const TextVideoBackground = () => {
         }}
         camera={{ position: [25, 55, 100], fov: 3 }}
       >
-        {/* <OrbitControls /> */}
+        {/* <OrbitControls /> 
         <ambientLight intensity={1} />
         <directionalLight intensity={1} />
         <Suspense fallback={null}>
           <Break />
         </Suspense>
-      </Canvas>
+      </Canvas> */}
     </div>
   );
 };
