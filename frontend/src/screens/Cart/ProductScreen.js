@@ -168,7 +168,7 @@ const ProductScreen = ({ history, match }) => {
                     )} */}
 
                     <Row>
-                      <Col>Quantità</Col>
+                      <Col className="d-flex align-items-center">Quantità</Col>
                       <Col>
                         <Form.Control
                           as="select"

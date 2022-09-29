@@ -1316,11 +1316,11 @@ h2 {
   margin: 0 !important;
 }
 
-@media (min-width: 991px) {
+/* @media (min-width: 991px) {
   .search-navbar-desktop {
     display: none !important;
   }
-}
+} */
 .icon-navbar {
   /* margin-left: 1rem; */
   display: flex !important;
@@ -1412,9 +1412,9 @@ div::after {
   mix-blend-mode: multiply !important;
   text-align: center;
   padding: 0em;
-  min-height: calc(100vh - 144px);
+  min-height: calc(100vh - 143px);
   background: rgba(0, 0, 0, 0.6);
-  top: 0px;
+  top: -1px;
 }
 
 .text-box span {
