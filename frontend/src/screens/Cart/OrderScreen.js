@@ -116,7 +116,12 @@ const OrderScreen = ({ match, history }) => {
               </p>
               {order.isDelivered ? (
                 <Message variant="success">
-                  Spedito il {order.deliveredAt}
+                  {/* 2022-09-23T02:28:15.961Z */}
+                  Spedito il {order.deliveredAt.slice(8, 10)}/
+                  {order.deliveredAt.slice(5, 7)}/
+                  {order.deliveredAt.slice(0, 4)} alle ore{" "}
+                  {order.deliveredAt.slice(11, 13)}:
+                  {order.deliveredAt.slice(14, 16)}
                 </Message>
               ) : (
                 <Message variant="danger">Non spedito</Message>
@@ -130,7 +135,11 @@ const OrderScreen = ({ match, history }) => {
                 {order.paymentMethod}
               </p>
               {order.isPaid ? (
-                <Message variant="success">Pagato il {order.paidAt}</Message>
+                <Message variant="success">
+                  Pagato il {order.paidAt.slice(8, 10)}/
+                  {order.paidAt.slice(5, 7)}/{order.paidAt.slice(0, 4)} alle ore{" "}
+                  {order.paidAt.slice(11, 13)}:{order.paidAt.slice(14, 16)}
+                </Message>
               ) : (
                 <Message variant="danger">Non pagato</Message>
               )}

@@ -215,9 +215,6 @@ const ProductScreen = ({ history, match }) => {
                     </Button>
                   </ListGroup.Item>
                 </ListGroup>
-                RIMBORSO: Returns must be postmarked: within 15 days of delivery
-                for a refund and within 30 days for a Store Credit or Exchange.
-                Read our full returns policy.
               </>
             </Col>
           </Row>
@@ -288,7 +285,7 @@ const ProductScreen = ({ history, match }) => {
               </ListGroup>
             </Col>
           </Row> */}
-          CUSTOMERS ALSO VIEWed
+          {/* CUSTOMERS ALSO VIEWed */}
         </>
       )}
     </main>

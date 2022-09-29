@@ -27,10 +27,10 @@ const ProductsSwiper = ({ item, loading, error, filterPrice, stockFilter }) => {
             pagination={{ clickable: true }}
             spaceBetween={30}
             loop={false}
-            autoplay={{
-              delay: 5000,
-              disableOnInteraction: false,
-            }}
+            // autoplay={{
+            //   delay: 5000,
+            //   disableOnInteraction: false,
+            // }}
             slidesPerView={1}
             breakpoints={{
               // when window width is >= 768px

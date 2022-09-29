@@ -200,6 +200,7 @@ function NavbarContainer() {
                     borderRadius: "50%",
                     backgroundColor: "rgb(233, 209, 255)",
                     color: "#000 !important",
+                    padding: "3px !important",
                   }}
                 >
                   <FiUser size="1.5em" />

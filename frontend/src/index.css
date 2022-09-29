@@ -16,6 +16,7 @@
   --swiper-navigation-color: #000;
   --borderColor: #000;
   --bs-dropdown-link-active-bg: " rgb(233, 209, 255)" !important;
+  --bs-btn-border-radius: "0.375rem";
 }
 
 html,
@@ -1672,4 +1673,13 @@ div::after {
 
 .swiper-pagination {
   position: relative !important;
+}
+
+.btn {
+  border-radius: var(--bs-btn-border-radius) !important;
+  padding: 0.55rem 1.5rem !important;
+}
+
+.form-control {
+  border-radius: 0.375rem !important;
 }
