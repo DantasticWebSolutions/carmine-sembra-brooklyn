@@ -1,7 +1,7 @@
 import React from "react";
 // IMGs
-import LogoBrooklyn from "../../asset/logoB.png";
-import tshirt from "../../asset/tshirt.png";
+import LogoBrooklyn from "../../asset/logoB.jpg";
+import tshirt from "../../asset/tshirt.jpg";
 // React Icons
 import { BsWhatsapp } from "react-icons/bs";
 import { AiOutlineShoppingCart } from "react-icons/ai";
