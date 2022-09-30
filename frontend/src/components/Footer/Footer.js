@@ -3,7 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { BsTelephone, BsPinMap, BsWhatsapp } from "react-icons/bs";
 import { HiOutlineMail } from "react-icons/hi";
-import { FaFacebookF } from "react-icons/fa";
+// import { FaFacebookF } from "react-icons/fa";
 import { AiOutlineInstagram } from "react-icons/ai";
 import Contact from "./Contact.js";
 import logo from "../../asset/logo/logo.png";
