@@ -26,65 +26,77 @@ const Footer = () => {
               <div className="footer-links">
                 <div className="footer-sector">
                   <h4 className="footer-sector-title">CONTATTI</h4>
-                  <Link to="/privacy-policy">
+                  <a href="tel:+393669905410">
                     <BsTelephone className="mr-1" size="1.5em" />
-                    <span className="mx-1">3348464318</span>
-                  </Link>
-                  <Link to="/privacy-policy">
+                    <span className="mx-1">Chiama</span>
+                  </a>
+                  <a
+                    href="https://wa.link/63ph6e"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <BsWhatsapp className="mr-1" size="1.5em" />
                     <span className="mx-1">WhatsApp</span>
-                  </Link>
+                  </a>
 
-                  <Link to="/privacy-policy">
+                  <a href="mailto:carminesembrabrooklyn@gmail.com">
                     <HiOutlineMail className="mr-1" size="1.5em" />
                     <span className="mx-1">Email</span>
-                  </Link>
-                  <span>
-                    <BsPinMap className="mr-1" size="1.5em" />
-                    <span className="mx-1">Via Milano 12</span>
-                  </span>
+                  </a>
                 </div>
                 <div className="footer-sector">
                   <h4 className="footer-sector-title">Legale</h4>
-                  <Link to="/privacy-policy">
-                    <u className="mx-1">Condizioni Generali</u>
-                  </Link>
+
                   <Link to="/privacy-policy">
                     <u className="mx-1">Privacy Policy</u>
                   </Link>
 
-                  <Link to="/privacy-policy">
+                  <Link to="/terms-conditions">
                     <u className="mx-1">Termini di Servizio</u>
                   </Link>
+                  <span>
+                    <BsPinMap className="mr-1" size="1.5em" />
+                    <span className="mx-1">
+                      <span>Via Antonio Allegri 53</span>
+                    </span>
+                  </span>
                 </div>
               </div>
             </div>
             <div className="social-icons">
-              <FaFacebookF
+              {/* <FaFacebookF
                 size="1em"
                 style={{
                   backgroundColor: "rgb(233, 209, 255)",
                   color: "#202020",
                   borderRadius: "50px",
                 }}
-              />
-              <AiOutlineInstagram
-                size="1.7em"
-                style={{
-                  backgroundColor: "rgb(233, 209, 255)",
-                  color: "#202020",
-                  borderRadius: "50px",
-                }}
-              />
-              <BsWhatsapp
-                size="1em"
-                style={{
-                  backgroundColor: "rgb(233, 209, 255)",
+              /> */}
+              <a href="https://www.instagram.com/carmine.brklyn/">
+                <AiOutlineInstagram
+                  size="1.7em"
+                  style={{
+                    backgroundColor: "rgb(233, 209, 255)",
+                    color: "#202020",
+                    borderRadius: "50px",
+                  }}
+                />
+              </a>
+              <a
+                href="https://wa.link/63ph6e"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <BsWhatsapp
+                  size="1em"
+                  style={{
+                    backgroundColor: "rgb(233, 209, 255)",
 
-                  color: "#202020",
-                  borderRadius: "50px",
-                }}
-              />
+                    color: "#202020",
+                    borderRadius: "50px",
+                  }}
+                />
+              </a>
             </div>
             <div>
               <div className="payment-gateways">

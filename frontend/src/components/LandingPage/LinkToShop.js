@@ -6,6 +6,7 @@ import tshirt from "../../asset/tshirt.jpg";
 import { BsWhatsapp } from "react-icons/bs";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const LinkToShop = () => {
   return (
@@ -37,17 +38,25 @@ const LinkToShop = () => {
           elit.
         </div>
         <div className="button-container">
-          <Button variant="dark">
-            <AiOutlineShoppingCart className="button-icon" />
-            &nbsp;
-            <span>Scopri</span>
-          </Button>
+          <Link to="/shop">
+            <Button variant="dark">
+              <AiOutlineShoppingCart className="button-icon" />
+              &nbsp;
+              <span>Scopri</span>
+            </Button>
+          </Link>
 
-          <Button variant="outline-dark">
-            <BsWhatsapp className="button-icon" />
-            &nbsp;
-            <span>Info</span>
-          </Button>
+          <a
+            href="https://wa.link/63ph6e"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button variant="outline-dark">
+              <BsWhatsapp className="button-icon" />
+              &nbsp;
+              <span>Info</span>
+            </Button>
+          </a>
         </div>
       </div>
     </div>
