@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Footer from "./components/Footer/Footer";
 import Shop from "./screens/Shop";
 import ProductScreen from "./screens/Cart/ProductScreen";
@@ -30,7 +30,6 @@ import ScrollToTop from "./utilities/ScrollToTop";
 const App = () => {
   return (
     <Router>
-      {/* <Switch> */}
       <NavbarContainer />
       <ScrollToTop>
         <Route path="/order/:id" component={OrderScreen} />
@@ -41,19 +40,12 @@ const App = () => {
         <Route path="/register" component={RegisterScreen} />
         <Route path="/profile" component={ProfileScreen} />
         <Route path="/orders" component={CustomersOrdersScreen} />
-        {/* <Route path="/orders" component={OrdersScreen} /> */}
         <Route path="/product/:id" component={ProductScreen} />
         <Route path="/cart/:id?" component={CartScreen} />
         {/* USER */}
         <Route path="/admin/userlist" component={AdminUserListScreen} />
         <Route path="/admin/user/:id/edit" component={UserEditScreen} />
         {/* PRODUCT */}
-        {/* <Route path="/admin/productlist" component={ProductListScreen} exact />
-      <Route
-        path="/admin/productlist/:pageNumber"
-        component={ProductListScreen}
-        exact
-      /> */}
         <Route
           path="/admin/productlist"
           component={AdminProductListScreen}
@@ -95,10 +87,8 @@ const App = () => {
         />
         <Route path="/shop" component={Shop} />
         <Route path="/" component={LandingPage} exact />
-        {/* </Container> */}
       </ScrollToTop>
       <Footer />
-      {/* </Switch> */}
     </Router>
   );
 };

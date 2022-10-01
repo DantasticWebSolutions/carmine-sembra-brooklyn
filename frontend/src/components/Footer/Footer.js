@@ -139,7 +139,14 @@ const Footer = () => {
               </div>
             </div>
             <hr />
-            &copy; 2022 Carmine Sembra Brooklyn. Tutti i diritti riservati
+            Carmine Sembra Brooklyn &copy; {new Date().getFullYear()}
+            <br />
+            Tutti i diritti riservati
+            <hr />
+            Powered by{" "}
+            <a href="https://dantastic.netlify.app/" target="_blank">
+              Dantastic Web Solutions
+            </a>
           </Col>
         </Row>
       </Container>

@@ -1,15 +1,10 @@
 :root {
-  /* FaceBook Color */
-  /* --primary: #3b5998; */
-  /* Dantastic Color */
-  /* --primary: #368dcc; */
   --primary: #6239d3;
   --secodary: #db5b7f;
   --third: #d11d14;
   --violet: "rgb(233, 209, 255)";
   --fourth: #373e51;
   --fifth: #fbed50;
-  /* --text: #b9b9b9; */
   --text: #7a7a7a;
   --swiper-pagination-color: #000;
   --swiper-pagination-bullet-inactive-color: #b6b6b6;
@@ -30,7 +25,6 @@ body {
 }
 
 body {
-  /* background: #eee; */
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   color: #000;
@@ -45,10 +39,7 @@ body {
 
 main {
   min-height: 60vh;
-  /* overflow: hidden;
-  padding: 1.5rem; */
   margin: 5vh 5vw;
-  /* margin-top: calc(5vh + 65px); */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -142,30 +133,6 @@ h2 {
   width: 100%;
   height: 100%;
 }
-
-/* 
-.swiper-slide {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: 22px;
-  font-weight: bold;
-  color: #fff;
-}
-
-.swiper-background {
-  width: 100%;
-  min-height: 80vh;
-  background: url("./asset/background.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-} */
 
 .info-container {
   display: flex;
@@ -1480,11 +1447,11 @@ div::after {
   /* margin-top: 56px; */
 }
 
-@media screen and (min-width: 1200px) {
+/* @media screen and (min-width: 1200px) {
   .swiper-shop {
     margin-top: 64px;
   }
-}
+} */
 
 .swiper-slide-background {
   height: 100% !important;
@@ -1516,18 +1483,27 @@ div::after {
 }
 
 .filter-sections {
-  border: 2px solid black;
-}
-.filter-section {
-  width: 100%;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.filter-section {
+  /* width: 100%; */
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 .filter-sections label {
-  width: 100%;
-  text-align: center;
+  /* width: 100%; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  text-align: left;
 }
 .filter-section span {
   min-width: 50px;
@@ -1686,4 +1662,15 @@ div::after {
 
 .privacy-policy a {
   color: blue !important;
+}
+
+/* COLLAPSE  */
+.collapsible .content {
+  padding: 6px;
+  /* background-color: #eeeeee; */
+}
+.collapsible .header {
+  /* background-color: #dddddd; */
+  padding: 6px;
+  cursor: pointer;
 }

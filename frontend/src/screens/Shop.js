@@ -8,8 +8,11 @@ import ProductSwiper from "../components/Shop/ProductSwiper";
 import Meta from "../components/Meta";
 import { listProducts } from "../actions/productActions";
 import ProductContainer from "../components/Shop/ProductsContainer";
-import ShowColumnOrSingle from "../components/ShowColumnOrSingle";
+// import ShowColumnOrSingle from "../components/ShowColumnOrSingle";
 import Filter from "../components/Filter";
+import useCollapse from "react-collapsed";
+import { FiFilter } from "react-icons/fi";
+import { GrClose } from "react-icons/gr";
 
 const Shop = ({ match }) => {
   // GET DATA
@@ -46,6 +49,9 @@ const Shop = ({ match }) => {
   const [filterPrice, setFilterPrice] = useState(100);
   const [stockFilter, setStockFilter] = useState(-1);
 
+  // COLLAPSE
+  const { getCollapseProps, getToggleProps, isExpanded } = useCollapse();
+
   return (
     <>
       <Meta />
@@ -58,23 +64,43 @@ const Shop = ({ match }) => {
       ) : (
         <main style={{ marginTop: "1rem" }}>
           <Row>
-            <Col md={6}>
+            <Col md={12}>
               <h1 className="text-center">I nostri Prodotti</h1>
             </Col>
           </Row>
           <Row>
-            <Filter
-              setStockFilter={setStockFilter}
-              stockFilter={stockFilter}
-              setFilterPrice={setFilterPrice}
-              filterPrice={filterPrice}
-              products={products}
-              item={item}
-              filterItem={filterItem}
-              setItem={setItem}
-              menuItems={menuItems}
-            />
-            <ShowColumnOrSingle />
+            <div className="collapsible noselect">
+              <div className="header" {...getToggleProps()}>
+                {isExpanded ? (
+                  <div className="d-flex  align-items-center">
+                    <span>CHIUDI</span>
+                    <GrClose size="1.5em" className="ml-2" />
+                  </div>
+                ) : (
+                  <div className="d-flex align-items-center">
+                    <span>FILTRA</span>
+                    <FiFilter size="1.5em" className="ml-2" />
+                  </div>
+                )}
+              </div>
+              <div {...getCollapseProps()}>
+                <div className="content">
+                  <Filter
+                    setStockFilter={setStockFilter}
+                    stockFilter={stockFilter}
+                    setFilterPrice={setFilterPrice}
+                    filterPrice={filterPrice}
+                    products={products}
+                    item={item}
+                    filterItem={filterItem}
+                    setItem={setItem}
+                    menuItems={menuItems}
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* <ShowColumnOrSingle /> */}
 
             <ProductContainer
               item={item}

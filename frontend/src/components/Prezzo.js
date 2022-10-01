@@ -1,11 +1,11 @@
 import React from "react";
 const Prezzo = ({ filterPrice, setFilterPrice }) => {
   return (
-    <div className="filter-sections p-3 m-2">
-      <label className="">Prezzo</label>
-      <div className="filter-section">
+    <div className="filter-sections py-1 my-2">
+      <label style={{ margin: "0 2rem 0 0" }}>{`Prezzo: ${filterPrice}`}</label>
+      <div className="filter-section ">
         <input
-          className="w-75"
+          style={{ accentColor: "#000", width: "170px" }}
           type="range"
           min="0"
           max="180"
@@ -13,7 +13,6 @@ const Prezzo = ({ filterPrice, setFilterPrice }) => {
           onChange={(e) => setFilterPrice(e.target.value)}
           step="10"
         />
-        <span className="ml-2">{filterPrice}</span>
       </div>
     </div>
   );

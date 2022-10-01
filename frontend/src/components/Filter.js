@@ -31,10 +31,9 @@ const Filter = ({
           <Offcanvas.Title>Offcanvas</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body> */}
-      <div className="d-flex flex-row ">
-        <OutOfStock setStockFilter={setStockFilter} stockFilter={stockFilter} />
-
+      <div className="d-flex flex-column ">
         <Prezzo setFilterPrice={setFilterPrice} filterPrice={filterPrice} />
+        <OutOfStock setStockFilter={setStockFilter} stockFilter={stockFilter} />
         <Bottone
           product={products}
           item={item}

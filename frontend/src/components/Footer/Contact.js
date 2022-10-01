@@ -100,7 +100,7 @@ const Contact = () => {
               />
             </Form.Group>
             <Button type="submit" disabled={disable} variant="outline-success">
-              Submit
+              Invia
             </Button>
           </Form>
         </div>

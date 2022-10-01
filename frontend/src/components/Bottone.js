@@ -7,10 +7,18 @@ const Bottone = ({ filterItem, item, setItem, menuItems, product }) => {
   const [show, setShow] = useState(false);
   return (
     <>
-      <div className="d-flex justify-content-center">
+      <div className="d-flex justify-content-between my-1">
         <>
           {!show && (
-            <button onClick={() => setShow((prev) => !prev)}>Click</button>
+            <div className=" w-100 d-flex flex-row justify-content-between align-items-center">
+              <span>Fitra per Categoria</span>
+              <Button
+                variant="outline-dark"
+                onClick={() => setShow((prev) => !prev)}
+              >
+                Categorie
+              </Button>
+            </div>
           )}
           {/* {show && <div>This is your component</div>} */}
         </>
@@ -18,15 +26,30 @@ const Bottone = ({ filterItem, item, setItem, menuItems, product }) => {
           <div>
             {menuItems.map((Val, id) => {
               return (
-                <Button variant="dark" onClick={() => filterItem(Val)} key={id}>
+                <Button
+                  variant="outline-dark"
+                  onClick={() => filterItem(Val)}
+                  key={id}
+                  className="m-1"
+                >
                   {Val}
                 </Button>
               );
             })}
-            <Button variant="dark" onClick={() => setItem(product)}>
+            <Button
+              className="m-1"
+              variant="outline-success"
+              onClick={() => setItem(product)}
+            >
               Tutto
             </Button>
-            <button onClick={() => setShow((prev) => !prev)}>Click</button>
+            <Button
+              className="m-1"
+              variant="danger"
+              onClick={() => setShow((prev) => !prev)}
+            >
+              Chiudi
+            </Button>
           </div>
         )}
       </div>

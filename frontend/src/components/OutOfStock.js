@@ -9,8 +9,8 @@ const OutOfStock = ({ stockFilter, setStockFilter }) => {
     value === true ? setStockFilter(0) : setStockFilter(-1);
   };
   return (
-    <div>
-      {" "}
+    <div className="d-flex flex-row justify-content-between align-items-center">
+      <span>Disponibile</span>
       <Switch isOn={value} handleToggle={handleSwitchToggle} />
     </div>
   );

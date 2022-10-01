@@ -8,7 +8,6 @@ const TermsAndConditions = () => {
     >
       <header>
         <h1>Terms of use</h1>
-        {/* <h6>Last Updated October 01, 2022</h6> */}
       </header>
 
       <nav>
