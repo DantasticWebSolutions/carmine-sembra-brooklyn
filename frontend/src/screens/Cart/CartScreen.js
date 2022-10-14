@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -15,20 +15,43 @@ import { addToCart, removeFromCart } from "../../actions/cartActions";
 import { AiOutlineDelete } from "react-icons/ai";
 
 const CartScreen = ({ match, location, history }) => {
-  const productId = match.params.id;
+  // const productId = match.params.id;
+  // const qty = location.search ? String(location.search.split("=")[2]) : 1;
+  // const sizeWithQnt = location.search
+  //   ? String(location.search.split("=")[1])
+  //   : 0;
+  // const size = sizeWithQnt.slice(0, 1);
 
-  const qty = location.search ? Number(location.search.split("=")[1]) : 1;
+  // ?size=M?qty=3
 
   const dispatch = useDispatch();
 
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    // localStorage.getItem(
+    //   "cartItems",
+    //   JSON.stringify(getState().cart.cartItems)
+    // );
+
+    const items = JSON.parse(localStorage.getItem("cartItems"));
+    if (items) {
+      setItems(items);
+    }
+  }, []);
+  console.log(items);
+
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
+  const { qty } = cartItems;
+  const { size } = cartItems;
+  const { productId } = cartItems;
 
   useEffect(() => {
     if (productId) {
-      dispatch(addToCart(productId, qty));
+      dispatch(addToCart(productId, qty, size));
     }
-  }, [dispatch, productId, qty]);
+  }, [dispatch, productId, qty, size]);
 
   const removeFromCartHandler = (id) => {
     dispatch(removeFromCart(id));
@@ -39,12 +62,14 @@ const CartScreen = ({ match, location, history }) => {
   };
 
   console.log(cartItems);
+  console.log(qty);
+  console.log(size);
 
   return (
     <main>
       <Row>
         <Col md={8}>
-          <h1>Shopping Cart</h1>
+          <h1>Carrello</h1>
           {cartItems.length === 0 ? (
             <Message>
               Il tuo carrello è vuoto{" "}
@@ -85,7 +110,11 @@ const CartScreen = ({ match, location, history }) => {
                           value={item.qty}
                           onChange={(e) =>
                             dispatch(
-                              addToCart(item.product, Number(e.target.value))
+                              addToCart(
+                                item.product,
+                                Number(e.target.value),
+                                item.size
+                              )
                             )
                           }
                         >
@@ -96,6 +125,38 @@ const CartScreen = ({ match, location, history }) => {
                           ))}
                         </Form.Control>
                       </Col>
+                      <Col md="8" className="m-1 p-0">
+                        <Form.Control
+                          as="select"
+                          value={item.size}
+                          onChange={(e) =>
+                            dispatch(
+                              addToCart(
+                                item.product,
+                                item.qty,
+                                String(e.target.value)
+                              )
+                            )
+                          }
+                        >
+                          <option key="XS" value="XS">
+                            XS
+                          </option>
+                          <option key="S" value="S">
+                            S
+                          </option>
+                          <option key="M" value="M">
+                            M
+                          </option>
+                          <option key="L" value="L">
+                            L
+                          </option>
+                          <option key="XL" value="XL">
+                            XL
+                          </option>
+                        </Form.Control>
+                      </Col>
+
                       <Col md="4" className="m-1 p-0">
                         <Button
                           type="button"
@@ -118,8 +179,8 @@ const CartScreen = ({ match, location, history }) => {
             <ListGroup variant="flush">
               <ListGroup.Item>
                 <h2>
-                  Subtotal ({cartItems.reduce((acc, item) => acc + item.qty, 0)}
-                  ) items
+                  Totale ({cartItems.reduce((acc, item) => acc + item.qty, 0)})
+                  prodotti
                 </h2>
                 €
                 {cartItems
@@ -134,7 +195,7 @@ const CartScreen = ({ match, location, history }) => {
                   disabled={cartItems.length === 0}
                   onClick={checkoutHandler}
                 >
-                  Proceed To Checkout
+                  Procedi al Checkout
                 </Button>
               </ListGroup.Item>
             </ListGroup>

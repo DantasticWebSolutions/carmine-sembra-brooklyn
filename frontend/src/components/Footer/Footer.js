@@ -144,7 +144,11 @@ const Footer = () => {
             Tutti i diritti riservati
             <hr />
             Powered by{" "}
-            <a href="https://dantastic.netlify.app/" target="_blank">
+            <a
+              href="https://dantastic.netlify.app/"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               Dantastic Web Solutions
             </a>
           </Col>

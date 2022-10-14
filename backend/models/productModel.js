@@ -76,7 +76,8 @@ const productSchema = mongoose.Schema(
     // },
     size: {
       type: String,
-      required: false,
+      required: true,
+      default: "XS",
     },
   },
   {

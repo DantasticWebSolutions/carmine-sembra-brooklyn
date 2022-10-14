@@ -70,7 +70,7 @@ const createProduct = asyncHandler(async (req, res) => {
     // countInStockM: 0,
     numReviews: 0,
     description: "Sample description",
-    size: "M",
+    size: "XS",
   });
 
   const createdProduct = await product.save();

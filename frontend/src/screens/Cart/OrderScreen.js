@@ -162,9 +162,10 @@ const OrderScreen = ({ match, history }) => {
                             rounded
                           />
                         </Col>
+                        {console.log(item)}
                         <Col>
                           <Link to={`/product/${item.product}`}>
-                            {item.name}
+                            {item.name}&nbsp;{item.size}
                           </Link>
                         </Col>
                         <Col md={4}>
