@@ -12,50 +12,27 @@ import {
 } from "../../actions/productActions";
 import { PRODUCT_CREATE_REVIEW_RESET } from "../../constants/productConstants";
 import { addToCart } from "../../actions/cartActions";
+// Swiper
+import { Swiper, SwiperSlide } from "swiper/react";
+// import Swiper core and required modules
+import { Navigation, Pagination, A11y, Autoplay } from "swiper";
+// Import Swiper styles
+import "swiper/swiper.min.css";
+import ShopPreview from "../../components/LandingPage/ShopPreview";
 
 const ProductScreen = ({ history, match }) => {
   const [qty, setQty] = useState(1);
   const [size, setSize] = useState("S");
-  // const [rating, setRating] = useState(0);
-  // const [comment, setComment] = useState("");
 
   const dispatch = useDispatch();
 
-  // const [items, setItems] = useState([]);
-
-  // useEffect(() => {
-  //   // localStorage.getItem(
-  //   //   "cartItems",
-  //   //   JSON.stringify(getState().cart.cartItems)
-  //   // );
-
-  //   const items = JSON.parse(localStorage.getItem("cartItems"));
-  //   if (items) {
-  //     setItems(items);
-  //   }
-  // }, []);
-  // console.log(items);
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
 
   const productDetails = useSelector((state) => state.productDetails);
   const { loading, error, product } = productDetails;
 
-  // const userLogin = useSelector((state) => state.userLogin);
-  // const { userInfo } = userLogin;
-
-  // const productReviewCreate = useSelector((state) => state.productReviewCreate);
-  // const {
-  //   success: successProductReview,
-  //   loading: loadingProductReview,
-  //   error: errorProductReview,
-  // } = productReviewCreate;
-
   useEffect(() => {
-    // if (successProductReview) {
-    //   setRating(0);
-    //   setComment("");
-    // }
     if (!product._id || product._id !== match.params.id) {
       dispatch(listProductDetails(match.params.id));
       dispatch({ type: PRODUCT_CREATE_REVIEW_RESET });
@@ -63,7 +40,6 @@ const ProductScreen = ({ history, match }) => {
   }, [dispatch, match, product._id]);
 
   const addToCartHandler = () => {
-    // history.push(`/cart/${match.params.id}?size=${size}?qty=${qty}`);
     history.push(`/cart/${match.params.id}`);
   };
 
@@ -71,21 +47,23 @@ const ProductScreen = ({ history, match }) => {
     dispatch(addToCart(product._id, Number(qty), String(size)));
     console.log(product, Number(qty), String(size));
   }, [qty, size]);
-  // const submitHandler = (e) => {
-  //   e.preventDefault();
-  //   dispatch(
-  //     createProductReview(match.params.id, {
-  //       rating,
-  //       comment,
-  //     })
-  //   );
-  // };
+
+  const min = 1;
+  const max = product.countInStock;
+
+  const [checkedRadio, setCheckedRadio] = useState(false);
+  const [disable, setDisable] = useState(true);
+
+  useEffect(() => {
+    if (product.countInStock > 0 && checkedRadio === true) {
+      setDisable(false);
+    } else {
+      setDisable(true);
+    }
+  }, [checkedRadio, size]);
 
   return (
-    <main>
-      <Link style={{ alignSelf: "left" }} className="btn btn-light my-3" to="/">
-        Go Back
-      </Link>
+    <>
       {loading ? (
         <Loader />
       ) : error ? (
@@ -93,162 +71,251 @@ const ProductScreen = ({ history, match }) => {
       ) : (
         <>
           <Meta title={product.name} />
-          <Row>
-            <Col md={6}>
-              <Image src={product.image} alt={product.name} fluid />
-            </Col>
-            <Col md={3}>
-              <ListGroup variant="flush">
-                <ListGroup.Item>
-                  <h3>{product.name}</h3>
-                </ListGroup.Item>
-                {/* <ListGroup.Item>
-                  <Rating
-                    value={product.rating}
-                    text={`${product.numReviews} reviews`}
-                  />
-                </ListGroup.Item> */}
-                {/* <ListGroup.Item>Prezzo: €{product.price}</ListGroup.Item> */}
-                <ListGroup.Item>
-                  Descrizione: {product.description}
-                </ListGroup.Item>
-              </ListGroup>
-            </Col>
-            <Col md={3}>
-              <>
-                <ListGroup variant="flush">
-                  <ListGroup.Item>
-                    <Row>
-                      <Col>Prezzo:</Col>
-                      <Col>
-                        <strong>€{product.price}</strong>
-                      </Col>
-                    </Row>
-                  </ListGroup.Item>
-
-                  <div>
-                    <Form.Control
-                      as="select"
-                      value={qty}
-                      onChange={(e) => setQty(e.target.value)}
-                    >
-                      {[...Array(product.countInStock).keys()].map((x) => (
-                        <option key={x + 1} value={x + 1}>
-                          {x + 1}
-                        </option>
-                      ))}
-                    </Form.Control>
-                    <ListGroup.Item>
-                      <Row>
-                        <Col>Size</Col>
-                        <Col>
-                          <Form.Control
-                            as="select"
-                            value={size}
-                            onChange={(e) => setSize(e.target.value)}
-                          >
-                            <option value="S">S</option>
-                            <option value="M">M</option>
-                            <option value="L">L</option>
-                            <option value="XL">XL</option>
-                          </Form.Control>
-                        </Col>
-                      </Row>
-                    </ListGroup.Item>
-                  </div>
-                  <ListGroup.Item>
-                    <Button
-                      onClick={addToCartHandler}
-                      className="btn-block"
-                      type="button"
-                      variant="dark"
-                      disabled={product.countInStock === 0}
-                    >
-                      Aggiungi al Carello
-                    </Button>
-                  </ListGroup.Item>
-                </ListGroup>
-              </>
+          <Row
+            style={{ backgroundColor: "black", width: "100vw", margin: "0" }}
+          >
+            <Col
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                width: "100%",
+                justifyContent: "center",
+                alignItems: "center",
+                textAlign: "center",
+                padding: "15vh 0",
+              }}
+            >
+              {/* <Link
+                style={{ alignSelf: "left" }}
+                className="btn btn-light my-3"
+                to="/"
+              >
+                Go Back
+              </Link> */}
+              <h1 className="product-screen-title">{product.category}</h1>
+              <p className="product-screen-subtitle">
+                by Carmine Sembra Brooklyn
+              </p>
             </Col>
           </Row>
+          <div className="container-info-img">
+            <div className="section-product-image">
+              <Swiper
+                spaceBetween={50}
+                slidesPerView={1}
+                // install Swiper modules
+                modules={[Navigation, Pagination, A11y, Autoplay]}
+                autoplay={{
+                  delay: 4000,
+                  waitForTransition: true,
+                  disableOnInteraction: false,
+                }}
+                navigation={{
+                  nextEl: ".swiper-button-next",
+                  prevEl: ".swiper-button-prev",
+                }}
+                // speed={1000}
+                loop={true}
+                pagination={{ clickable: true }}
+                // scrollbar={{ draggable: true }}
+                onSwiper={(swiper) => console.log(swiper)}
+                onSlideChange={() => console.log("slide change")}
+                className="swiper-product"
+              >
+                <SwiperSlide className="swiper-slide-product">
+                  <Image src={product.image} alt={product.name} fluid />
+                </SwiperSlide>
+                <SwiperSlide className="swiper-slide-product">
+                  <Image src={product.image} alt={product.name} fluid />
+                </SwiperSlide>
+                <SwiperSlide className="swiper-slide-product">
+                  <Image src={product.image} alt={product.name} fluid />
+                </SwiperSlide>
+              </Swiper>
+            </div>
+            <div className="section-product-info" style={{ padding: "30px" }}>
+              <div style={{ maxWidth: "600px" }}>
+                <ListGroup variant="flush">
+                  <span className="motto">
+                    When we are outside it's a movie
+                  </span>
+                  <h3 className="product-title">{product.name}</h3>
+                  <p>{product.description}</p>
+                </ListGroup>
+                <Row>
+                  <Row>
+                    <Col style={{ marginBottom: "10px" }}>
+                      <strong className="product-price">
+                        €{product.price}.00
+                      </strong>
+                    </Col>
+                  </Row>
+
+                  <div>
+                    <div className="size-buttons">
+                      <div>
+                        <label>
+                          <input type="radio" name="size" />
+                          <span
+                            className="size-button no select"
+                            onClick={() => {
+                              setSize("XS");
+                              setCheckedRadio(true);
+                            }}
+                          >
+                            XS
+                          </span>
+                        </label>
+                      </div>
+                      <div>
+                        <label>
+                          <input type="radio" name="size" />
+                          <span
+                            className="size-button no select"
+                            onClick={() => {
+                              setSize("S");
+                              setCheckedRadio(true);
+                            }}
+                          >
+                            S
+                          </span>
+                        </label>
+                      </div>
+                      <div>
+                        <label>
+                          <input type="radio" name="size" />
+                          <span
+                            className="size-button no select"
+                            onClick={() => {
+                              setSize("M");
+                              setCheckedRadio(true);
+                            }}
+                          >
+                            M
+                          </span>
+                        </label>
+                      </div>
+                      <div>
+                        <label>
+                          <input type="radio" name="size" />
+                          <span
+                            className="size-button no select"
+                            onClick={() => {
+                              setSize("L");
+                              setCheckedRadio(true);
+                            }}
+                          >
+                            L
+                          </span>
+                        </label>
+                      </div>
+
+                      <div>
+                        <label>
+                          <input type="radio" name="size" />
+                          <span
+                            className="size-button no select"
+                            onClick={() => {
+                              setSize("XL");
+                              setCheckedRadio(true);
+                            }}
+                          >
+                            XL
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <Row style={{ paddingRight: "0px" }}>
+                    <Col
+                      sm={12}
+                      md={6}
+                      lg={3}
+                      style={{
+                        paddingBottom: "14px",
+                        paddingRight: "0px",
+                      }}
+                    >
+                      <div className="wrapper" style={{ paddingRight: "0px" }}>
+                        <button
+                          className="plusminus"
+                          onClick={() => {
+                            if (qty <= 1) {
+                              setQty(1);
+                            } else {
+                              setQty(qty - 1);
+                            }
+                          }}
+                        >
+                          -
+                        </button>
+                        <Form.Control
+                          as="input"
+                          className="quantity"
+                          type="number"
+                          value={qty}
+                          style={{
+                            border: "none",
+                            height: "100%",
+                            // maxWidth: "50px",
+                            textAlign: "center",
+                          }}
+                          onChange={(e) => {
+                            const value = Math.max(
+                              1,
+                              Math.min(
+                                product.countInStock,
+                                Number(e.target.value)
+                              )
+                            );
+                            setQty(value);
+                          }}
+                        ></Form.Control>
+                        <button
+                          className="plusminus"
+                          onClick={() => {
+                            if (qty >= product.countInStock) {
+                              setQty(product.countInStock);
+                            } else {
+                              setQty(qty + 1);
+                            }
+                          }}
+                        >
+                          +
+                        </button>
+                      </div>
+                    </Col>
+                    <Col
+                      sm={12}
+                      md={6}
+                      lg={7}
+                      xl={6}
+                      style={{
+                        // maxWidth: "697px",
+                        paddingRight: "0",
+                      }}
+                    >
+                      <Button
+                        onClick={addToCartHandler}
+                        className="btn-block aggiungi-al-carrello"
+                        type="button"
+                        variant="dark"
+                        disabled={disable}
+                      >
+                        Aggiungi al Carello
+                      </Button>
+                    </Col>
+                  </Row>
+                </Row>
+              </div>
+            </div>
+          </div>
+          <ShopPreview />
         </>
       )}
-    </main>
+    </>
   );
 };
 
 export default ProductScreen;
-
-// cartItems
-//                       .filter((item) => item.product === product._id)
-//                       .map((item) => (
-//                         <div>
-//                           <ListGroup.Item>
-//                             <Row>
-//                               <Col className="d-flex align-items-center">
-//                                 Quantità
-//                               </Col>
-//                               <Col>
-//                                 <Form.Control
-//                                   as="select"
-//                                   value={item.qty}
-//                                   onChange={(e) =>
-//                                     dispatch(
-//                                       addToCart(
-//                                         item.product,
-//                                         Number(e.target.value),
-//                                         item.size
-//                                       )
-//                                     )
-//                                   }
-//                                 >
-//                                   {[...Array(item.countInStock).keys()].map(
-//                                     (x) => (
-//                                       <option key={x + 1} value={x + 1}>
-//                                         {x + 1}
-//                                       </option>
-//                                     )
-//                                   )}
-//                                 </Form.Control>
-//                               </Col>
-//                             </Row>
-//                           </ListGroup.Item>
-
-//                           <ListGroup.Item>
-//                             <Row>
-//                               <Col>Size:</Col>
-//                               <Col>
-//                                 <Form.Control
-//                                   as="select"
-//                                   value={item.size}
-//                                   onChange={(e) =>
-//                                     dispatch(
-//                                       addToCart(
-//                                         item.product,
-//                                         item.qty,
-//                                         String(e.target.value)
-//                                       )
-//                                     )
-//                                   }
-//                                 >
-//                                   <option key="XS" value="XS">
-//                                     XS
-//                                   </option>
-//                                   <option key="S" value="S">
-//                                     S
-//                                   </option>
-//                                   <option key="M" value="M">
-//                                     M
-//                                   </option>
-//                                   <option key="L" value="L">
-//                                     L
-//                                   </option>
-//                                   <option key="XL" value="XL">
-//                                     XL
-//                                   </option>
-//                                 </Form.Control>
-//                               </Col>
-//                             </Row>
-//                           </ListGroup.Item>
-//                         </div>
-//                       ))

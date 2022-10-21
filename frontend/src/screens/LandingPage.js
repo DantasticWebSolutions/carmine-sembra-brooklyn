@@ -19,14 +19,8 @@ const LandingPage = () => {
       <LinkToShop />
       <FotoEventi />
       {/* <Social /> */}
-      {/* <InstagramFeed
-        token="IGQVJVU3U4ZAjljbGJEVkVVdnZAJOVBsYmlDdzZAlbWw5clk2TDJKRnBIRG5jQlFYanVLTThFV042MWpwdHFNTDBfUnR0OERQZAGZANZA2IwcG9uQjJKMmFSOGxaMk1qZAmxEUzdEb3FKNEYyX3hhYXZAQMlJuRgZDZD"
-        counter="6"
-      /> */}
     </div>
   );
 };
 
 export default LandingPage;
-
-// https://api.instagram.com/oauth/authorize?client_id=602605711313535&redirect_uri=https://carmine-sembra-brooklyn.herokuapp.com/shop&scope=@dan_perignon&response_type=code

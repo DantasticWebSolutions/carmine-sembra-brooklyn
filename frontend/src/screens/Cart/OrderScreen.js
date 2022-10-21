@@ -100,7 +100,15 @@ const OrderScreen = ({ match, history }) => {
           <ListGroup variant="flush">
             <ListGroup.Item>
               <h5 style={{ wordBreak: "break-all" }}>{order._id}</h5>
+            </ListGroup.Item>
+            <ListGroup.Item>
               <h2>Spedizione</h2>
+
+              <p>
+                <strong>Data: </strong>
+                {order.createdAt.slice(8, 10)}/{order.createdAt.slice(5, 7)}/
+                {order.createdAt.slice(0, 4)}
+              </p>
               <p>
                 <strong>Nome: </strong> {order.user.name}
               </p>
@@ -109,7 +117,7 @@ const OrderScreen = ({ match, history }) => {
                 <a href={`mailto:${order.user.email}`}>{order.user.email}</a>
               </p>
               <p>
-                <strong>Indirizzo:</strong>
+                <strong>Indirizzo: </strong>
                 {order.shippingAddress.address}, {order.shippingAddress.city}{" "}
                 {order.shippingAddress.postalCode},{" "}
                 {order.shippingAddress.country}
@@ -117,14 +125,23 @@ const OrderScreen = ({ match, history }) => {
               {order.isDelivered ? (
                 <Message variant="success">
                   {/* 2022-09-23T02:28:15.961Z */}
-                  Spedito il {order.deliveredAt.slice(8, 10)}/
+                  Congratulazioni, abbiamo spedito il tuo ordine il giorno{" "}
+                  {order.deliveredAt.slice(8, 10)}/
                   {order.deliveredAt.slice(5, 7)}/
-                  {order.deliveredAt.slice(0, 4)} alle ore{" "}
+                  {order.deliveredAt.slice(0, 4)}
+                  {/* alle ore{" "}
                   {order.deliveredAt.slice(11, 13)}:
-                  {order.deliveredAt.slice(14, 16)}
+                  {order.deliveredAt.slice(14, 16)} */}
+                </Message>
+              ) : order.isPaid ? (
+                <Message variant="danger">
+                  Spediremo l'ordine in massimo 3 giorni lavorativi{" "}
                 </Message>
               ) : (
-                <Message variant="danger">Non spedito</Message>
+                <Message variant="danger">
+                  Non ancora spedito, procedi con il pagamento per ricevere
+                  l'ordine{" "}
+                </Message>
               )}
             </ListGroup.Item>
 
@@ -136,12 +153,20 @@ const OrderScreen = ({ match, history }) => {
               </p>
               {order.isPaid ? (
                 <Message variant="success">
-                  Pagato il {order.paidAt.slice(8, 10)}/
-                  {order.paidAt.slice(5, 7)}/{order.paidAt.slice(0, 4)} alle ore{" "}
-                  {order.paidAt.slice(11, 13)}:{order.paidAt.slice(14, 16)}
+                  Benvenuto nella famiglia BROOKLYN, abbiamo ricevuto il tuo
+                  pagamento!&nbsp;
+                  {order.paidAt.slice(8, 10)}/{order.paidAt.slice(5, 7)}/
+                  {order.paidAt.slice(0, 4)}
+                  {/* alle ore{" "}
+                  {order.paidAt.slice(11, 13)}:{order.paidAt.slice(14, 16)} */}
                 </Message>
               ) : (
-                <Message variant="danger">Non pagato</Message>
+                <Message variant="danger">
+                  Ordine non pagato,{" "}
+                  <u>
+                    <a href="#paga">puoi procedere al pagamento qui</a>
+                  </u>
+                </Message>
               )}
             </ListGroup.Item>
 
@@ -215,7 +240,7 @@ const OrderScreen = ({ match, history }) => {
                 </Row>
               </ListGroup.Item>
               {!order.isPaid && (
-                <ListGroup.Item>
+                <ListGroup.Item id="paga">
                   {loadingPay && <Loader />}
                   {!sdkReady ? (
                     <Loader />

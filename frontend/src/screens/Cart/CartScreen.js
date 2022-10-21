@@ -13,6 +13,7 @@ import {
 import Message from "../../components/Message";
 import { addToCart, removeFromCart } from "../../actions/cartActions";
 import { AiOutlineDelete } from "react-icons/ai";
+// import ShopPreview from "../../components/LandingPage/ShopPreview";
 
 const CartScreen = ({ match, location, history }) => {
   // const productId = match.params.id;
@@ -125,8 +126,9 @@ const CartScreen = ({ match, location, history }) => {
                           ))}
                         </Form.Control>
                       </Col>
-                      <Col md="8" className="m-1 p-0">
+                      <Col sm={12} className="m-1 p-0">
                         <Form.Control
+                          className="size-options"
                           as="select"
                           value={item.size}
                           onChange={(e) =>
@@ -174,6 +176,7 @@ const CartScreen = ({ match, location, history }) => {
             </ListGroup>
           )}
         </Col>
+
         <Col md={4}>
           <Card>
             <ListGroup variant="flush">

@@ -142,10 +142,12 @@ const Footer = () => {
             Carmine Sembra Brooklyn &copy; {new Date().getFullYear()}
             <br />
             Tutti i diritti riservati
-            <hr />
+            <div className="w-100 d-flex flex-column justify-content-center align-items-center">
+              <hr style={{ width: "150%" }} />
+            </div>
             Powered by{" "}
             <a
-              href="https://dantastic.netlify.app/"
+              href="https://dantastic.dev/"
               rel="noopener noreferrer"
               target="_blank"
             >

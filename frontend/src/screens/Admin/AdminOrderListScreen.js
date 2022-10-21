@@ -5,6 +5,7 @@ import Message from "../../components/Message";
 import Loader from "../../components/Loader";
 import { listOrders } from "../../actions/orderActions";
 import { MdDoneOutline } from "react-icons/md";
+import { AiOutlineClose } from "react-icons/ai";
 
 const AdminOrderListScreen = ({ history }) => {
   const dispatch = useDispatch();
@@ -50,40 +51,63 @@ const AdminOrderListScreen = ({ history }) => {
                 <span>{order.user && order.user.name}</span>
                 <h5>{order.createdAt.substring(0, 10)}</h5>
                 <h2>€{order.totalPrice}</h2>
-                <div>
-                  {order.isPaid ? (
+
+                {order.isPaid ? (
+                  <div className="d-flex w-100 px-3 flex-row justify-content-between align-items-center">
+                    <span>Pagato: </span>
                     <div>
-                      <span>Pagato: </span>
                       <MdDoneOutline
                         className="mr-2"
                         style={{ color: "green" }}
                       />
-                      {order.paidAt.substring(0, 10)}
+                      <span>{order.paidAt.substring(8, 10)}</span>/{/* MONTH */}
+                      <span>{order.paidAt.substring(5, 7)}</span>/{/* YEAR */}
+                      <span>{order.paidAt.substring(0, 4)}</span>
                     </div>
-                  ) : (
+                  </div>
+                ) : (
+                  <div className="d-flex w-100 px-3 flex-row justify-content-between align-items-center">
+                    <span>Pagato: </span>
                     <div>
-                      <span>Pagato: </span>
-                      <i className="fas fa-times" style={{ color: "red" }}></i>
+                      <AiOutlineClose
+                        className="mr-1"
+                        style={{ color: "red", fontWeight: "800" }}
+                      ></AiOutlineClose>
+                      <span> Non Pagato</span>
                     </div>
-                  )}
-                </div>
-                <div>
-                  {order.isDelivered ? (
+                  </div>
+                )}
+
+                {order.isDelivered ? (
+                  <div className="d-flex w-100 px-3 flex-row justify-content-between align-items-center">
+                    <span> Spedito: </span>
                     <div>
-                      <span> Spedito: </span>
                       <MdDoneOutline
                         className="mr-2"
                         style={{ color: "green" }}
                       />
-                      {order.deliveredAt.substring(0, 10)}{" "}
+                      {/* DAY */}
+                      <span>{order.deliveredAt.substring(8, 10)}</span>/
+                      {/* MONTH */}
+                      <span>{order.deliveredAt.substring(5, 7)}</span>/
+                      {/* YEAR */}
+                      <span>{order.deliveredAt.substring(0, 4)}</span>
+                      {/* <span>{order.deliveredAt.substring(0, 10)}</span> */}
                     </div>
-                  ) : (
+                  </div>
+                ) : (
+                  <div className="d-flex w-100 px-3 flex-row justify-content-between align-items-center">
+                    <span>Spedito: </span>
                     <div>
-                      <span> Spedito: </span>
-                      <i className="fas fa-times" style={{ color: "red" }}></i>
+                      <AiOutlineClose
+                        className="mr-1"
+                        style={{ color: "red", fontWeight: "800" }}
+                      ></AiOutlineClose>
+                      <span> Non Spedito</span>
                     </div>
-                  )}
-                </div>
+                  </div>
+                )}
+
                 <div>
                   <Nav.Link href={`/order/${order._id}`} className="mt-3">
                     <Button class="btn btn-primary" variant="dark">

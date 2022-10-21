@@ -77,12 +77,12 @@ const PlaceOrderScreen = ({ history }) => {
                 {cart.shippingAddress.country}
               </p>
             </ListGroup.Item>
-
+            {/* 
             <ListGroup.Item>
               <h2>Metodo di Pagamento</h2>
               <strong>Metodo: </strong>
               {cart.paymentMethod}
-            </ListGroup.Item>
+            </ListGroup.Item> */}
 
             <ListGroup.Item>
               <h2>Prodotti</h2>
@@ -92,8 +92,8 @@ const PlaceOrderScreen = ({ history }) => {
                 <ListGroup variant="flush">
                   {cart.cartItems.map((item, index) => (
                     <ListGroup.Item key={index}>
-                      <Row>
-                        <Col md={1}>
+                      <Row className="d-flex flex-row justify-content-center align-items-center">
+                        <Col md={4} sm={2}>
                           <Image
                             src={item.image}
                             alt={item.name}
@@ -103,7 +103,9 @@ const PlaceOrderScreen = ({ history }) => {
                         </Col>
                         <Col>
                           <Link to={`/product/${item.product}`}>
-                            {item.name}&nbsp;{item.size}
+                            <span style={{ textTransform: "capitalize" }}>
+                              {item.name}&nbsp;-&nbsp;{item.size}
+                            </span>
                           </Link>
                         </Col>
                         {/* <Col>{item.size}</Col> */}

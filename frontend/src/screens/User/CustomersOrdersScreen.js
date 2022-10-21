@@ -6,6 +6,7 @@ import Loader from "../../components/Loader";
 import { getUserDetails } from "../../actions/userActions";
 import { listMyOrders } from "../../actions/orderActions";
 import { MdDoneOutline } from "react-icons/md";
+import { AiOutlineClose } from "react-icons/ai";
 
 const CustomersOrdersScreen = ({ history }) => {
   const dispatch = useDispatch();
@@ -163,11 +164,14 @@ const CustomersOrdersScreen = ({ history }) => {
                       </div>
                     ) : (
                       <div className="d-flex w-100 px-3 flex-row justify-content-between align-items-center">
-                        <span> Pagato: </span>
-                        <i
-                          className="fas fa-times"
-                          style={{ color: "red" }}
-                        ></i>
+                        <span>Pagato: </span>
+                        <div>
+                          <AiOutlineClose
+                            className="mr-1"
+                            style={{ color: "red", fontWeight: "800" }}
+                          ></AiOutlineClose>
+                          <span> Non Pagato</span>
+                        </div>
                       </div>
                     )}
 
@@ -191,10 +195,13 @@ const CustomersOrdersScreen = ({ history }) => {
                     ) : (
                       <div className="d-flex w-100 px-3 flex-row justify-content-between align-items-center">
                         <span>Spedito: </span>
-                        <i
-                          className="fas fa-times"
-                          style={{ color: "red" }}
-                        ></i>
+                        <div>
+                          <AiOutlineClose
+                            className="mr-1"
+                            style={{ color: "red", fontWeight: "800" }}
+                          ></AiOutlineClose>
+                          <span> Non Spedito</span>
+                        </div>
                       </div>
                     )}
                     <div>
