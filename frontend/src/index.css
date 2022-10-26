@@ -14,6 +14,8 @@
   --bs-btn-border-radius: "0.375rem";
 }
 
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+
 html,
 body {
   position: relative;
@@ -1107,7 +1109,7 @@ h2 {
   color: black;
   width: 420px;
   height: 250px;
-  font-family: "Oswald", sans-serif;
+  font-family: "Oswald" !important;
   font-size: 9em;
   line-height: 1;
   margin: 0;
@@ -1389,6 +1391,7 @@ div::after {
   min-height: calc(100vh - 140px);
   background: rgba(0, 0, 0, 0.6);
   top: -1px;
+  bottom: 0px;
 }
 
 .text-box span {
@@ -1397,7 +1400,7 @@ div::after {
   margin: 0;
   padding: 0;
   /* font-family: "Yanone Kaffeesatz", sans-serif; */
-  font-family: "Oswald", sans-serif;
+  font-family: "Oswald" !important;
 }
 
 .text-box .carmine {
@@ -1685,32 +1688,32 @@ div::after {
 /* ProductScreen */
 
 .product-screen-title {
-  margin-bottom: 10px;
+  margin-bottom: 20px !important;
   color: #ffffff;
-  font-family: "Oswald", sans-serif;
-  font-size: 130px;
+  font-family: "Oswald" !important;
+  font-size: 130px !important;
   /* font-style: italic; */
-  font-weight: 500;
-  letter-spacing: -0.025em;
-  line-height: 1;
+  font-weight: 500 !important;
+  letter-spacing: -0.025em !important;
+  line-height: 1 !important;
 }
 
 .product-screen-subtitle {
-  color: #ffffff;
-  font-size: 36px;
+  /* color: #ffffff; */
+  font-size: 36px !important;
   /* font-style: italic; */
-  font-family: "Oswald", sans-serif;
-  font-weight: 500;
-  letter-spacing: 0em;
-  line-height: 1.22;
+  font-family: "Oswald" !important;
+  font-weight: 500 !important;
+  letter-spacing: 0em !important;
+  line-height: 1.22 !important;
   text-transform: capitalize;
 }
 @media (max-width: 767px) {
   .product-screen-title {
-    font-size: calc(65px + 110.5 * ((100vw - 320px) / 1920));
+    font-size: calc(65px + 110.5 * ((100vw - 320px) / 1920)) !important;
   }
   .product-screen-subtitle {
-    font-size: calc(12px + 40.8 * ((100vw - 320px) / 1920));
+    font-size: calc(12px + 40.8 * ((100vw - 320px) / 1920)) !important;
   }
 }
 
@@ -1809,7 +1812,7 @@ div::after {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #000;
+  /* background-color: #000; */
 }
 
 .aggiungi-al-carrello {
@@ -1818,7 +1821,11 @@ div::after {
   max-width: 700px;
 }
 
-.swiper-product {
+.swiper-product > .swiper-wrapper {
+  align-items: center !important;
+  max-height: 500px;
+}
+.jpg .swiper-product {
   padding: 50px !important;
   display: flex;
   flex-direction: column;
@@ -1958,4 +1965,51 @@ div::after {
   .product-price {
     font-size: calc(24px + 40.8 * ((100vw - 320px) / 1920));
   }
+}
+
+/* Shop.js */
+
+.shop-products-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.shop-product-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+.shop-product-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: rgb(255, 154, 154);
+}
+.shop-product-image img {
+  /* max-width: 40%; */
+  width: 200px;
+  height: 200px;
+}
+
+.shop-product-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  /* padding-right: 80px; */
+  text-align: center;
+}
+
+.section-product-info .form-control {
+  background: unset !important ;
+}
+.section-product-info .form-control:disabled {
+  background: unset !important ;
 }

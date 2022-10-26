@@ -107,47 +107,11 @@ const ProductListScreen = ({ history, match }) => {
           }}
         >
           {products.map((product) => (
-            <Card product={product} deleteHandler={deleteHandler} />
-            // <div className="card m-2 cardDisplay" key={product._id}>
-            //   <div class="card-body">
-            //     <Link
-            //       to={`/product/${product._id}`}
-            //       style={{ minHeight: "50%" }}
-            //     >
-            //       <img
-            //         className="card-img"
-            //         style={{ maxWidth: "300px", maxHeight: "255px" }}
-            //         src={product.image}
-            //       />
-            //     </Link>
-            //     <div className="card-title card-header w-100 text-center">
-            //       {product.name}
-            //     </div>
-            //     <h2>{product.price}€</h2>
-            //     <div>{product.category}</div>
-            //     <span>{product.brand}</span>
-            //     {/* <span>{product.size}</span> */}
-            //     <div className="d-flex flex-row justify-content-center my-2">
-            //       <Nav.Link
-            //         href={`/admin/product/${product._id}/edit`}
-            //         className="m-1 mr-2"
-            //       >
-            //         <Button variant="light" className="btn-sm py-1 px-2">
-            //           <span>Modifica</span>
-            //           <i className="fas fa-edit ml-2"></i>
-            //         </Button>
-            //       </Nav.Link>
-            //       <Button
-            //         variant="danger"
-            //         className="btn-sm m-1 py-1 px-2"
-            //         onClick={() => deleteHandler(product._id)}
-            //       >
-            //         <span>Elimina</span>
-            //         <i className="fas fa-trash ml-2"></i>
-            //       </Button>
-            //     </div>
-            //   </div>
-            // </div>
+            <Card
+              key={product._id}
+              product={product}
+              deleteHandler={deleteHandler}
+            />
           ))}
 
           <Paginate pages={pages} page={page} isAdmin={true} />

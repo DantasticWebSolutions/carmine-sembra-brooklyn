@@ -57,6 +57,7 @@ const Product = ({ product, loading, error }) => {
                     style={{
                       fontSize: "1.125rem",
                       fontWeight: "700",
+                      textTransform: "capitalize",
                     }}
                   >
                     {product.name}

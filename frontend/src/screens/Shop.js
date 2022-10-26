@@ -13,6 +13,7 @@ import Filter from "../components/Filter";
 import useCollapse from "react-collapsed";
 import { FiFilter } from "react-icons/fi";
 import { GrClose } from "react-icons/gr";
+import { Link } from "react-router-dom";
 
 const Shop = ({ match }) => {
   // GET DATA
@@ -55,7 +56,7 @@ const Shop = ({ match }) => {
   return (
     <>
       <Meta />
-      <ProductSwiper />
+      {/* <ProductSwiper /> */}
 
       {loading ? (
         <Loader />
@@ -102,13 +103,50 @@ const Shop = ({ match }) => {
 
             {/* <ShowColumnOrSingle /> */}
 
-            <ProductContainer
+            <div className="shop-products-container">
+              {item
+                .filter((prezzo) => prezzo.price <= filterPrice)
+                .filter((stock) => stock.countInStock > stockFilter)
+                .map((prodotto) => (
+                  <div className="shop-product-container" key={prodotto.name}>
+                    <div className="shop-product-image">
+                      <img src={prodotto.image} alt={prodotto.names} />
+                    </div>
+                    <div className="shop-product-info">
+                      <span>{prodotto.category}</span>
+                      <h1>{prodotto.name}</h1>
+                      {/* <p>{prodotto.price}</p> */}
+                      <p>{prodotto.description}</p>
+
+                      <Link to={`/product/${prodotto._id}`}>
+                        {prodotto.countInStock === 0 ? (
+                          <button
+                            style={{
+                              color: "rgb(203, 203, 203)",
+                              // fontSize: "0.7rem"
+                            }}
+                          >
+                            Indisponibile
+                          </button>
+                        ) : (
+                          <>
+                            {/* <BsBag className="mr-2 ml-2" /> */}
+                            <button className="pr-2">Aggiungi</button>
+                          </>
+                        )}
+                      </Link>
+                    </div>
+                  </div>
+                ))}
+            </div>
+
+            {/* <ProductContainer
               item={item}
               loading={loading}
               error={error}
               filterPrice={filterPrice}
               stockFilter={stockFilter}
-            />
+            /> */}
           </Row>
           <Paginate
             pages={pages}

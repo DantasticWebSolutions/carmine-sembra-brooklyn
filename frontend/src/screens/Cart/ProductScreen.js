@@ -20,6 +20,8 @@ import { Navigation, Pagination, A11y, Autoplay } from "swiper";
 import "swiper/swiper.min.css";
 import ShopPreview from "../../components/LandingPage/ShopPreview";
 
+import background from "../../asset/background.mp4";
+
 const ProductScreen = ({ history, match }) => {
   const [qty, setQty] = useState(1);
   const [size, setSize] = useState("S");
@@ -71,7 +73,8 @@ const ProductScreen = ({ history, match }) => {
       ) : (
         <>
           <Meta title={product.name} />
-          <Row
+
+          {/* <Row
             style={{ backgroundColor: "black", width: "100vw", margin: "0" }}
           >
             <Col
@@ -85,19 +88,38 @@ const ProductScreen = ({ history, match }) => {
                 padding: "15vh 0",
               }}
             >
-              {/* <Link
-                style={{ alignSelf: "left" }}
-                className="btn btn-light my-3"
-                to="/"
-              >
-                Go Back
-              </Link> */}
+             
               <h1 className="product-screen-title">{product.category}</h1>
               <p className="product-screen-subtitle">
                 by Carmine Sembra Brooklyn
               </p>
             </Col>
-          </Row>
+          </Row> */}
+          <div style={{ width: "100vw" }}>
+            <div className="video-container">
+              <video
+                autoPlay={true}
+                loop={true}
+                controls={false}
+                playsInline
+                muted
+              >
+                {" "}
+                <source src={background} type="video/mp4" />
+              </video>
+              <div className="text-box">
+                <span className="noselect brooklyn product-screen-title">
+                  {product.category}
+                </span>
+                <span
+                  className="noselect sembra product-screen-subtitle"
+                  style={{}}
+                >
+                  By Carmine Sembra Brooklyn
+                </span>
+              </div>
+            </div>
+          </div>
           <div className="container-info-img">
             <div className="section-product-image">
               <Swiper
@@ -105,11 +127,11 @@ const ProductScreen = ({ history, match }) => {
                 slidesPerView={1}
                 // install Swiper modules
                 modules={[Navigation, Pagination, A11y, Autoplay]}
-                autoplay={{
-                  delay: 4000,
-                  waitForTransition: true,
-                  disableOnInteraction: false,
-                }}
+                // autoplay={{
+                //   delay: 4000,
+                //   waitForTransition: true,
+                //   disableOnInteraction: false,
+                // }}
                 navigation={{
                   nextEl: ".swiper-button-next",
                   prevEl: ".swiper-button-prev",
@@ -125,12 +147,20 @@ const ProductScreen = ({ history, match }) => {
                 <SwiperSlide className="swiper-slide-product">
                   <Image src={product.image} alt={product.name} fluid />
                 </SwiperSlide>
-                <SwiperSlide className="swiper-slide-product">
-                  <Image src={product.image} alt={product.name} fluid />
-                </SwiperSlide>
-                <SwiperSlide className="swiper-slide-product">
-                  <Image src={product.image} alt={product.name} fluid />
-                </SwiperSlide>
+                {product.image2 ? (
+                  <SwiperSlide className="swiper-slide-product">
+                    <Image src={product.image2} alt={product.name} fluid />
+                  </SwiperSlide>
+                ) : (
+                  ""
+                )}
+                {product.image3 ? (
+                  <SwiperSlide className="swiper-slide-product">
+                    <Image src={product.image3} alt={product.name} fluid />
+                  </SwiperSlide>
+                ) : (
+                  ""
+                )}
               </Swiper>
             </div>
             <div className="section-product-info" style={{ padding: "30px" }}>
@@ -247,6 +277,7 @@ const ProductScreen = ({ history, match }) => {
                               setQty(qty - 1);
                             }
                           }}
+                          disabled={disable}
                         >
                           -
                         </button>
@@ -271,8 +302,10 @@ const ProductScreen = ({ history, match }) => {
                             );
                             setQty(value);
                           }}
+                          disabled={disable}
                         ></Form.Control>
                         <button
+                          disabled={disable}
                           className="plusminus"
                           onClick={() => {
                             if (qty >= product.countInStock) {

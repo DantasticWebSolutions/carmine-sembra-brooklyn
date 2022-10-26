@@ -18,6 +18,8 @@ const ProductEditScreen = ({ match, history }) => {
   const [name, setName] = useState("");
   const [price, setPrice] = useState(0);
   const [image, setImage] = useState("");
+  const [image2, setImage2] = useState("");
+  const [image3, setImage3] = useState("");
   const [brand, setBrand] = useState("");
   const [category, setCategory] = useState("");
   const [countInStock, setCountInStock] = useState(0);
@@ -50,6 +52,8 @@ const ProductEditScreen = ({ match, history }) => {
         setName(product.name);
         setPrice(product.price);
         setImage(product.image);
+        setImage2(product.image2);
+        // setImage3(product.image3);
         setBrand(product.brand);
         setCategory(product.category);
         setCountInStock(product.countInStock);
@@ -84,6 +88,53 @@ const ProductEditScreen = ({ match, history }) => {
     }
   };
 
+  const uploadFileHandler2 = async (e) => {
+    setImage2(e);
+    const file = e.target.files[0];
+    const formData = new FormData();
+    formData.append("image", file);
+    setUploading(true);
+
+    try {
+      const config = {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      };
+
+      const { data } = await axios.post("/api/upload", formData, config);
+
+      setImage2(data);
+      setUploading(false);
+    } catch (error) {
+      console.error(error);
+      setUploading(false);
+    }
+  };
+  const uploadFileHandler3 = async (e) => {
+    setImage3(e);
+    const file = e.target.files[0];
+    const formData = new FormData();
+    formData.append("image", file);
+    setUploading(true);
+
+    try {
+      const config = {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      };
+
+      const { data } = await axios.post("/api/upload", formData, config);
+
+      setImage3(data);
+      setUploading(false);
+    } catch (error) {
+      console.error(error);
+      setUploading(false);
+    }
+  };
+
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(
@@ -92,6 +143,8 @@ const ProductEditScreen = ({ match, history }) => {
         name,
         price,
         image,
+        image2,
+        image3,
         brand,
         category,
         description,
@@ -120,6 +173,7 @@ const ProductEditScreen = ({ match, history }) => {
             <Form.Group controlId="name">
               <Form.Label>Name</Form.Label>
               <Form.Control
+                style={{ textTransform: "capitalize" }}
                 type="name"
                 placeholder="Enter name"
                 value={name}
@@ -137,7 +191,18 @@ const ProductEditScreen = ({ match, history }) => {
               ></Form.Control>
             </Form.Group>
 
-            <Form.Group controlId="image">
+            {product.image ? (
+              <img
+                src={product.image}
+                alt="First"
+                style={{ width: "150px", height: "150px", margin: "20px 0" }}
+              />
+            ) : (
+              ""
+            )}
+            <Form.Group
+            // controlId="image"
+            >
               <Form.Label>Choose Image</Form.Label>
               <Form.Control
                 type="text"
@@ -149,21 +214,66 @@ const ProductEditScreen = ({ match, history }) => {
                 type="file"
                 id="image-file"
                 label="Choose File"
-                custom
+                // custom
                 onChange={uploadFileHandler}
               ></Form.Control>
 
               {uploading && <Loader />}
             </Form.Group>
-
-            {/* <Form.Group controlId="formFileMultiple" className="mb-3">
-              <Form.Label>Multiple files input example</Form.Label>
+            {product.image2 ? (
+              <img
+                src={product.image2}
+                alt="Second"
+                style={{ width: "150px", height: "150px", margin: "20px 0" }}
+              />
+            ) : (
+              ""
+            )}
+            <Form.Group>
+              <Form.Label>Choose Image</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter image url"
+                value={image2}
+                onChange={(e) => setImage2(e.target.value)}
+              ></Form.Control>
               <Form.Control
                 type="file"
-                multiple
-                onChange={(e) => setImage(e.target.value)}
+                id="image-file2"
+                label="Choose File"
+                // custom
+                onChange={uploadFileHandler2}
+              ></Form.Control>
+
+              {uploading && <Loader />}
+            </Form.Group>
+            {product.image3 ? (
+              <img
+                src={product.image3}
+                alt="Third"
+                style={{ width: "150px", height: "150px", margin: "20px 0" }}
               />
-            </Form.Group> */}
+            ) : (
+              ""
+            )}
+            <Form.Group>
+              <Form.Label>Choose Image</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter image url"
+                value={image3}
+                onChange={(e) => setImage3(e.target.value)}
+              ></Form.Control>
+              <Form.Control
+                type="file"
+                id="image-file3"
+                label="Choose File"
+                // custom
+                onChange={uploadFileHandler3}
+              ></Form.Control>
+
+              {uploading && <Loader />}
+            </Form.Group>
 
             <Form.Group controlId="brand">
               <Form.Label>Brand</Form.Label>
@@ -222,7 +332,7 @@ const ProductEditScreen = ({ match, history }) => {
                 onChange={(e) => setDescription(e.target.value)}
               ></Form.Control>
             </Form.Group>
-            <Button type="submit" variant="primary">
+            <Button type="submit" variant="dark" className="my-3">
               Update
             </Button>
           </Form>
