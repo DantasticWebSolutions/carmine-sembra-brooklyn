@@ -39,7 +39,9 @@ const Product = ({ product, loading, error }) => {
                 ) : error ? (
                   <Message variant="danger">{error}</Message>
                 ) : (
-                  <Card.Img src={product.image} variant="top" />
+                  <div className="product-image-contenitor">
+                    <Card.Img src={product.image} variant="top" />
+                  </div>
                 )}
 
                 <Card.Body
@@ -132,7 +134,7 @@ const Product = ({ product, loading, error }) => {
                 </span>
               ) : (
                 <>
-                  <BsBag className="mr-2 ml-2" />
+                  <BsBag style={{ marginRight: "5px" }} />
                   <span className="pr-2">Aggiungi</span>
                 </>
               )}

@@ -5,7 +5,7 @@ import { Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import SearchBox from "./SearchBox";
 import { logout } from "../actions/userActions";
-import { NavDropdown, Navbar, Nav, Container } from "react-bootstrap";
+import { NavDropdown, Navbar, Nav } from "react-bootstrap";
 
 import { AiOutlineShoppingCart, AiOutlineUser } from "react-icons/ai";
 
@@ -32,7 +32,7 @@ function NavbarContainer() {
     <>
       <Navbar bg="black" variant="dark" expand={expand}>
         <div className="navbar-contenitor">
-          <Container fluid className="mb-1">
+          <div className="navbar-elements-contenitor">
             <Nav.Link href="/shop" className="icon-navbar">
               <BsShop size="1.5em" />
               <span>Shop</span>
@@ -47,25 +47,43 @@ function NavbarContainer() {
                   <NavDropdown
                     title={userInfo.name.charAt(0)}
                     id="username"
-                    className="mr-2 px-2 py-1 w-100"
+                    className="noselect"
                     style={{
+                      height: "31px",
+                      width: "31px",
+                      lineHeight: "22px",
+                      margin: "0px 5px",
+                      padding: "9px 10px",
                       borderRadius: "50%",
                       backgroundColor: "rgb(233, 209, 255)",
                       color: "black",
                       textAlign: "center !important",
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "center",
+                      alignItems: "center",
                     }}
                   >
                     <NavDropdown.Item href="/orders">
-                      <RiMoneyEuroCircleLine className="mr-2" size="1.5em" />
+                      <RiMoneyEuroCircleLine
+                        style={{ marginRight: "5px" }}
+                        size="1.5em"
+                      />
                       Ordini
                     </NavDropdown.Item>
                     <NavDropdown.Item href="/profile">
-                      <AiOutlineUser className="mr-2" size="1.5em" />
+                      <AiOutlineUser
+                        style={{ marginRight: "5px" }}
+                        size="1.5em"
+                      />
                       Profilo
                     </NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item onClick={logoutHandler}>
-                      <FiLogOut className="mr-2 ml-1" size="1.5em" />
+                      <FiLogOut
+                        style={{ marginRight: "5px", marginLeft: "2.5px" }}
+                        size="1.5em"
+                      />
                       Logout
                     </NavDropdown.Item>
                   </NavDropdown>
@@ -87,45 +105,67 @@ function NavbarContainer() {
               {userInfo && userInfo.isAdmin && (
                 <div className="d-flex flex-row justify-content-start">
                   <NavDropdown
-                    className="mr-2 px-2 py-1"
+                    className="noselect"
                     style={{
+                      height: "31px",
+                      width: "31px",
+                      lineHeight: "22px",
+                      margin: "0px 5px",
+                      padding: "9px 10px",
                       borderRadius: "50%",
                       backgroundColor: "rgb(233, 209, 255)",
                       color: "black",
                       textAlign: "center !important",
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "center",
+                      alignItems: "center",
                     }}
                     title={userInfo.name.charAt(0)}
                     id="adminmenu"
                   >
                     <NavDropdown.Item href="/admin/orderlist">
-                      <RiMoneyEuroCircleLine className="mr-2" size="1.5em" />
+                      <RiMoneyEuroCircleLine
+                        style={{ marginRight: "5px" }}
+                        size="1.5em"
+                      />
                       Ordini
                     </NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item href="/admin/userlist">
-                      <FiUsers className="mr-2" size="1.5em" />
+                      <FiUsers style={{ marginRight: "5px" }} size="1.5em" />
                       Utenti
                     </NavDropdown.Item>
                     <NavDropdown.Item href="/admin/productlist">
-                      <GiTShirt className="mr-2" size="1.5em" />
+                      <GiTShirt style={{ marginRight: "5px" }} size="1.5em" />
                       Prodotti
                     </NavDropdown.Item>
                     <NavDropdown.Item href="/admin/fotolist">
-                      <MdAddAPhoto className="mr-2" size="1.5em" />
+                      <MdAddAPhoto
+                        style={{ marginRight: "5px" }}
+                        size="1.5em"
+                      />
                       Foto
                     </NavDropdown.Item>
                     <NavDropdown.Item href="/admin/eventlist">
-                      <GiPartyPopper className="mr-2" size="1.5em" />
+                      <GiPartyPopper
+                        style={{ marginRight: "5px" }}
+                        size="1.5em"
+                      />
                       Eventi
                     </NavDropdown.Item>
                   </NavDropdown>
                 </div>
               )}
               <Nav.Link href="/cart">
-                <AiOutlineShoppingCart className="mr-2" size="1.5em" />
+                <AiOutlineShoppingCart
+                  style={{ marginLeft: "5px" }}
+                  size="1.5em"
+                />
               </Nav.Link>
             </div>
-          </Container>
+          </div>
+          {/* </Container> */}
           <div className="search-navbar-desktop">
             <Route render={({ history }) => <SearchBox history={history} />} />
           </div>

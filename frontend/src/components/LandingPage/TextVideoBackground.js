@@ -1,11 +1,20 @@
 import React from "react";
+
 import background from "../../asset/background.mp4";
+import Poster from "../../asset/video-poster.jpg";
 
 const TextVideoBackground = () => {
   return (
     <div style={{ width: "100vw" }}>
       <div className="video-container">
-        <video autoPlay={true} loop={true} controls={false} playsInline muted>
+        <video
+          autoPlay={true}
+          loop={true}
+          controls={false}
+          playsInline
+          muted
+          poster={Poster}
+        >
           {" "}
           <source src={background} type="video/mp4" />
         </video>

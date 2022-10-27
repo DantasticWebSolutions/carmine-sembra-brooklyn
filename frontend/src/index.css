@@ -1208,6 +1208,14 @@ h2 {
   justify-content: center;
   align-items: center;
 }
+
+.navbar-elements-contenitor {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
 .navbar {
   background-color: black;
   color: #fff;
@@ -1492,6 +1500,19 @@ div::after {
   border: none;
 }
 
+.product-image-contenitor {
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.product-image-contenitor img {
+  height: 90% !important;
+  width: unset !important;
+}
+
 .filter-sections {
   display: flex;
   flex-direction: row;
@@ -1771,7 +1792,7 @@ div::after {
   letter-spacing: -0.025em;
   text-transform: uppercase;
   cursor: pointer;
-  margin: 0 15px 5px 0;
+  margin: 0 15px 15px 0;
   border-radius: 10px;
 }
 

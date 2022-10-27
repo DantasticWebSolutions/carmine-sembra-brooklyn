@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Row, Col, Image, ListGroup, Button, Form } from "react-bootstrap";
 // import Rating from "../components/Rating";
 import Message from "../../components/Message";
+
 import Loader from "../../components/Loader";
 import Meta from "../../components/Meta";
 import {
@@ -21,6 +22,7 @@ import "swiper/swiper.min.css";
 import ShopPreview from "../../components/LandingPage/ShopPreview";
 
 import background from "../../asset/background.mp4";
+import Poster from "../../asset/video-poster.jpg";
 
 const ProductScreen = ({ history, match }) => {
   const [qty, setQty] = useState(1);
@@ -103,6 +105,7 @@ const ProductScreen = ({ history, match }) => {
                 controls={false}
                 playsInline
                 muted
+                poster={Poster}
               >
                 {" "}
                 <source src={background} type="video/mp4" />
