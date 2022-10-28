@@ -84,7 +84,13 @@ const CartScreen = ({ match, location, history }) => {
               {cartItems.map((item) => (
                 <ListGroup.Item key={item.product}>
                   <Row>
-                    <Col md={2}>
+                    <Col
+                      md={2}
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                      }}
+                    >
                       <Image src={item.image} alt={item.name} fluid rounded />
                     </Col>
                     <Col md={3} className="my-2">
@@ -95,7 +101,9 @@ const CartScreen = ({ match, location, history }) => {
                         }}
                       >
                         <Link to={`/product/${item.product}`}>
-                          <h6>{item.name} </h6>
+                          <h6 style={{ textTransform: "capitalize" }}>
+                            {item.name}{" "}
+                          </h6>
                         </Link>
                       </div>
                     </Col>

@@ -93,7 +93,14 @@ const PlaceOrderScreen = ({ history }) => {
                   {cart.cartItems.map((item, index) => (
                     <ListGroup.Item key={index}>
                       <Row className="d-flex flex-row justify-content-center align-items-center">
-                        <Col md={4} sm={2}>
+                        <Col
+                          md={4}
+                          sm={2}
+                          style={{
+                            display: "flex",
+                            justifyContent: "center",
+                          }}
+                        >
                           <Image
                             src={item.image}
                             alt={item.name}

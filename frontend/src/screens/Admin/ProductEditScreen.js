@@ -23,8 +23,11 @@ const ProductEditScreen = ({ match, history }) => {
   const [brand, setBrand] = useState("");
   const [category, setCategory] = useState("");
   const [countInStock, setCountInStock] = useState(0);
-  // const [countInStockS, setCountInStockS] = useState(0);
-  // const [countInStockM, setCountInStockM] = useState(0);
+  const [countInStockXS, setCountInStockXS] = useState(0);
+  const [countInStockS, setCountInStockS] = useState(0);
+  const [countInStockM, setCountInStockM] = useState(0);
+  const [countInStockL, setCountInStockL] = useState(0);
+  const [countInStockXL, setCountInStockXL] = useState(0);
   const [description, setDescription] = useState("");
 
   const [uploading, setUploading] = useState(false);
@@ -53,12 +56,15 @@ const ProductEditScreen = ({ match, history }) => {
         setPrice(product.price);
         setImage(product.image);
         setImage2(product.image2);
-        // setImage3(product.image3);
+        setImage3(product.image3);
         setBrand(product.brand);
         setCategory(product.category);
         setCountInStock(product.countInStock);
-        // setCountInStockS(product.countInStockS);
-        // setCountInStockM(product.countInStockM);
+        setCountInStockXS(product.countInStockXS);
+        setCountInStockS(product.countInStockS);
+        setCountInStockM(product.countInStockM);
+        setCountInStockL(product.countInStockL);
+        setCountInStockXL(product.countInStockXL);
         setDescription(product.description);
       }
     }
@@ -149,8 +155,11 @@ const ProductEditScreen = ({ match, history }) => {
         category,
         description,
         countInStock,
-        // countInStockS,
-        // countInStockM,
+        countInStockXS,
+        countInStockS,
+        countInStockM,
+        countInStockL,
+        countInStockXL,
       })
     );
   };
@@ -294,7 +303,16 @@ const ProductEditScreen = ({ match, history }) => {
                 onChange={(e) => setCountInStock(e.target.value)}
               ></Form.Control>
             </Form.Group>
-            {/* <Form.Group controlId="countInStockS">
+            <Form.Group controlId="countInStockXS">
+              <Form.Label>Count In Stock XS</Form.Label>
+              <Form.Control
+                type="number"
+                placeholder="Enter countInStock XS"
+                value={countInStockXS}
+                onChange={(e) => setCountInStockXS(e.target.value)}
+              ></Form.Control>
+            </Form.Group>
+            <Form.Group controlId="countInStockS">
               <Form.Label>Count In Stock S</Form.Label>
               <Form.Control
                 type="number"
@@ -311,7 +329,25 @@ const ProductEditScreen = ({ match, history }) => {
                 value={countInStockM}
                 onChange={(e) => setCountInStockM(e.target.value)}
               ></Form.Control>
-            </Form.Group> */}
+            </Form.Group>
+            <Form.Group controlId="countInStockL">
+              <Form.Label>Count In Stock L </Form.Label>
+              <Form.Control
+                type="number"
+                placeholder="Enter countInStock L"
+                value={countInStockL}
+                onChange={(e) => setCountInStockL(e.target.value)}
+              ></Form.Control>
+            </Form.Group>
+            <Form.Group controlId="countInStockXL">
+              <Form.Label>Count In Stock XL </Form.Label>
+              <Form.Control
+                type="number"
+                placeholder="Enter countInStock XL"
+                value={countInStockXL}
+                onChange={(e) => setCountInStockXL(e.target.value)}
+              ></Form.Control>
+            </Form.Group>
 
             <Form.Group controlId="category">
               <Form.Label>Category</Form.Label>

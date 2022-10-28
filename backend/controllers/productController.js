@@ -68,11 +68,13 @@ const createProduct = asyncHandler(async (req, res) => {
     brand: "Sample brand",
     category: "Sample category",
     countInStock: 0,
-    // countInStockS: 0,
-    // countInStockM: 0,
+    countInStockXS: 0,
+    countInStockS: 0,
+    countInStockM: 0,
+    countInStockL: 0,
+    countInStockXL: 0,
     numReviews: 0,
     description: "Sample description",
-    size: "XS",
   });
 
   const createdProduct = await product.save();
@@ -93,8 +95,11 @@ const updateProduct = asyncHandler(async (req, res) => {
     brand,
     category,
     countInStock,
-    // countInStockS,
-    // countInStockM,
+    countInStockXS,
+    countInStockS,
+    countInStockM,
+    countInStockL,
+    countInStockXL,
     size,
   } = req.body;
 
@@ -110,8 +115,11 @@ const updateProduct = asyncHandler(async (req, res) => {
     product.brand = brand;
     product.category = category;
     product.countInStock = countInStock;
-    // product.countInStockS = countInStockS;
-    // product.countInStockM = countInStockM;
+    product.countInStockXS = countInStockXS;
+    product.countInStockS = countInStockS;
+    product.countInStockM = countInStockM;
+    product.countInStockL = countInStockL;
+    product.countInStockXL = countInStockXL;
     product.size = size;
 
     const updatedProduct = await product.save();

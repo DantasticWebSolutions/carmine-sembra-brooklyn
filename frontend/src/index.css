@@ -1844,7 +1844,7 @@ div::after {
 
 .swiper-product > .swiper-wrapper {
   align-items: center !important;
-  max-height: 500px;
+  max-height: 600px;
 }
 .jpg .swiper-product {
   padding: 50px !important;

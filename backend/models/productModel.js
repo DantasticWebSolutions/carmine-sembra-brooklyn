@@ -72,21 +72,31 @@ const productSchema = mongoose.Schema(
       required: true,
       default: 0,
     },
-    // countInStockS: {
-    //   type: Number,
-    //   required: true,
-    //   default: 0,
-    // },
-    // countInStockM: {
-    //   type: Number,
-    //   required: true,
-    //   default: 0,
-    // },
-    // size: {
-    //   type: String,
-    //   required: false,
-    //   default: "XS",
-    // },
+    countInStockXS: {
+      type: Number,
+      required: false,
+      default: 0,
+    },
+    countInStockS: {
+      type: Number,
+      required: false,
+      default: 0,
+    },
+    countInStockM: {
+      type: Number,
+      required: false,
+      default: 0,
+    },
+    countInStockL: {
+      type: Number,
+      required: false,
+      default: 0,
+    },
+    countInStockXL: {
+      type: Number,
+      required: false,
+      default: 0,
+    },
   },
   {
     timestamps: true,

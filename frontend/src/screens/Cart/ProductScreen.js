@@ -27,6 +27,9 @@ import Poster from "../../asset/video-poster.jpg";
 const ProductScreen = ({ history, match }) => {
   const [qty, setQty] = useState(1);
   const [size, setSize] = useState("S");
+  const [checkedRadio, setCheckedRadio] = useState(false);
+  const [disable, setDisable] = useState(true);
+  const [max, setMax] = useState(1);
 
   const dispatch = useDispatch();
 
@@ -52,19 +55,55 @@ const ProductScreen = ({ history, match }) => {
     console.log(product, Number(qty), String(size));
   }, [qty, size]);
 
-  const min = 1;
-  const max = product.countInStock;
+  // const min = 1;
 
-  const [checkedRadio, setCheckedRadio] = useState(false);
-  const [disable, setDisable] = useState(true);
+  // size === "XS"
+  //   ? (max = product.countInStockXS)
+  //   : size === "S"
+  //   ? (max = product.countInStockS)
+  //   : size === "M"
+  //   ? (max = product.countInStockM)
+  //   : size === "L"
+  //   ? (max = product.countInStockL)
+  //   : size === "XL"
+  //   ? (max = product.countInStockXL)
+  //   : "";
 
   useEffect(() => {
-    if (product.countInStock > 0 && checkedRadio === true) {
+    if (max > 0 && checkedRadio === true) {
       setDisable(false);
     } else {
       setDisable(true);
     }
   }, [checkedRadio, size]);
+
+  useEffect(() => {
+    if (qty >= max) {
+      setQty(max);
+    }
+  }, [qty, max, size]);
+
+  useEffect(() => {
+    if (size === "XS") {
+      setMax(product.countInStockXS);
+    } else if (size === "S") {
+      setMax(product.countInStockS);
+    } else if (size === "M") {
+      setMax(product.countInStockM);
+    } else if (size === "L") {
+      setMax(product.countInStockL);
+    } else if (size === "XL") {
+      setMax(product.countInStockXL);
+    }
+  }, [size]);
+
+  useEffect(() => {
+    if (checkedRadio === true) {
+      setDisable(false);
+    } else if (checkedRadio === false) {
+      setDisable(true);
+    }
+  }, [checkedRadio]);
 
   return (
     <>
@@ -75,28 +114,6 @@ const ProductScreen = ({ history, match }) => {
       ) : (
         <>
           <Meta title={product.name} />
-
-          {/* <Row
-            style={{ backgroundColor: "black", width: "100vw", margin: "0" }}
-          >
-            <Col
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                width: "100%",
-                justifyContent: "center",
-                alignItems: "center",
-                textAlign: "center",
-                padding: "15vh 0",
-              }}
-            >
-             
-              <h1 className="product-screen-title">{product.category}</h1>
-              <p className="product-screen-subtitle">
-                by Carmine Sembra Brooklyn
-              </p>
-            </Col>
-          </Row> */}
           <div style={{ width: "100vw" }}>
             <div className="video-container">
               <video
@@ -130,11 +147,11 @@ const ProductScreen = ({ history, match }) => {
                 slidesPerView={1}
                 // install Swiper modules
                 modules={[Navigation, Pagination, A11y, Autoplay]}
-                // autoplay={{
-                //   delay: 4000,
-                //   waitForTransition: true,
-                //   disableOnInteraction: false,
-                // }}
+                autoplay={{
+                  delay: 4000,
+                  waitForTransition: true,
+                  disableOnInteraction: false,
+                }}
                 navigation={{
                   nextEl: ".swiper-button-next",
                   prevEl: ".swiper-button-prev",
@@ -142,7 +159,6 @@ const ProductScreen = ({ history, match }) => {
                 // speed={1000}
                 loop={true}
                 pagination={{ clickable: true }}
-                // scrollbar={{ draggable: true }}
                 onSwiper={(swiper) => console.log(swiper)}
                 onSlideChange={() => console.log("slide change")}
                 className="swiper-product"
@@ -186,77 +202,97 @@ const ProductScreen = ({ history, match }) => {
 
                   <div>
                     <div className="size-buttons">
-                      <div>
-                        <label>
-                          <input type="radio" name="size" />
-                          <span
-                            className="size-button no select"
-                            onClick={() => {
-                              setSize("XS");
-                              setCheckedRadio(true);
-                            }}
-                          >
-                            XS
-                          </span>
-                        </label>
-                      </div>
-                      <div>
-                        <label>
-                          <input type="radio" name="size" />
-                          <span
-                            className="size-button no select"
-                            onClick={() => {
-                              setSize("S");
-                              setCheckedRadio(true);
-                            }}
-                          >
-                            S
-                          </span>
-                        </label>
-                      </div>
-                      <div>
-                        <label>
-                          <input type="radio" name="size" />
-                          <span
-                            className="size-button no select"
-                            onClick={() => {
-                              setSize("M");
-                              setCheckedRadio(true);
-                            }}
-                          >
-                            M
-                          </span>
-                        </label>
-                      </div>
-                      <div>
-                        <label>
-                          <input type="radio" name="size" />
-                          <span
-                            className="size-button no select"
-                            onClick={() => {
-                              setSize("L");
-                              setCheckedRadio(true);
-                            }}
-                          >
-                            L
-                          </span>
-                        </label>
-                      </div>
+                      {product.countInStockXS ? (
+                        <div>
+                          <label>
+                            <input type="radio" name="size" />
+                            <span
+                              className="size-button no select"
+                              onClick={() => {
+                                setSize("XS");
+                                setCheckedRadio(true);
+                              }}
+                            >
+                              XS
+                            </span>
+                          </label>
+                        </div>
+                      ) : (
+                        ""
+                      )}
+                      {product.countInStockS ? (
+                        <div>
+                          <label>
+                            <input type="radio" name="size" />
+                            <span
+                              className="size-button no select"
+                              onClick={() => {
+                                setSize("S");
+                                setCheckedRadio(true);
+                              }}
+                            >
+                              S
+                            </span>
+                          </label>
+                        </div>
+                      ) : (
+                        ""
+                      )}
+                      {product.countInStockM ? (
+                        <div>
+                          <label>
+                            <input type="radio" name="size" />
+                            <span
+                              className="size-button no select"
+                              onClick={() => {
+                                setSize("M");
+                                setCheckedRadio(true);
+                              }}
+                            >
+                              M
+                            </span>
+                          </label>
+                        </div>
+                      ) : (
+                        ""
+                      )}
+                      {product.countInStockL ? (
+                        <div>
+                          <label>
+                            <input type="radio" name="size" />
+                            <span
+                              className="size-button no select"
+                              onClick={() => {
+                                setSize("L");
+                                setCheckedRadio(true);
+                              }}
+                            >
+                              L
+                            </span>
+                          </label>
+                        </div>
+                      ) : (
+                        ""
+                      )}
 
-                      <div>
-                        <label>
-                          <input type="radio" name="size" />
-                          <span
-                            className="size-button no select"
-                            onClick={() => {
-                              setSize("XL");
-                              setCheckedRadio(true);
-                            }}
-                          >
-                            XL
-                          </span>
-                        </label>
-                      </div>
+                      {product.countInStockXL ? (
+                        <div>
+                          <label>
+                            <input type="radio" name="size" />
+                            <span
+                              className="size-button no select"
+                              onClick={() => {
+                                setSize("XL");
+                                setCheckedRadio(true);
+                              }}
+                            >
+                              XL
+                            </span>
+                          </label>
+                        </div>
+                      ) : (
+                        ""
+                      )}
                     </div>
                   </div>
 
@@ -288,6 +324,7 @@ const ProductScreen = ({ history, match }) => {
                           as="input"
                           className="quantity"
                           type="number"
+                          // value={max}
                           value={qty}
                           style={{
                             border: "none",
@@ -298,10 +335,7 @@ const ProductScreen = ({ history, match }) => {
                           onChange={(e) => {
                             const value = Math.max(
                               1,
-                              Math.min(
-                                product.countInStock,
-                                Number(e.target.value)
-                              )
+                              Math.min(max, Number(e.target.value))
                             );
                             setQty(value);
                           }}
@@ -311,8 +345,8 @@ const ProductScreen = ({ history, match }) => {
                           disabled={disable}
                           className="plusminus"
                           onClick={() => {
-                            if (qty >= product.countInStock) {
-                              setQty(product.countInStock);
+                            if (qty >= max) {
+                              setQty(max);
                             } else {
                               setQty(qty + 1);
                             }
