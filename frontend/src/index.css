@@ -1502,11 +1502,12 @@ div::after {
   }
 
   .swiper-slide-background {
-    height: 70%;
+    max-height: 70%;
     width: 100%;
   }
   .swiper-slide-info {
-    height: 30%;
+    min-height: 30%;
+    padding: 10px 20px;
     width: 100%;
   }
 }
