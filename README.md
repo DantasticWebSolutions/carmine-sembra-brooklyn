@@ -161,11 +161,22 @@ To get a local copy up and running follow these simple example steps.
 - [x] Checkout process (shipping, payment method, etc)
 - [x] Database seeder (products & users)
 - [x] PayPal / credit card integration
+- [x] Google Analytics
+- [x] Send Emails for Registration
 - [ ] Stipe integration
 - [ ] PWA to use offline
 - [ ] Multi-language Support
   - [x] Italian
   - [ ] English
+- [ ] Swiper Shop for desktop
+- [ ] Steps --> Show current Step
+- [ ] Buy Button 
+- [ ] Navbar animation
+- [ ] Forgot Password
+- [ ] Send Emails when Order has been paid
+
+- [ ] Instagram Feed
+- [ ] Sell products on Instagram
 - [ ] Create Native App to be published to App Store and Google Play
 
 <p align="right">(<a href="#top">back to top</a>)</p>
