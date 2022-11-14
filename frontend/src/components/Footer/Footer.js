@@ -129,7 +129,7 @@ const Footer = () => {
                 <span
                   className="font-bold inline-block my-1 text-1 text-primary-light"
                   style={{
-                    color: "#545454",
+                    color: "rgb(120,120,120)",
                     fontSize: "11px",
                     marginBottom: "5px",
                   }}

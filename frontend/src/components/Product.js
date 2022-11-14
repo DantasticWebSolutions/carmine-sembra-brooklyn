@@ -40,7 +40,11 @@ const Product = ({ product, loading, error }) => {
                   <Message variant="danger">{error}</Message>
                 ) : (
                   <div className="product-image-contenitor">
-                    <Card.Img src={product.image} variant="top" />
+                    <Card.Img
+                      src={product.image}
+                      variant="top"
+                      alt={product.description}
+                    />
                   </div>
                 )}
 

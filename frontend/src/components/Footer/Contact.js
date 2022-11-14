@@ -49,7 +49,7 @@ const Contact = () => {
             data-netlify="true"
             netlify-honeypot="got-ya"
           >
-            <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Group className="mb-3" controlId="formBasicName">
               {/* <Form.Label>Nome</Form.Label> */}
               <Form.Control
                 name="user_name"
@@ -70,7 +70,7 @@ const Contact = () => {
                 We'll never share your email with anyone else.
               </Form.Text> */}
             </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Group className="mb-3" controlId="formBasicPhone">
               {/* <Form.Label>Numero di Telefono</Form.Label> */}
               <Form.Control
                 name="user_phone"

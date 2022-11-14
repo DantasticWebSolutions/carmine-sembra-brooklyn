@@ -47,6 +47,7 @@ function NavbarContainer() {
                   <NavDropdown
                     title={userInfo.name.charAt(0)}
                     id="username"
+                    aria-label="User"
                     className="noselect"
                     style={{
                       height: "31px",
@@ -91,6 +92,7 @@ function NavbarContainer() {
               ) : (
                 <Nav.Link
                   href="/login"
+                  aria-label="Login"
                   className="mr-2 px-2 py-2"
                   style={{
                     borderRadius: "50%",
@@ -106,6 +108,7 @@ function NavbarContainer() {
                 <div className="d-flex flex-row justify-content-start">
                   <NavDropdown
                     className="noselect"
+                    aria-label="Admin"
                     style={{
                       height: "31px",
                       width: "31px",
@@ -157,7 +160,7 @@ function NavbarContainer() {
                   </NavDropdown>
                 </div>
               )}
-              <Nav.Link href="/cart">
+              <Nav.Link href="/cart" aria-label="Cart">
                 <AiOutlineShoppingCart
                   style={{ marginLeft: "5px" }}
                   size="1.5em"
