@@ -46,7 +46,7 @@ const Product = ({ product, loading, error }) => {
 
                 <Card.Body
                   style={{
-                    backgroundColor: "rgb(244, 242, 244)",
+                    backgroundColor: "var(--violet-light)",
                     // paddingTop: "100px",
                   }}
                   // style={{ minHeight: "50%" }}

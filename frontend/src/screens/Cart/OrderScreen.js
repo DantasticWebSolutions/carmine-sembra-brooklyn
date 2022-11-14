@@ -15,8 +15,10 @@ import {
   ORDER_PAY_RESET,
   ORDER_DELIVER_RESET,
 } from "../../constants/orderConstants";
+import emailjs from "@emailjs/browser";
 
 const OrderScreen = ({ match, history }) => {
+  const currency = "EUR";
   const orderId = match.params.id;
 
   const [sdkReady, setSdkReady] = useState(false);
@@ -55,7 +57,7 @@ const OrderScreen = ({ match, history }) => {
       const { data: clientId } = await axios.get("/api/config/paypal");
       const script = document.createElement("script");
       script.type = "text/javascript";
-      script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}`;
+      script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}&currency=EUR`;
       script.async = true;
       script.onload = () => {
         setSdkReady(true);
@@ -75,10 +77,39 @@ const OrderScreen = ({ match, history }) => {
       }
     }
   }, [dispatch, orderId, successPay, successDeliver, order, history, userInfo]);
+  console.log(order);
+  // console.log(userInfo);
+
+  const templateParams = {
+    // user_name: order.user.name,
+    // user_email: order.user.email,
+    // date: ` ${order.createdAt.slice(8, 10)}/${order.createdAt.slice(5, 7)}/
+    // ${order.createdAt.slice(0, 4)}`,
+    // order_number: order._id,
+    // address: `${order.shippingAddress.address}, ${order.shippingAddress.city}
+    // ${order.shippingAddress.postalCode},
+    // ${order.shippingAddress.country}`,
+    // total: order.totalPrice,
+  };
 
   const successPaymentHandler = (paymentResult) => {
-    console.log(paymentResult);
+    // console.log(paymentResult);
     dispatch(payOrder(orderId, paymentResult));
+    emailjs
+      .send(
+        "service_299obb8",
+        "template_qqfvs7f",
+        templateParams,
+        "user_y1ftUXLPd92Uw3SY8iLtJ"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
   };
 
   const deliverHandler = () => {
@@ -187,7 +218,6 @@ const OrderScreen = ({ match, history }) => {
                             rounded
                           />
                         </Col>
-                        {console.log(item)}
                         <Col>
                           <Link to={`/product/${item.product}`}>
                             {item.name}&nbsp;{item.size}
@@ -247,6 +277,10 @@ const OrderScreen = ({ match, history }) => {
                   ) : (
                     <PayPalButton
                       amount={order.totalPrice}
+                      currency={currency}
+                      // options={{
+                      //   currency: currency.toUpperCase(),
+                      // }}
                       onSuccess={successPaymentHandler}
                     />
                   )}

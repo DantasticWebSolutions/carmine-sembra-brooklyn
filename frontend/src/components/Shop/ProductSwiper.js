@@ -12,6 +12,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, A11y, Autoplay } from "swiper";
 // Import Swiper styles
 import "swiper/swiper.min.css";
+import slider1 from "../../asset/slider/slider1.jpg";
+import slider2 from "../../asset/slider/slider2.jpg";
+import slider3 from "../../asset/slider/slider3.jpg";
 
 // configure Swiper to use modules
 
@@ -25,7 +28,7 @@ const ProductSwiper = () => {
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum provident aperiam eveniet eius aspernatur.",
       linkBottone:
         "https://images.unsplash.com/photo-1538329972958-465d6d2144ed?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
-      img: "https://images.unsplash.com/photo-1538329972958-465d6d2144ed?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+      img: slider1,
     },
     {
       id: "02",
@@ -34,7 +37,7 @@ const ProductSwiper = () => {
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum provident aperiam eveniet eius aspernatur.",
       linkBottone:
         "https://images.unsplash.com/photo-1538329972958-465d6d2144ed?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
-      img: "https://cdn.shopify.com/s/files/1/0238/8505/files/planet.jpg?v=1619020466",
+      img: slider2,
     },
     {
       id: "03",
@@ -43,7 +46,7 @@ const ProductSwiper = () => {
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum provident aperiam eveniet eius aspernatur.",
       linkBottone:
         "https://images.unsplash.com/photo-1538329972958-465d6d2144ed?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
-      img: "https://images.unsplash.com/photo-1627483297929-37f416fec7cd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+      img: slider3,
     },
   ];
   const dispatch = useDispatch();
@@ -82,22 +85,23 @@ const ProductSwiper = () => {
       className="swiper-shop"
     >
       {schermate.map((product) => (
-        <SwiperSlide key={product.id}>
+        <SwiperSlide key={product.id} className="swiper-slide-contenitor">
           <div
             style={{
               background: `url("${product.img}")`,
             }}
             className="swiper-slide-background"
           >
-            <div className="opaco">
-              <h2>{product.title}</h2>
-              <p>{product.description}</p>
-              <Link to={product.linkBottone}>
-                <Button variant="dark" className="py-2">
-                  Compra Ora
-                </Button>
-              </Link>
-            </div>
+            &nbsp;
+          </div>
+          <div className="swiper-slide-info">
+            <h2>{product.title}</h2>
+            <p>{product.description}</p>
+            <Link to={product.linkBottone}>
+              <Button variant="dark" className="py-2">
+                Compra Ora
+              </Button>
+            </Link>
           </div>
         </SwiperSlide>
       ))}

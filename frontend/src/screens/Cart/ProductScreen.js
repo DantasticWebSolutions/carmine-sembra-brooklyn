@@ -147,11 +147,11 @@ const ProductScreen = ({ history, match }) => {
                 slidesPerView={1}
                 // install Swiper modules
                 modules={[Navigation, Pagination, A11y, Autoplay]}
-                autoplay={{
-                  delay: 4000,
-                  waitForTransition: true,
-                  disableOnInteraction: false,
-                }}
+                // autoplay={{
+                //   delay: 4000,
+                //   waitForTransition: true,
+                //   disableOnInteraction: false,
+                // }}
                 navigation={{
                   nextEl: ".swiper-button-next",
                   prevEl: ".swiper-button-prev",
@@ -164,18 +164,33 @@ const ProductScreen = ({ history, match }) => {
                 className="swiper-product"
               >
                 <SwiperSlide className="swiper-slide-product">
-                  <Image src={product.image} alt={product.name} fluid />
+                  <Image
+                    style={{ maxHeight: "600px" }}
+                    src={product.image}
+                    alt={product.name}
+                    fluid
+                  />
                 </SwiperSlide>
                 {product.image2 ? (
                   <SwiperSlide className="swiper-slide-product">
-                    <Image src={product.image2} alt={product.name} fluid />
+                    <Image
+                      style={{ maxHeight: "600px" }}
+                      src={product.image2}
+                      alt={product.name}
+                      fluid
+                    />
                   </SwiperSlide>
                 ) : (
                   ""
                 )}
                 {product.image3 ? (
                   <SwiperSlide className="swiper-slide-product">
-                    <Image src={product.image3} alt={product.name} fluid />
+                    <Image
+                      style={{ maxHeight: "600px" }}
+                      src={product.image3}
+                      alt={product.name}
+                      fluid
+                    />
                   </SwiperSlide>
                 ) : (
                   ""

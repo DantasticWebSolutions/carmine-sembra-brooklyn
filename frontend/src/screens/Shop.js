@@ -54,21 +54,21 @@ const Shop = ({ match }) => {
   const { getCollapseProps, getToggleProps, isExpanded } = useCollapse();
 
   return (
-    <>
+    <div style={{ backgroundColor: "rgb(233, 209, 255, 0.2)" }}>
       <Meta />
-      {/* <ProductSwiper /> */}
+      <ProductSwiper />
 
       {loading ? (
         <Loader />
       ) : error ? (
         <Message variant="danger">{error}</Message>
       ) : (
-        <main style={{ marginTop: "1rem" }}>
-          <Row>
+        <main style={{ marginTop: "1rem", marginBottom: "0" }}>
+          {/* <Row>
             <Col md={12}>
               <h1 className="text-center">I nostri Prodotti</h1>
             </Col>
-          </Row>
+          </Row> */}
           <Row>
             <div className="collapsible noselect">
               <div className="header" {...getToggleProps()}>
@@ -100,44 +100,52 @@ const Shop = ({ match }) => {
                 </div>
               </div>
             </div>
+          </Row>
 
-            {/* <ShowColumnOrSingle /> */}
+          {/* <ShowColumnOrSingle /> */}
 
+          <Row>
             <div className="shop-products-container">
               {item
                 .filter((prezzo) => prezzo.price <= filterPrice)
                 .filter((stock) => stock.countInStock > stockFilter)
-                .map((prodotto) => (
-                  <div className="shop-product-container" key={prodotto.name}>
-                    <div className="shop-product-image">
-                      <img src={prodotto.image} alt={prodotto.names} />
-                    </div>
-                    <div className="shop-product-info">
-                      <span>{prodotto.category}</span>
-                      <h1>{prodotto.name}</h1>
-                      {/* <p>{prodotto.price}</p> */}
-                      <p>{prodotto.description}</p>
+                .map((prodotto) =>
+                  prodotto ? (
+                    <div className="shop-product-container" key={prodotto.name}>
+                      <div className="shop-product-image">
+                        <img src={prodotto.image} alt={prodotto.names} />
+                      </div>
+                      <div className="shop-product-info">
+                        <span>{prodotto.category}</span>
+                        <h2>{prodotto.name}</h2>
+                        {/* <p>{prodotto.price}</p> */}
+                        <p>{prodotto.description}</p>
 
-                      <Link to={`/product/${prodotto._id}`}>
                         {prodotto.countInStock === 0 ? (
-                          <button
+                          <Link
+                            className="shop-product-button"
+                            to={`/product/${prodotto._id}`}
                             style={{
                               color: "rgb(203, 203, 203)",
                               // fontSize: "0.7rem"
                             }}
                           >
                             Indisponibile
-                          </button>
+                          </Link>
                         ) : (
-                          <>
-                            {/* <BsBag className="mr-2 ml-2" /> */}
-                            <button className="pr-2">Aggiungi</button>
-                          </>
+                          <Link
+                            to={`/product/${prodotto._id}`}
+                            className="pr-2 shop-product-button"
+                          >
+                            {/* <BsBag className="mr-2 ml-2" /> */}Aggiungi
+                          </Link>
                         )}
-                      </Link>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ) : (
+                    "Non ci sono prodotti"
+                  )
+                )}
             </div>
 
             {/* <ProductContainer
@@ -156,7 +164,7 @@ const Shop = ({ match }) => {
           {/* <Features /> */}
         </main>
       )}
-    </>
+    </div>
   );
 };
 

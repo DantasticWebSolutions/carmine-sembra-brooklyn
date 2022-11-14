@@ -6,6 +6,7 @@ import Message from "../../components/Message";
 import Loader from "../../components/Loader";
 import FormContainer from "../../components/FormContainer";
 import { register } from "../../actions/userActions";
+import emailjs from "@emailjs/browser";
 
 const RegisterScreen = ({ location, history }) => {
   const [name, setName] = useState("");
@@ -40,6 +41,30 @@ const RegisterScreen = ({ location, history }) => {
 
   const handleDisable = () => {
     setDisable(!disable);
+  };
+
+  var templateParams = {
+    user_name: name,
+    user_email: email,
+    reply_to: "carminesembrabrooklyn@gmail.com",
+  };
+
+  const sendEmail = () => {
+    emailjs
+      .send(
+        "service_299obb8",
+        "template_w7rrujp",
+        templateParams,
+        "user_y1ftUXLPd92Uw3SY8iLtJ"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
   };
   return (
     <div className="login-container">
@@ -120,6 +145,7 @@ const RegisterScreen = ({ location, history }) => {
               type="submit"
               disabled={disable}
               className="bottone-primario w-100 my-2"
+              onClick={sendEmail}
             >
               Registra
             </Button>

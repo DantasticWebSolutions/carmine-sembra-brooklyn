@@ -75,6 +75,7 @@ const LoginScreen = ({ location, history }) => {
               Log in
             </Button>
           </Form>
+
           {/* 
         <Row className="py-3">
           <Col>
