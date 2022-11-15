@@ -25,8 +25,11 @@ const Footer = () => {
               <Contact />
               <div className="footer-links">
                 <div className="footer-sector">
-                  <h4 className="footer-sector-title">CONTATTI</h4>
-                  <a href="tel:+393669905410">
+                  <span className="footer-sector-title">CONTATTI</span>
+                  <a
+                    href="tel:+393669905410"
+                    aria-label="Call Carmine Sembra Brooklyn at +39366905410"
+                  >
                     <BsTelephone className="mr-1" size="1.5em" />
                     <span className="mx-1">Chiama</span>
                   </a>
@@ -34,18 +37,22 @@ const Footer = () => {
                     href="https://wa.link/63ph6e"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="Text Carmine Sembra Brooklyn on whatsapp"
                   >
                     <BsWhatsapp className="mr-1" size="1.5em" />
                     <span className="mx-1">WhatsApp</span>
                   </a>
 
-                  <a href="mailto:carminesembrabrooklyn@gmail.com">
+                  <a
+                    href="mailto:carminesembrabrooklyn@gmail.com"
+                    aria-label="Send email to Carmine Sembra Brooklyn at carminesembrabrooklyn@gmail.com"
+                  >
                     <HiOutlineMail className="mr-1" size="1.5em" />
                     <span className="mx-1">Email</span>
                   </a>
                 </div>
                 <div className="footer-sector">
-                  <h4 className="footer-sector-title">Legale</h4>
+                  <span className="footer-sector-title">LEGALE</span>
 
                   <Link to="/privacy-policy">
                     <u className="mx-1">Privacy Policy</u>
@@ -72,7 +79,10 @@ const Footer = () => {
                   borderRadius: "50px",
                 }}
               /> */}
-              <a href="https://www.instagram.com/carmine.brklyn/">
+              <a
+                href="https://www.instagram.com/carmine.brklyn/"
+                aria-label="Camine Sembra Brooklyn's Instagram account"
+              >
                 <AiOutlineInstagram
                   size="1.7em"
                   style={{
@@ -86,6 +96,7 @@ const Footer = () => {
                 href="https://wa.link/63ph6e"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Text Carmine Sembra Brooklyn on whatsapp"
               >
                 <BsWhatsapp
                   size="1em"
@@ -150,6 +161,7 @@ const Footer = () => {
               href="https://dantastic.dev/"
               rel="noopener noreferrer"
               target="_blank"
+              aria-label="Dantastic Web Solutions"
             >
               Dantastic Web Solutions
             </a>
