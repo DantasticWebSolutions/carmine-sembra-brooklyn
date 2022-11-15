@@ -7,7 +7,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/DantasticWebSolutions/carmine-sembra-brooklyn">
-    <!-- <img src="src/assets/logo.png" alt="Logo" width="80" height="80"> -->
+    <img src="frontend/src/asset/logo/logo.png" alt="Logo" >
   </a>
 
   <h3 align="center">Carmine Sembra Brooklyn</h3>
@@ -50,7 +50,7 @@
 
 ## About The Project
 
-# ![screenshot](https://github.com/DantasticWebSolutions/carmine-sembra-brooklyn/blob/main/frontend/src/asset/landingPage.png)
+# ![screenshot](https://github.com/DantasticWebSolutions/carmine-sembra-brooklyn/blob/main/frontend/src/asset/performance.png)
 
 <!--  -->
 
