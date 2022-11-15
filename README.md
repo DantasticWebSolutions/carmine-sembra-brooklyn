@@ -171,7 +171,7 @@ To get a local copy up and running follow these simple example steps.
 - [ ] Swiper Shop for desktop
 - [ ] Steps --> Show current Step
 - [ ] Buy Button 
-- [ ] Navbar animation
+- [ ] Navbar animation
 - [ ] Forgot Password
 - [ ] Send Emails when Order has been paid
 
