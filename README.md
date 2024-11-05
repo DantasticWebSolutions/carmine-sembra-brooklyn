@@ -15,8 +15,6 @@
   <p align="center">
     An event management company that will make you feel the joy they are spreading
     <br />
-    <a href="https://carmine-sembra-brooklyn.herokuapp.com" target="_blank">View Demo</a>
-    ·
     <a href="mailto:gherasimciuc@icloud.com">Contact Me</a>
   </p>
 </div>
